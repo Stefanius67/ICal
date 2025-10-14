@@ -1,0 +1,83 @@
+[
+    [
+        "Invalid FREQ - Parameter",
+        "FREQ=DAY;COUNT=10",
+        "19970902T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "Invalid UNTIL - Parameter",
+        "FREQ=DAILY;UNTIL=1997110T000000Z",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "Invalid COUNT - Parameter",
+        "FREQ=DAILY;COUNT=X",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "Invalid INTERVAL - Parameter",
+        "FREQ=DAILY;INTERVAL=-1;COUNT=2",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "Invalid BYMONTH - Parameter",
+        "FREQ=DAILY;COUNT=2;BYMONTH=1,6,13",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "Invalid BYDAY - Parameter",
+        "FREQ=DAILY;COUNT=2;BYDAY=SO,DI",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "Invalid SETPOS - Parameter",
+        "FREQ=DAILY;COUNT=2;BYSETPOS=400",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "UNTIL and COUNT set both",
+        "FREQ=DAILY;COUNT=2;UNTIL=19971101T000000Z",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ],
+    [
+        "WEEKNO and other FREQ than YEARLY",
+        "FREQ=DAILY;COUNT=2;BYWEEKNO=10",
+        "19971020T090000",
+        "America\/New_York",
+        "",
+        [
+        ]
+    ]
+]

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    verbose="true"
+    colors="true"
+    bootstrap ="autoloader.php">
+    <testsuites>
+        <testsuite name="iCal">
+            <directory>SKien/Test/iCal</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">SKien/iCal</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/>
+        <log type="coverage-html" target="SKien/Test/iCal/coverage"/>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
+</phpunit>

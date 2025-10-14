@@ -1,0 +1,93 @@
+[
+    [
+        "Simple Testevent",
+        "Testcase1.ics",
+        [
+            ["VEVENT", "X-LOCATION-URL", "strLocationURL"]
+        ],
+        {
+            "dateBegin": "2025-09-20",
+            "timeBegin": "20:00:00",
+            "dtBegin": "2025-09-20 20:00:00",
+            "dateEnd": "2025-09-20",
+            "timeEnd": "21:30:00",
+            "dtEnd": "2025-09-20 21:30:00",
+            "iDuration": 5400,
+            "bAllDay": "0",
+            "dtLastModified": "2025-10-03 19:40:18",
+            "strUID": "2F843329-C0E2-6F6A-121D-B8C52E7A6F27",
+            "strSubject": "Testevent 1",
+            "strLocation": "Teststreet 23, Testtown CA",
+            "strDescription": "An event that is used to test the import functions of the PHP SKien iCalendar component.",
+            "strCategories": "category 1",
+            "strState": "CONFIRMED",
+            "strTrans": "OPAQUE",
+            "iPriority": 2,
+            "strLocationURL": "extended property for a location URL"
+        }
+    ],
+    [
+        "Start date-time and duration",
+        "Testcase2.ics",
+        [],
+        {
+            "dateBegin": "2025-09-21",
+            "timeBegin": "20:00:00",
+            "dtBegin": "2025-09-21 20:00:00",
+            "dateEnd": "2025-09-21",
+            "timeEnd": "22:30:00",
+            "dtEnd": "2025-09-21 22:30:00",
+            "iDuration": 9000,
+            "bAllDay": "0",
+            "strSubject": "Testevent 2"
+        }
+    ],
+    [
+        "Allday event without end or duration",
+        "Testcase3.ics",
+        [],
+        {
+            "dateBegin": "2025-09-22",
+            "timeBegin": "00:00:00",
+            "dtBegin": "2025-09-22 00:00:00",
+            "dateEnd": "2025-09-23",
+            "timeEnd": "00:00:00",
+            "dtEnd": "2025-09-23 00:00:00",
+            "iDuration": 86400,
+            "bAllDay": "1",
+            "strSubject": "Testevent 3"
+        }
+    ],
+    [
+        "Duration over DAYLIGHT/STANDARD change",
+        "Testcase4.ics",
+        [],
+        {
+            "dateBegin": "2025-10-25",
+            "timeBegin": "20:00:00",
+            "dtBegin": "2025-10-25 20:00:00",
+            "dateEnd": "2025-10-26",
+            "timeEnd": "20:00:00",
+            "dtEnd": "2025-10-26 20:00:00",
+            "iDuration": 86400,
+            "bAllDay": "0",
+            "strSubject": "Testevent 4"
+        }
+    ],
+    [
+        "Allday event with duration of 2 days",
+        "Testcase5.ics",
+        [],
+        {
+            "dateBegin": "2025-07-16",
+            "timeBegin": "00:00:00",
+            "dtBegin": "2025-07-16 00:00:00",
+            "dateEnd": "2025-07-18",
+            "timeEnd": "00:00:00",
+            "dtEnd": "2025-07-18 00:00:00",
+            "iDuration": 172800,
+            "bAllDay": "1",
+            "strSubject": "Testevent 5"
+        }
+    ]
+]
