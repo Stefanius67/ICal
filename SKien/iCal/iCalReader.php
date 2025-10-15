@@ -79,12 +79,12 @@ class iCalReader extends Reader
         $aMethodOrProperty = [
             // iCalEventReader methods
             'BEGIN'         => 'beginProp',
-            'METHOD'        => 'notSupported',
             'CALSCALE'      => 'checkCalscale',
             /*
              * properties, we ignore so far since we didn't compute them anywhere
              * and we don't want to them to be logged...
             'VERSION'       => 'notSupported',
+            'METHOD'        => 'notSupported',
              */
             // iCalendar setters
             'NAME'          => 'setName',

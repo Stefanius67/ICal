@@ -35,6 +35,10 @@ class iCalEventReader extends Reader
     }
 
     /**
+     * Checks, if the end of the event is reached.
+     * In case of the end, the readed event is validated and passed to the parent
+     * iCalendar. For recurrent events, all resulting events are generated and also
+     * passed to the parent.
      * {@inheritDoc}
      * @see \SKien\iCal\Reader::isEnd()
      */
@@ -90,12 +94,12 @@ class iCalEventReader extends Reader
             'ORGANIZER'     => 'parseOrganizer',
             'RDATE'         => 'parseRDate',
             'EXDATE'        => 'parseExcludeDate',
-            'SEQUENCE'      => 'notSupported',
             /*
              * properties, we ignore so far since we didn't compute them anywhere
              * and we don't want to them to be logged...
             'DTSTAMP'       => 'notSupported',
             'CREATED'       => 'notSupported',
+            'SEQUENCE'      => 'notSupported',
             */
             // iCalEvent setters
             'UID'           => 'setUID',
@@ -112,10 +116,10 @@ class iCalEventReader extends Reader
         if (isset($aMethodOrProperty[$strName])) {
             $strPtr = $aMethodOrProperty[$strName];
             $ownMethod = [$this, $strPtr];
-            // TODO: implement iCalAlarm class ...
+            // FORWARD: implement iCalAlarm class ...
             $eventMethod = $this->bInAlarm ? null : [$this->oEvent, $strPtr];
             if (is_callable($ownMethod)) {
-                // call method
+                // call own method
                 call_user_func_array($ownMethod, array($strName, $strValue, $aParams));
             } elseif (is_callable($eventMethod)) {
                 // call setter from contact with unmasket value
