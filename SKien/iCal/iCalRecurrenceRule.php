@@ -98,7 +98,7 @@ class iCalRecurrenceRule
 
                 switch ($strName) {
                     case 'FREQ':
-                        // one of "SECONDLY", "MINUTELY", "HOURLY", "DAILY", "WEEKLY", "MONTHLY", "YEARLY"
+                        // -> one of "SECONDLY", "MINUTELY", "HOURLY", "DAILY", "WEEKLY", "MONTHLY", "YEARLY"
                         $this->strFreq = $strValue;
                         $aValidFreq = ['SECONDLY', 'MINUTELY', 'HOURLY', 'DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY'];
                         $strFreq = $this->strFreq == '' ? '[not set]' : $this->strFreq;
@@ -108,7 +108,7 @@ class iCalRecurrenceRule
                         }
                         break;
                     case 'UNTIL':
-                        // bound of the recurrence rule in an inclusive manner (DATE or DATE-TIME)
+                        // -> bound of the recurrence rule in an inclusive manner (DATE or DATE-TIME)
                         if (preg_match('/^\d{8}(T\d{6}Z{0,1}){0,1}$/m', $strValue)) {
                             if (strlen($strValue) == 8) {
                                 // enhance date to date-time
@@ -121,7 +121,7 @@ class iCalRecurrenceRule
                         }
                         break;
                     case 'COUNT':
-                        // positive number of occurrences
+                        // -> positive number of occurrences
                         $this->iCount = intval($strValue);
                         if ($this->iCount <= 0) {
                             $this->iCount = 1;
@@ -129,7 +129,7 @@ class iCalRecurrenceRule
                         }
                         break;
                     case 'INTERVAL':
-                        // positive integer representing at which intervals the recurrence rule repeats
+                        // -> positive integer representing at which intervals the recurrence rule repeats
                         $this->iInterval = intval($strValue);
                         if ($this->iInterval <= 0) {
                             $this->iInterval = 1;
@@ -137,25 +137,24 @@ class iCalRecurrenceRule
                         }
                         break;
                     case 'BYSECOND':
-                        // array of seconds values (0...59)
+                        // -> array of seconds values (0...59)
                         $this->aBySecond = $this->parseIntArray($strValue);
                         $this->validateIntArray($this->aBySecond, 0, 59, true, $strName, $strValue);
                         break;
                     case 'BYMINUTE':
-                        // array of miutes values (0...59)
+                        // -> array of miutes values (0...59)
                         $this->aByMinute = $this->parseIntArray($strValue);
                         $this->validateIntArray($this->aByMinute, 0, 59, true, $strName, $strValue);
                         break;
                     case 'BYHOUR':
-                        // array of hours values (0...23)
+                        // -> array of hours values (0...23)
                         $this->aByHour = $this->parseIntArray($strValue);
                         $this->validateIntArray($this->aByHour, 0, 23, true, $strName, $strValue);
                         break;
                     case 'BYDAY':
-                        // array of weekday values (+/- Digit "SU", "MO", "TU", "WE", "TH", "FR", "SA" )
+                        // -> array of weekday values (+/- Digit "SU", "MO", "TU", "WE", "TH", "FR", "SA" )
                         $this->aByDay = $this->parseStringArray($strValue);
                         foreach ($this->aByDay as $strDay) {
-                            // if (!preg_match('/^([+-]{0,1}[1,2,3,4,5]{0,1})(SU|MO|TU|WE|TH|FR|SA)$/m', $strDay)) {
                             if (!preg_match('/^([+-]{0,1}[0-9]{0,2})(SU|MO|TU|WE|TH|FR|SA)$/m', $strDay)) {
                                 $this->logError(LogLevel::CRITICAL, $strName, $strValue);
                                 break;
@@ -163,29 +162,29 @@ class iCalRecurrenceRule
                         }
                         break;
                     case 'BYMONTHDAY':
-                        // array of monthday values (+/- 1...31)
+                        // -> array of monthday values (+/- 1...31)
                         $this->aByMonthday = $this->parseIntArray($strValue);
                         $this->validateIntArray($this->aByMonthday, -31, 31, false, $strName, $strValue);
                         break;
                     case 'BYYEARDAY':
-                        // array of yearday values (+/- 1...366)
+                        // -> array of yearday values (+/- 1...366)
                         $this->aByYearday = $this->parseIntArray($strValue);
                         $this->validateIntArray($this->aByYearday, -366, 366, false, $strName, $strValue);
                         break;
                     case 'BYWEEKNO':
-                        // array of week no values (+/- 1...53)
+                        // -> array of week no values (+/- 1...53)
                         // This rule part MUST NOT be used when the FREQ rule part is set to anything other than YEARLY.
                         $this->aByWeekNo = $this->parseIntArray($strValue);
                         $this->validateIntArray($this->aByWeekNo, -53, 53, false, $strName, $strValue);
                         break;
                     case 'BYMONTH':
-                        // array of months (1...12)
+                        // -> array of months (1...12)
                         $this->aByMonth = $this->parseIntArray($strValue);
                         $this->validateIntArray($this->aByMonth, 1, 12, false, $strName, $strValue);
                         break;
                     case 'BYSETPOS':
-                        // yearday value (+/- 1...366)
-                        // TODO: change to array !!!
+                        // -> yearday value (+/- 1...366)
+                        // TODO: param allows multiple values -> change to array !!!
                         $this->iBySetpos = intval($strValue);
                         if ($this->iBySetpos < -366 || $this->iBySetpos > 366) {
                             $this->logError(LogLevel::CRITICAL, $strName, $strValue);
@@ -374,7 +373,7 @@ class iCalRecurrenceRule
     }
 
     /**
-     *
+     * Determines the next date-time interval to check the rules for.
      * @param int $uxtsNextDate
      * @param int $uxtsEndDate
      * @param bool $bFirst
@@ -383,94 +382,149 @@ class iCalRecurrenceRule
     {
         switch ($this->strFreq) {
             case "YEARLY":
-                if (!$bFirst) {
-                    $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}Y");
-                    if (isset($this->aByMonth) || isset($this->aByWeekNo) || isset($this->aByYearday)) {
-                        $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mon', 1);
-                    }
-                    if (isset($this->aByDay)) {
-                        $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
-                    }
-                }
-                $uxtsEndDate = $this->addDate($uxtsNextDate, "P1Y");
+                $this->nextYear($uxtsNextDate, $uxtsEndDate, $bFirst);
                 break;
             case "MONTHLY":
-                if (isset($this->aByMonthday) || isset($this->aByDay)) {
-                    $uxtsMonthStart = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
-                    if ($this->iBySetpos !== null && $this->iBySetpos > 0) {
-                        // for pos. BYSETPOS we have to start from the begin of the month
-                        // to get the full resultlist...
-                        $uxtsNextDate = $uxtsMonthStart;
-                    }
-                    if (!$bFirst) {
-                        // From the second run, when determining a specific day of the month, we
-                        // make sure that we start with the 1st of the month!
-                        $uxtsNextDate = $this->addDate($uxtsMonthStart, "P{$this->iInterval}M");
-                        $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
-                        $uxtsMonthStart = $uxtsNextDate;
-                    }
-                    $uxtsEndDate = $this->addDate($uxtsMonthStart, "P1M");
-                } else {
-                    if (!$bFirst) {
-                        $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}M");
-                    }
-                    $uxtsEndDate = $this->addDate($uxtsNextDate, "P1M");
-                }
+                $this->nextMonth($uxtsNextDate, $uxtsEndDate, $bFirst);
                 break;
             case "WEEKLY":
-                if (isset($this->aByDay)) {
-                    if (!$bFirst) {
-                        $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
-                        $uxtsNextDate = $this->getWeekNoStart($uxtsNextDate, 0, $this->iWKST) ?? $uxtsNextDate;
-                        $uxtsEndDate = $this->addDate($uxtsNextDate, "P1W");
-                    } else {
-                        $uxtsWeekStart = $this->getWeekNoStart($uxtsNextDate, 0, $this->iWKST) ?? $uxtsNextDate;
-                        $uxtsEndDate = $this->addDate($uxtsWeekStart, "P1W");
-                    }
-                } else {
-                    if (!$bFirst) {
-                        $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
-                    }
-                    $uxtsEndDate = $this->addDate($uxtsNextDate, "P1W");
-                }
+                $this->nextWeek($uxtsNextDate, $uxtsEndDate, $bFirst);
                 break;
             case 'DAILY':
-                if (!$bFirst) {
-                    $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}D");
-                }
-                $uxtsEndDate = $this->addDate($uxtsNextDate, "P1D");
+                $this->nextDay($uxtsNextDate, $uxtsEndDate, $bFirst);
                 break;
             case 'HOURLY':
             case 'MINUTELY':
             case 'SECONDLY':
-                $aPart = [
-                    'SECONDLY'  => "PT%dS",
-                    'MINUTELY'  => "PT%dM",
-                    'HOURLY'    => "PT%dH",
-                    'DAILY'     => "P%dD",
-                ];
-                // Note:
-                // For hourly or smaller freqency, no correction is made regarding a
-                // time offset resulting from the change between daylight and standard
-                // time, since the resulting gaps are desired and a correction of
-                // -1 hour could potentially result in an endless loop.
-                $dtDate = new \DateTime();
-                $dtDate->setTimezone(new \DateTimeZone('UTC'));
-                $dtDate->setTimestamp($uxtsNextDate);
-                if (!$bFirst) {
-                    $strInterval = sprintf($aPart[$this->strFreq], $this->iInterval);
-                    $dtDate->add(new \DateInterval($strInterval));
-                    $uxtsNextDate = $dtDate->getTimestamp();
-                }
-                $strInterval = sprintf($aPart[$this->strFreq], 1);
-                $dtDate->add(new \DateInterval($strInterval));
-                $uxtsEndDate = $dtDate->getTimestamp();
+                $this->nextHourMinSec($uxtsNextDate, $uxtsEndDate, $bFirst);
                 break;
         }
     }
 
     /**
-     * Cleans the result from dates outside of the defined range.
+     * Determines the next yearly date-time interval to check the rules for.
+     * @param int $uxtsNextDate
+     * @param int $uxtsEndDate
+     * @param bool $bFirst
+     */
+    protected function nextYear(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
+    {
+        if (!$bFirst) {
+            $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}Y");
+            if (isset($this->aByMonth) || isset($this->aByWeekNo) || isset($this->aByYearday)) {
+                $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mon', 1);
+            }
+            if (isset($this->aByDay)) {
+                $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
+            }
+        }
+        $uxtsEndDate = $this->addDate($uxtsNextDate, "P1Y");
+    }
+
+    /**
+     * Determines the next monthly date-time interval to check the rules for.
+     * @param int $uxtsNextDate
+     * @param int $uxtsEndDate
+     * @param bool $bFirst
+     */
+    protected function nextMonth(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
+    {
+        if (isset($this->aByMonthday) || isset($this->aByDay)) {
+            $uxtsMonthStart = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
+            if ($this->iBySetpos !== null && $this->iBySetpos > 0) {
+                // for pos. BYSETPOS we have to start from the begin of the month
+                // to get the full resultlist...
+                $uxtsNextDate = $uxtsMonthStart;
+            }
+            if (!$bFirst) {
+                // From the second run, when determining a specific day of the month, we
+                // make sure that we start with the 1st of the month!
+                $uxtsNextDate = $this->addDate($uxtsMonthStart, "P{$this->iInterval}M");
+                $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
+                $uxtsMonthStart = $uxtsNextDate;
+            }
+            $uxtsEndDate = $this->addDate($uxtsMonthStart, "P1M");
+        } else {
+            if (!$bFirst) {
+                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}M");
+            }
+            $uxtsEndDate = $this->addDate($uxtsNextDate, "P1M");
+        }
+    }
+
+    /**
+     * Determines the next weekly date-time interval to check the rules for.
+     * @param int $uxtsNextDate
+     * @param int $uxtsEndDate
+     * @param bool $bFirst
+     */
+    protected function nextWeek(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
+    {
+        if (isset($this->aByDay)) {
+            if (!$bFirst) {
+                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
+                $uxtsNextDate = $this->getWeekNoStart($uxtsNextDate, 0, $this->iWKST) ?? $uxtsNextDate;
+                $uxtsEndDate = $this->addDate($uxtsNextDate, "P1W");
+            } else {
+                $uxtsWeekStart = $this->getWeekNoStart($uxtsNextDate, 0, $this->iWKST) ?? $uxtsNextDate;
+                $uxtsEndDate = $this->addDate($uxtsWeekStart, "P1W");
+            }
+        } else {
+            if (!$bFirst) {
+                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
+            }
+            $uxtsEndDate = $this->addDate($uxtsNextDate, "P1W");
+        }
+    }
+
+    /**
+     * Determines the next daily date-time interval to check the rules for.
+     * @param int $uxtsNextDate
+     * @param int $uxtsEndDate
+     * @param bool $bFirst
+     */
+    protected function nextDay(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
+    {
+        if (!$bFirst) {
+            $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}D");
+        }
+        $uxtsEndDate = $this->addDate($uxtsNextDate, "P1D");
+    }
+
+    /**
+     * Determines the next hour-, minute- or second date-time interval to check the rules for.
+     * @param int $uxtsNextDate
+     * @param int $uxtsEndDate
+     * @param bool $bFirst
+     */
+    protected function nextHourMinSec(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
+    {
+        $aPart = [
+            'SECONDLY'  => "PT%dS",
+            'MINUTELY'  => "PT%dM",
+            'HOURLY'    => "PT%dH",
+            'DAILY'     => "P%dD",
+        ];
+        // Note:
+        // For hourly or smaller freqency, no correction is made regarding a
+        // time offset resulting from the change between daylight and standard
+        // time, since the resulting gaps are desired and a correction of
+        // -1 hour could potentially result in an endless loop.
+        $dtDate = new \DateTime();
+        $dtDate->setTimezone(new \DateTimeZone('UTC'));
+        $dtDate->setTimestamp($uxtsNextDate);
+        if (!$bFirst) {
+            $strInterval = sprintf($aPart[$this->strFreq], $this->iInterval);
+            $dtDate->add(new \DateInterval($strInterval));
+            $uxtsNextDate = $dtDate->getTimestamp();
+        }
+        $strInterval = sprintf($aPart[$this->strFreq], 1);
+        $dtDate->add(new \DateInterval($strInterval));
+        $uxtsEndDate = $dtDate->getTimestamp();
+    }
+
+    /**
+     * Cleans the result from dates outside of the requested range.
      * @param int $uxtsMaxDate
      */
     protected function cleanupResult(int $uxtsMaxDate) : void
@@ -489,7 +543,7 @@ class iCalRecurrenceRule
     }
 
     /**
-     * Check if end of a rule has been reached
+     * Check if end of the rule has been reached
      * @return bool
      */
     protected function endReached() : bool
