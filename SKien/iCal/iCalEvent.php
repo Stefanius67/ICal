@@ -145,7 +145,7 @@ class iCalEvent extends iCalRecurrenceBase
      */
     public function getUID() : string
     {
-        return $this->strUID;
+        return $this->strUID ?? '';
     }
 
     /**
@@ -321,16 +321,20 @@ class iCalEvent extends iCalRecurrenceBase
         $strTimezone = '';
         if (isset($this->oCalcTimezone)) {
             $strTimezone = ';TZID=' . $this->oCalcTimezone->getTZID();
-            $buffer .= 'DTSTART' . $strTimezone . $strValueParam . $this->formatDate($strDateFormat, $this->uxtsStart) . PHP_EOL;
-            if ($this->uxtsEnd != null) {
+            if ($this->uxtsStart !== null) {
+                $buffer .= 'DTSTART' . $strTimezone . $strValueParam . $this->formatDate($strDateFormat, $this->uxtsStart) . PHP_EOL;
+            }
+            if ($this->uxtsEnd !== null) {
                 $buffer .= 'DTEND' . $strTimezone . $strValueParam . $this->formatDate($strDateFormat, $this->uxtsEnd) . PHP_EOL;
             }
         } else {
             if (!empty($strTZID)) {
                 $strTimezone = ';TZID=' . $strTZID;
             }
-            $buffer .= 'DTSTART' . $strTimezone . $strValueParam . date($strDateFormat, $this->uxtsStart) . PHP_EOL;
-            if ($this->uxtsEnd != null) {
+            if ($this->uxtsStart !== null) {
+                $buffer .= 'DTSTART' . $strTimezone . $strValueParam . date($strDateFormat, $this->uxtsStart) . PHP_EOL;
+            }
+            if ($this->uxtsEnd !== null) {
                 $buffer .= 'DTEND' . $strTimezone . $strValueParam . date($strDateFormat, $this->uxtsEnd) . PHP_EOL;
             }
         }
@@ -357,16 +361,6 @@ class iCalEvent extends iCalRecurrenceBase
         }
         $buffer .= 'TRANSP:' . $this->strTrans . PHP_EOL;
         $buffer .= 'STATUS:' . $this->strState . PHP_EOL;
-        $buffer .= 'SEQUENCE:0' . PHP_EOL;
-        /*
-        if ($this->iAlarm != null) {
-            $buffer .= 'BEGIN:VALARM' . PHP_EOL;
-            $buffer .= 'TRIGGER:-PT' . $this->iAlarm . 'M' . PHP_EOL;
-            $buffer .= 'ACTION:DISPLAY' . PHP_EOL;
-            $buffer .= 'DESCRIPTION:Reminder' . PHP_EOL;
-            $buffer .= 'END:VALARM' . PHP_EOL;
-        }
-        */
         $buffer .= 'END:VEVENT' . PHP_EOL;
 
         return $buffer;

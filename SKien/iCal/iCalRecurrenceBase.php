@@ -92,25 +92,26 @@ abstract class iCalRecurrenceBase
     public function getRecurrentDates() : array
     {
         $aResult = [];
-        if (!empty($this->strRRule)) {
-            $strTZID = $this->oCalcTimezone ? $this->oCalcTimezone->getTZID() : '';
-            $oRRule = new iCalRecurrenceRule($this->oICalendar, $this->strRRule);
-            $oRRule->setExcludeDates($this->aExcludeDates);
-            $aResult = $oRRule->getDateList($this->uxtsStart, 0, $strTZID);
-        } else {
-            // there's no RRULE specified...
-            // we create at least the start date specified
-            $aResult[] = $this->uxtsStart;
-        }
-        // ... and add possibly defined RDATE repetitions
-        $aResult = array_merge($aResult, $this->aRDate);
-        $aResult = array_unique($aResult);
-        asort($aResult);
+        if ($this->uxtsStart !== null) {
+            if (!empty($this->strRRule)) {
+                $strTZID = $this->oCalcTimezone ? $this->oCalcTimezone->getTZID() : '';
+                $oRRule = new iCalRecurrenceRule($this->oICalendar, $this->strRRule);
+                $oRRule->setExcludeDates($this->aExcludeDates);
+                $aResult = $oRRule->getDateList($this->uxtsStart, 0, $strTZID);
+            } else {
+                // there's no RRULE specified...
+                // we create at least the start date specified
+                $aResult[] = $this->uxtsStart;
+            }
+            // ... and add possibly defined RDATE repetitions
+            $aResult = array_merge($aResult, $this->aRDate);
+            $aResult = array_unique($aResult);
+            asort($aResult);
 
-        if (!$this->bIncludeStart) {
-            array_shift($aResult);
+            if (!$this->bIncludeStart && count($aResult) > 0) {
+                array_shift($aResult);
+            }
         }
-
         return $aResult;
     }
 }
