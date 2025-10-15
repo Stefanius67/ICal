@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PHPUnit junit output</title>
+<script type="text/javascript">
+async function xmlLoadDocAsync(strFileName)
+{
+    try {
+        const oResponse = await fetch(strFileName);
+        const strText = await oResponse.text();
+        const oParser = new DOMParser()
+        const xmlDoc = oParser.parseFromString(strText, 'text/xml');
+        const xmlErrorNode = xmlDoc.querySelector("parsererror");
+        if (xmlErrorNode) {
+            return null;
+        }
+        return xmlDoc;
+    } catch(err) {
+        var strHTML = '<h1>' + err.message + '</h1>';
+        strHTML += "<p>Usually a 'Cross-Origin Request Blocked' problem that is caused, ";
+        strHTML += "if the HTML file is opened from the filesystem rather than through ";
+        strHTML += "the webserver!";
+        document.getElementById("junit").innerHTML = strHTML;
+        return null;
+    }
+}
+
+async function displayJUnitResult() 
+{
+    var strHTML = '<h1>PHPUnit config file [phpunit.xml] not found!</h1>';
+    const xmlPHPUnit = await xmlLoadDocAsync('./phpunit.xml');
+    if (xmlPHPUnit) {
+        // select the path of the junit output file
+        const oXPathEvaluator = new XPathEvaluator();
+        const oResolver = oXPathEvaluator.createNSResolver(xmlPHPUnit.documentElement);
+        const nodeJUnit = oXPathEvaluator.evaluate('//logging/junit', xmlPHPUnit.documentElement, oResolver, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+
+        strHTML = "<h1>No 'junit' logging configured in [phpunit.xml]!</h1>";
+        var strJUnitFilename = '';
+        if (nodeJUnit.singleNodeValue) {
+            strJUnitFilename = nodeJUnit.singleNodeValue.getAttribute('outputFile');
+        }
+        if (strJUnitFilename !== '') {
+            strHTML = "<h1>junit outputfile [" + strJUnitFilename + "] not found!</h1>";
+            const xmlJUnit = await xmlLoadDocAsync(strJUnitFilename);
+            if (xmlJUnit) {
+                strHTML = "<h1>stylesheet [junit.xsl] not found!</h1>";
+                const xslJUnit = await xmlLoadDocAsync('junit.xsl');
+                if (xslJUnit) {
+                    const xsltProcessor = new XSLTProcessor();
+                    xsltProcessor.importStylesheet(xslJUnit);
+                    oHTML = xsltProcessor.transformToFragment(xmlJUnit, document);
+                    document.getElementById("junit").appendChild(oHTML);
+                    return;
+                }
+            }
+        }
+    }
+    if (document.getElementById("junit").innerHTML == '') {
+        document.getElementById("junit").innerHTML = strHTML;
+    }
+}
+</script>
+</head>
+<body onload="displayJUnitResult()">
+    <div id="junit">
+    </div>
+</body>
+</html>
