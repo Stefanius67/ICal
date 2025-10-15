@@ -6,7 +6,6 @@ namespace SKien\iCal;
 
 use Psr\Log\LogLevel;
 
-
 /**
  * Abstract baseclass for several readers.
  *
@@ -48,23 +47,23 @@ abstract class Reader
 
     /**
      * Read next line from the line buffer.
-     * Take care about iCal - folded lines.
+     * Takes care about iCal - folded lines.
      * @param array<string> $aLines
      * @param int $iLine
      * @return string
      */
     static public function nextLine(array $aLines, int &$iLine) : string
     {
-        // remove EOL and other tailing whitspaces and check for iCal-folded lines
-        $strLine = rtrim($aLines[$iLine++]);
+        // remove EOL and check for iCal-folded lines
+        $strLine = rtrim($aLines[$iLine++], "\r\n");
         while ($iLine < count($aLines) && substr($aLines[$iLine], 0, 1) == ' ') {
-            $strLine .= rtrim(substr($aLines[$iLine++], 1));
+            $strLine .= rtrim(substr($aLines[$iLine++], 1), "\r\n");
         }
         return $strLine;
     }
 
     /**
-     * Read the given line.
+     * Parses the given line.
      * @param string $strLine
      */
     public function parseLine(string $strLine) : void
@@ -87,6 +86,8 @@ abstract class Reader
      */
     protected function notSupported(string $strName, string $strValue, array $aParams) : void
     {
+        // @codeCoverageIgnoreStart
         $this->oICalendar->log(LogLevel::WARNING, "Not supportet property {$strName} found", array_merge(['value' => $strValue], $aParams));
+        // @codeCoverageIgnoreEnd
     }
 }
