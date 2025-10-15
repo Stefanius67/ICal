@@ -1,11 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace SKien\iCal;
 
 use Psr\Log\LogLevel;
-
-
 
 /**
  * Helper trait containing some methods used by multiple classes in package.
@@ -102,27 +101,6 @@ trait iCalHelper
     }
 
     /**
-     * Explode a masked string.
-     * to ignore masked delimiters belonging to value
-     * @param string $strDelim
-     * @param string $strValue
-     * @return array<string>
-     */
-    /*
-    protected function explodeMaskedString(string $strDelim, string $strValue) : array
-    {
-        // save masked delimiters, tag unmasked, restore saved and explode on new taged delimiter
-        $strSave = "\\" . $strDelim;
-        $strValue = str_replace($strSave, "\x00", $strValue);
-        $strValue = str_replace($strDelim, "\x01", $strValue);
-        $strValue = str_replace("\x00", $strSave, $strValue);
-
-        $a = explode("\x01", $strValue);
-        return $a == false ? [] : $a;
-    }
-    */
-
-    /**
      * Longer lines have to be broken down in iCal format.
      * @param string $strLine
      * @return string
@@ -155,7 +133,7 @@ trait iCalHelper
     }
 
     /**
-     * Create 'pseudo' UID
+     * Creates a 'pseudo' UID.
      * @return string
      */
     protected function createUID()
@@ -312,14 +290,6 @@ trait iCalHelper
             if (count($aSplit) == 2) {
                 $strName = strtoupper($aSplit[0]);
                 $strValue = trim($aSplit[1], ' "');
-                /*
-                 * are there any properties in an iCalendar that supports multiple params ??
-                if (isset($aParams[$strName])) {
-                    $aParams[$strName] .= ',' . $strValue;
-                } else {
-                    $aParams[$strName] = $strValue;
-                }
-                */
                 $aParams[$strName] = $strValue;
             }
         }

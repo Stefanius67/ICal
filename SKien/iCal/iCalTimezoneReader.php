@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SKien\iCal;
 
 /**
- * Helper class that parses lines from a iCal file into a iCalTimezone object.
+ * Reader class that parses lines from a iCal file into a iCalTimezone object.
  * Nested iCalTimezoneProp instances (daylight-/standard time) will also
  * be parsed and the according objects are attached to the iCalTimezone.
  *

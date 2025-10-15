@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
-use Psr\Log\LogLevel;
 
 /**
  * Class representing a ical conform timezone (VTIMEZONE).
@@ -193,10 +192,6 @@ class iCalTimezone
         $uxtsMin = PHP_INT_MAX;
         $strOffsetMin = '';
 
-        // TODO: remove after successfull tests - and remove getTimezonePHP() ...
-        // so far he haven't any known timezone...
-        // date_default_timezone_set("UTC");
-
         foreach ($this->aTimezoneProp as $oTZProp) {
             $aDates = $oTZProp->getRecurrentDates();
             if (count($aDates) > 0 && $aDates[0] < $uxtsMin) {
@@ -213,12 +208,14 @@ class iCalTimezone
             $this->aTimeOffsetList[PHP_INT_MIN] = $strOffsetMin;
         }
         ksort($this->aTimeOffsetList);
-        // date_default_timezone_set($this->oICalendar->getTimezonePHP());
+
+        /*
         $aContext = [];
         foreach ($this->aTimeOffsetList as $uxts => $strOffset) {
             $aContext[date('Y-m-d H:i:s', $uxts)] = $strOffset;
         }
         $this->oICalendar->log(LogLevel::INFO, "Timezone [{$this->strTZID}]: created TimeoffsetList.", $aContext);
+        */
     }
 
     /**

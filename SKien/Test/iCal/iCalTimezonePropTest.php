@@ -15,7 +15,7 @@ use SKien\iCal\iCalendar;
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class iCalTimezonePropoTest extends TestCase
+class iCalTimezonePropTest extends TestCase
 {
     protected iCalendar $oICal;
 

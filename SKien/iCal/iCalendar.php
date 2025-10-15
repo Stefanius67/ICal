@@ -21,7 +21,7 @@ use Psr\Log\NullLogger;
  * > This is because the time zones used by iCalendar files do not match the PHP time zones
  * > (which are based on the time zone identifiers published in the IANA time zone database).
  *
- * 1. When generating a calendar, the (PHP) timezone set when the iCalender instance is
+ * 1. When generating a calendar, the (PHP) timezone that is set when the iCalender instance is
  *    created is generally used. An iCal time zone with the same name is automatically
  *    created.
  *
@@ -335,7 +335,6 @@ class iCalendar implements LoggerAwareInterface
 	    if (file_exists($strFilename)) {
             $aLines = @file($strFilename);
     	    /**
-    	     * TODO: add property to set output directory or remove code
     	    if (((error_reporting() & E_USER_WARNING) !== 0)) {
     	       file_put_contents(Application::getInstance()->getEnv()->getDocRoot() . '/upload/log/iCalImport.ics', $aLines);
     	    }

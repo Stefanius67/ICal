@@ -10,6 +10,8 @@ use SKien\iCal\iCalTimezone;
 use SKien\iCal\iCalendar;
 
 /**
+ * Test of the iCalRecurrenceRule class.
+ *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
