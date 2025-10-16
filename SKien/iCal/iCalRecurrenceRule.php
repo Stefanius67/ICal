@@ -103,7 +103,7 @@ class iCalRecurrenceRule
                         $aValidFreq = ['SECONDLY', 'MINUTELY', 'HOURLY', 'DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY'];
                         $strFreq = $this->strFreq == '' ? '[not set]' : $this->strFreq;
                         if (!in_array($strFreq, $aValidFreq)) {
-                            $this->logError(LogLevel::ERROR, 'FREQ', $strFreq);
+                            $this->logError(LogLevel::CRITICAL, 'FREQ', $strFreq);
                             $this->strFreq = '';
                         }
                         break;
@@ -117,7 +117,7 @@ class iCalRecurrenceRule
                             $dtStart = new \DateTime($strValue);
                             $this->uxtsUntil = $dtStart->getTimestamp();
                         } else {
-                            $this->logError(LogLevel::ERROR, $strName, $strValue);
+                            $this->logError(LogLevel::CRITICAL, $strName, $strValue);
                         }
                         break;
                     case 'COUNT':
@@ -314,6 +314,13 @@ class iCalRecurrenceRule
             return $this->aResult;
         }
 
+        if ($this->uxtsUntil !== null && $this->uxtsUntil < $uxtsStartDate) {
+            // Presumably the start date for creating the date list of a time zone was
+            // moved forward for performance reasons.
+            // so just return an empty list
+            return $this->aResult;
+        }
+
         if (!empty($strTZID)) {
             $this->oCalcTimezone = $this->oICalendar->getTimezone($strTZID);
         }
@@ -362,8 +369,16 @@ class iCalRecurrenceRule
                 break;
             }
             if ($iIntervalCount > self::MAX_INTERVAL) {
+                // @codeCoverageIgnoreStart
+                /*
+                 * This is just a 'safety net' to prevent an endless loop in case there are
+                 * constellations (possibly due to switching from Dailight to standard time
+                 * or similar) that I have not considered so far - and therefore i also havn't
+                 * any UnitTest case to cover it.
+                 */
                 $this->oICalendar->log(LogLevel::CRITICAL, "RRULE: Infinite loop detected in getDateList()!");
                 break;
+                // @codeCoverageIgnoreEnd
             }
         }
         $this->cleanupResult($uxtsMaxDate);
@@ -410,7 +425,7 @@ class iCalRecurrenceRule
     protected function nextYear(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
     {
         if (!$bFirst) {
-            $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}Y");
+            $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}Y');
             if (isset($this->aByMonth) || isset($this->aByWeekNo) || isset($this->aByYearday)) {
                 $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mon', 1);
             }
@@ -418,7 +433,7 @@ class iCalRecurrenceRule
                 $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
             }
         }
-        $uxtsEndDate = $this->addDate($uxtsNextDate, "P1Y");
+        $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1Y');
     }
 
     /**
@@ -439,16 +454,16 @@ class iCalRecurrenceRule
             if (!$bFirst) {
                 // From the second run, when determining a specific day of the month, we
                 // make sure that we start with the 1st of the month!
-                $uxtsNextDate = $this->addDate($uxtsMonthStart, "P{$this->iInterval}M");
+                $uxtsNextDate = $this->addDate($uxtsMonthStart, 'P{$this->iInterval}M');
                 $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
                 $uxtsMonthStart = $uxtsNextDate;
             }
-            $uxtsEndDate = $this->addDate($uxtsMonthStart, "P1M");
+            $uxtsEndDate = $this->addDate($uxtsMonthStart, 'P1M');
         } else {
             if (!$bFirst) {
-                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}M");
+                $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}M');
             }
-            $uxtsEndDate = $this->addDate($uxtsNextDate, "P1M");
+            $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1M');
         }
     }
 
@@ -462,18 +477,18 @@ class iCalRecurrenceRule
     {
         if (isset($this->aByDay)) {
             if (!$bFirst) {
-                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
+                $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}W');
                 $uxtsNextDate = $this->getWeekNoStart($uxtsNextDate, 0, $this->iWKST) ?? $uxtsNextDate;
-                $uxtsEndDate = $this->addDate($uxtsNextDate, "P1W");
+                $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1W');
             } else {
                 $uxtsWeekStart = $this->getWeekNoStart($uxtsNextDate, 0, $this->iWKST) ?? $uxtsNextDate;
-                $uxtsEndDate = $this->addDate($uxtsWeekStart, "P1W");
+                $uxtsEndDate = $this->addDate($uxtsWeekStart, 'P1W');
             }
         } else {
             if (!$bFirst) {
-                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
+                $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}W');
             }
-            $uxtsEndDate = $this->addDate($uxtsNextDate, "P1W");
+            $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1W');
         }
     }
 
@@ -486,9 +501,9 @@ class iCalRecurrenceRule
     protected function nextDay(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
     {
         if (!$bFirst) {
-            $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}D");
+            $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}D');
         }
-        $uxtsEndDate = $this->addDate($uxtsNextDate, "P1D");
+        $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1D');
     }
 
     /**
@@ -500,10 +515,10 @@ class iCalRecurrenceRule
     protected function nextHourMinSec(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
     {
         $aPart = [
-            'SECONDLY'  => "PT%dS",
-            'MINUTELY'  => "PT%dM",
-            'HOURLY'    => "PT%dH",
-            'DAILY'     => "P%dD",
+            'SECONDLY'  => 'PT%dS',
+            'MINUTELY'  => 'PT%dM',
+            'HOURLY'    => 'PT%dH',
+            'DAILY'     => 'P%dD',
         ];
         // Note:
         // For hourly or smaller freqency, no correction is made regarding a
@@ -644,11 +659,11 @@ class iCalRecurrenceRule
                 if ($iDay > 1) {
                     // 'pos' days we need to subtract 1 (Jan 1'st is already the first day of the year.. )
                     $iDay--;
-                    $uxtsDate = $this->addDate($uxtsDate, "P{$iDay}D");
+                    $uxtsDate = $this->addDate($uxtsDate, 'P{$iDay}D');
                 } else if ($iDay < 0) {
-                    $uxtsDate = $this->addDate($uxtsDate, "P1Y");
+                    $uxtsDate = $this->addDate($uxtsDate, 'P1Y');
                     $iDay *= -1;
-                    $uxtsDate = $this->subDate($uxtsDate, "P{$iDay}D");
+                    $uxtsDate = $this->subDate($uxtsDate, 'P{$iDay}D');
                 }
                 if ($uxtsStartDate <= $uxtsDate && $uxtsDate <= $uxtsEndDate) {
                     // don't call $this->getByMonthDay since a combination of BYYEARDAY / BYMONTHDAY don't work
