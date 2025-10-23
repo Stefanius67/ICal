@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
+use Psr\Log\LogLevel;
+
 /**
  * Class representing a single todo element of an iCalendar (VTODO)
  *
@@ -12,14 +14,12 @@ namespace SKien\iCal;
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class iCalToDo extends iCalRecurrentComponent implements iCalAlarmParentInterface
+class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
 {
     /** @var int    unix timestamp the todo is due to be completed         */
     protected ?int $uxtsDue = null;
     /** @var int    unix timestamp the todo has been completed         */
     protected ?int $uxtsCompleted = null;
-    /** @var int    duration in seconds     */
-    protected ?int $iDuration = null;
     /** @var int    percent complete     */
     protected ?int $iPercentComplete = null;
     /** @var iCalAlarm  an embedded VALARM component     */
@@ -30,7 +30,7 @@ class iCalToDo extends iCalRecurrentComponent implements iCalAlarmParentInterfac
      */
     public function __construct(iCalendar $oICalendar)
     {
-        parent::__construct('VTODO', $oICalendar, false);
+        parent::__construct('VTODO', $oICalendar);
     }
 
     /**
@@ -46,6 +46,12 @@ class iCalToDo extends iCalRecurrentComponent implements iCalAlarmParentInterfac
             }
             if ($this->oAlarm !== null) {
                 $this->oAlarm->validate();
+            }
+        } else {
+            if ($this->hasRecurrentItems()) {
+                $this->oICalendar->log(LogLevel::WARNING, 'VTODO: For recurent TODO a start date-time MUST be set (RRULE will be ignored)!');
+                $this->strRRule = '';
+                $this->aRDate = [];
             }
         }
     }
@@ -86,22 +92,6 @@ class iCalToDo extends iCalRecurrentComponent implements iCalAlarmParentInterfac
         $aValues = array_merge($aValues, $this->aExtProp);
 
         return $aValues;
-    }
-
-    /**
-     * @param int $iDuration  Duration in seconds.
-     */
-    public function setDuration(?int $iDuration) : void
-    {
-        $this->iDuration = $iDuration;
-    }
-
-    /**
-     * @return int  Duration in seconds
-     */
-    public function getDuration() : ?int
-    {
-        return $this->iDuration;
     }
 
     /**

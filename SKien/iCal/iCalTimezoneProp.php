@@ -13,7 +13,7 @@ namespace SKien\iCal;
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class iCalTimezoneProp extends iCalRecurrentComponent
+class iCalTimezoneProp extends iCalComponent
 {
     public const DAYLIGHT = 'DAYLIGHT';
     public const STANDARD = 'STANDARD';
@@ -38,7 +38,7 @@ class iCalTimezoneProp extends iCalRecurrentComponent
      */
     public function __construct(iCalTimezone $oTimezone, string $strType)
     {
-        parent::__construct($strType, $oTimezone->getICalendar(), true);
+        parent::__construct($strType, $oTimezone->getICalendar());
 
         /*
          * After quite a few iCalendar files surfaced for testing, where the definition

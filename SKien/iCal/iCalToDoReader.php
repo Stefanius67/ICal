@@ -45,20 +45,10 @@ class iCalToDoReader extends Reader
         $bEnd = ($strLine == 'END:' . self::COMPONENT_NAME);
         if ($bEnd) {
             $this->oToDo->validate();
-            $this->oICalendar->addToDo($this->oToDo);
+            $this->oICalendar->addItem($this->oToDo);
             if ($this->oToDo->hasRecurrentItems()) {
-                // Build recurrent items
-                $aRecurrentDates = $this->oToDo->getRecurrentDates();
-                $iDuration = $this->oToDo->getDuration();
-                $strUID = $this->oToDo->getUID();
-                $i = 0;
-                foreach ($aRecurrentDates as $uxtsStart) {
-                    $oRToDo = clone $this->oToDo;
-                    $oRToDo->setStart($uxtsStart);
-                    $oRToDo->setDuration($iDuration);
-                    $oRToDo->setUID($strUID . '-' . ++$i);
-                    $oRToDo->validate();
-                    $this->oICalendar->addToDo($oRToDo);
+                if ($this->oICalendar->getOption('createRecurrentItems', true) == true) {
+                    $this->oToDo->createRecurrentItems();
                 }
             }
         }

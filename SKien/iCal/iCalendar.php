@@ -50,10 +50,8 @@ class iCalendar implements LoggerAwareInterface
 	protected string $strName;
 	/** @var array<string, iCalTimezone> all timezones specified in the iCal file */
 	protected array $aTimezones = [];
-	/** @var iCalEvent[] all events in the iCal file */
-	protected array $aEvents = [];
-	/** @var iCalToDo[] all todos in the iCal file */
-	protected array $aToDos = [];
+	/** @var iCalComponent[] all items (without timezones) in the iCal file */
+	protected array $aItems = [];
 	/** @var int         min. date inside of the iCalendar	 */
 	protected int $uxtsMinDate = 0;
 	/** @var int         max. date inside of the iCalendar	 */
@@ -74,14 +72,18 @@ class iCalendar implements LoggerAwareInterface
 	protected string $strEncoding = 'UTF-8';
 	/** @var iCalTimezone   timezone ID for several calculations     */
 	protected ?iCalTimezone $oCalcTimezone = null;
+	/** @var array<string,mixed>     options for the current instance	 */
+	protected array $aOptions = [];
 
 	/**
 	 * Create the header info of the iCal file.
 	 * @param string $strName
+	 * @param array<string,mixed> $aOptions
 	 */
-	public function __construct($strName = 'iCalendar')
+	public function __construct($strName = 'iCalendar', array $aOptions = [])
 	{
 	    $this->strName = $strName;
+	    $this->aOptions = $aOptions;
 
 	    // remember the current timezone to restore it since the timezone
 	    // is need to be changed to UTC for some operations while reading a iCal file
@@ -95,12 +97,16 @@ class iCalendar implements LoggerAwareInterface
 	}
 
 	/**
-	 * Get the encoding currently set.
-	 * @return string
+	 * Gets the requested option.
+	 * Returns the given defaultvlaue, if the requested option ist not set.
+	 * @param string $strName
+	 * @param mixed $default
+	 * @return mixed
 	 */
-	public function getEncoding() : string
+	public function getOption(string $strName, $default = null)
 	{
-	    return $this->strEncoding;
+	    $value = $this->aOptions[$strName] ?? $default;
+	    return $value;
 	}
 
 	/**
@@ -118,6 +124,15 @@ class iCalendar implements LoggerAwareInterface
 	public function setEncoding(string $strEncoding) : void
 	{
 	    $this->strEncoding = $strEncoding;
+	}
+
+	/**
+	 * Get the encoding currently set.
+	 * @return string
+	 */
+	public function getEncoding() : string
+	{
+	    return $this->strEncoding;
 	}
 
 	/**
@@ -233,23 +248,33 @@ class iCalendar implements LoggerAwareInterface
 	}
 
 	/**
-	 * @param iCalEvent $oEvent
+	 * @param iCalComponent $oItem
 	 */
-	public function addEvent(iCalEvent $oEvent) : void
+	public function addItem(iCalComponent $oItem) : void
 	{
-	    $this->aEvents[] = $oEvent;
-	    $uxtsStart = $oEvent->getStart();
+	    $this->aItems[] = $oItem;
+	    $uxtsStart = $oItem->getStart();
 	    if ($uxtsStart !== null) {
 	        if ($this->uxtsMinDate === 0 || $uxtsStart < $this->uxtsMinDate) {
 	            $this->uxtsMinDate = $uxtsStart;
 	        }
 	    }
-	    $uxtsEnd = $oEvent->getEnd();
+	    $uxtsEnd = $oItem->getEnd();
 	    if ($uxtsEnd !== null) {
 	        if ($this->uxtsMaxDate === 0 || $uxtsEnd > $this->uxtsMaxDate) {
 	            $this->uxtsMaxDate = $uxtsEnd;
 	        }
 	    }
+	}
+
+	/**
+	 * Return readed items.
+	 * @return iCalComponent[]
+	 * @codeCoverageIgnore
+	 */
+	public function getItems() : array
+	{
+	    return $this->aItems;
 	}
 
 	/**
@@ -258,27 +283,13 @@ class iCalendar implements LoggerAwareInterface
 	 */
 	public function getEvents() : array
 	{
-	    return $this->aEvents;
-	}
-
-	/**
-	 * @param iCalToDo $oToDo
-	 */
-	public function addToDo(iCalToDo $oToDo) : void
-	{
-	    $this->aToDos[] = $oToDo;
-	    $uxtsStart = $oToDo->getStart();
-	    if ($uxtsStart !== null) {
-	        if ($this->uxtsMinDate === 0 || $uxtsStart < $this->uxtsMinDate) {
-	            $this->uxtsMinDate = $uxtsStart;
+	    $aEvents = [];
+	    foreach ($this->aItems as $oItem) {
+	        if (get_class($oItem) == 'SKien\iCal\iCalEvent') {
+	            $aEvents[] = $oItem;
 	        }
 	    }
-	    $uxtsEnd = $oToDo->getEnd();
-	    if ($uxtsEnd !== null) {
-	        if ($this->uxtsMaxDate === 0 || $uxtsEnd > $this->uxtsMaxDate) {
-	            $this->uxtsMaxDate = $uxtsEnd;
-	        }
-	    }
+	    return $aEvents;
 	}
 
 	/**
@@ -287,7 +298,13 @@ class iCalendar implements LoggerAwareInterface
 	 */
 	public function getToDos() : array
 	{
-	    return $this->aToDos;
+	    $aToDos = [];
+	    foreach ($this->aItems as $oItem) {
+	        if (get_class($oItem) == 'SKien\iCal\iCalToDo') {
+	            $aToDos[] = $oItem;
+	        }
+	    }
+	    return $aToDos;
 	}
 
 	/**
@@ -335,13 +352,9 @@ class iCalendar implements LoggerAwareInterface
 
         $oTimezone->writeData($oWriter);
 
-        // insert all events
-	    foreach ($this->aEvents as $oEvent) {
-	        $oEvent->writeData($oWriter, $this->strTimezonePHP);
-	    }
-	    // ... and all todo items
-	    foreach ($this->aToDos as $oToDo) {
-	        $oToDo->writeData($oWriter, $this->strTimezonePHP);
+        // insert all items
+	    foreach ($this->aItems as $oItem) {
+	        $oItem->writeData($oWriter, $this->strTimezonePHP);
 	    }
 	    $oWriter->addProperty('END', 'VCALENDAR');
 	}
@@ -409,6 +422,6 @@ class iCalendar implements LoggerAwareInterface
 	    } else {
 	        $this->log(LogLevel::ERROR, 'Missing iCalendar file ' . $strFilename);
 	    }
-	    return count($this->aEvents) + count($this->aToDos);
+	    return count($this->aItems);
 	}
 }

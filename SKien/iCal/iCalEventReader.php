@@ -45,20 +45,10 @@ class iCalEventReader extends Reader
         $bEnd = ($strLine == 'END:' . self::COMPONENT_NAME);
         if ($bEnd) {
             $this->oEvent->validate();
-            $this->oICalendar->addEvent($this->oEvent);
+            $this->oICalendar->addItem($this->oEvent);
             if ($this->oEvent->hasRecurrentItems()) {
-                // Build recurrent events
-                $aRecurrentDates = $this->oEvent->getRecurrentDates();
-                $iDuration = $this->oEvent->getDuration();
-                $strUID = $this->oEvent->getUID();
-                $i = 0;
-                foreach ($aRecurrentDates as $uxtsStart) {
-                    $oREvent = clone $this->oEvent;
-                    $oREvent->setStart($uxtsStart);
-                    $oREvent->setDuration($iDuration);
-                    $oREvent->setUID($strUID . '-' . ++$i);
-                    $oREvent->validate();
-                    $this->oICalendar->addEvent($oREvent);
+                if ($this->oICalendar->getOption('createRecurrentItems', true) == true) {
+                    $this->oEvent->createRecurrentItems();
                 }
             }
         }

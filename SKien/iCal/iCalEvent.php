@@ -14,12 +14,10 @@ use Psr\Log\LogLevel;
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterface
+class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
 {
     /** @var int    unix timestamp event end         */
     protected ?int $uxtsEnd = null;
-    /** @var int    duration in seconds     */
-    protected ?int $iDuration = null;
     /** @var bool   all day event (only the date-component of dtStart and dtEnd is used)         */
     protected bool $bAllDay = false;
     /** @var iCalAlarm  an embedded VALARM component     */
@@ -30,7 +28,7 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
      */
     public function __construct(iCalendar $oICalendar)
     {
-        parent::__construct('VEVENT', $oICalendar, false);
+        parent::__construct('VEVENT', $oICalendar);
     }
 
     /**
@@ -90,22 +88,6 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
         $aValues = array_merge($aValues, $this->aExtProp);
 
         return $aValues;
-    }
-
-    /**
-     * @param int $iDuration  Duration in seconds.
-     */
-    public function setDuration(?int $iDuration) : void
-    {
-        $this->iDuration = $iDuration;
-    }
-
-    /**
-     * @return int  Duration in seconds
-     */
-    public function getDuration() : ?int
-    {
-        return $this->iDuration;
     }
 
     /**
