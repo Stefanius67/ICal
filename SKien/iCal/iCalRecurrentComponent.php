@@ -14,10 +14,8 @@ namespace SKien\iCal;
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-abstract class iCalRecurrenceBase
+abstract class iCalRecurrentComponent extends iCalComponent
 {
-    use iCalHelper;
-
     /** @var int    unix timestamp start day and time       */
     protected ?int $uxtsStart = null;
     /** @var string RRULE     */
@@ -28,15 +26,17 @@ abstract class iCalRecurrenceBase
     protected array $aExcludeDates = [];
     /** @var bool   if true, the startdate is included in the resulting list of recurrent dates     */
     protected bool $bIncludeStart;
+    /** @var int    unix timestamp min. start for optimization       */
+    protected ?int $uxtsMinStart = null;
 
     /**
      * Creates an instance of a component that supports recurrient dates.
      * @param iCalendar $oICalendar
      * @param bool $bIncludeStart
      */
-    public function __construct(iCalendar &$oICalendar, bool $bIncludeStart)
+    public function __construct(string $strComponentName, iCalendar $oICalendar, bool $bIncludeStart)
     {
-        $this->oICalendar = $oICalendar;
+        parent::__construct($strComponentName, $oICalendar);
         $this->bIncludeStart = $bIncludeStart;
     }
 
@@ -93,15 +93,20 @@ abstract class iCalRecurrenceBase
     {
         $aResult = [];
         if ($this->uxtsStart !== null) {
+            $uxtsStart = $this->uxtsStart;
+            if ($this->uxtsMinStart !== null && $this->uxtsMinStart > $this->uxtsStart) {
+                $uxtsStart = $this->uxtsMinStart;
+            }
             if (!empty($this->strRRule)) {
-                $strTZID = $this->oCalcTimezone ? $this->oCalcTimezone->getTZID() : '';
+                $oCalcTimezone = $this->oICalendar->getCalcTimezone();
+                $strTZID = $oCalcTimezone ? $oCalcTimezone->getTZID() : '';
                 $oRRule = new iCalRecurrenceRule($this->oICalendar, $this->strRRule);
                 $oRRule->setExcludeDates($this->aExcludeDates);
-                $aResult = $oRRule->getDateList($this->uxtsStart, 0, $strTZID);
+                $aResult = $oRRule->getDateList($uxtsStart, 0, $strTZID);
             } else {
                 // there's no RRULE specified...
                 // we create at least the start date specified
-                $aResult[] = $this->uxtsStart;
+                $aResult[] = $uxtsStart;
             }
             // ... and add possibly defined RDATE repetitions
             $aResult = array_merge($aResult, $this->aRDate);

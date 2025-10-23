@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
-use Psr\Log\LogLevel;
-
 /**
- * Helper trait containing some methods used by multiple classes in package.
+ * Helper trait containing methods used by multiple classes in this package.
+ *
+ * This trait primarily provides functions to perform arithmetic operations with date
+ * values, taking into account possible changes between daylight saving time and standard
+ * time (depending on defined time zones inside the iCalendar).
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
@@ -17,119 +19,15 @@ trait iCalHelper
 {
     protected const MAX_LINE_LENGTH = 75;
 
-    /** @var iCalendar      the refernece to the parent iCalendar for all operations     */
+    /** @var iCalendar      the reference to the parent iCalendar for all operations     */
     protected iCalendar $oICalendar;
-    /** @var iCalTimezone   timezone ID for several calculations     */
-    protected ?iCalTimezone $oCalcTimezone = null;
 
     /**
-     * Sets the timezone that is needed for some timeoffset calculations.
-     * @param iCalTimezone $oCalcTimezone
+     * @return iCalendar
      */
-    public function setCalcTimezone(iCalTimezone $oCalcTimezone) : void
+    public function getICalendar() : iCalendar
     {
-        $this->oCalcTimezone = $oCalcTimezone;
-    }
-
-    /**
-     * Build property to insert in vcard.
-     * If line exceeds max length, data will be split into multiple lines
-     * @param string    $strName
-     * @param string    $strValue
-     * @param bool      $bMask      have value to be masked (default: true)
-     * @return string
-     */
-    protected function buildProperty(string $strName, string $strValue, bool $bMask = true) : string
-    {
-        $buffer = '';
-        if (!empty($strValue)) {
-            if ($bMask) {
-                $strValue = $this->maskString($strValue);
-            }
-            $strLine = $strName . ':' . $strValue;
-            $buffer = $this->foldLine($strLine);
-        }
-        return $buffer;
-    }
-
-    /**
-     * Mask delimiter and newline if inside of value.
-     * @param string $strValue
-     * @return string
-     */
-    protected function maskString(string $strValue) : string
-    {
-        // decode entities before ';' is replaced !!
-        $strValue = html_entity_decode($strValue, ENT_HTML5);
-        $strValue = str_replace("\r\n", "\n", $strValue);
-        $strValue = str_replace("\r", "\n", $strValue);
-        $strValue = str_replace("\n", "\\n", $strValue);
-        $strValue = str_replace(",", "\\,", $strValue);
-        $strValue = str_replace(";", "\\;", $strValue);
-
-        $strFrom = mb_detect_encoding($strValue);
-        if ($strFrom !== false && $strFrom != $this->oICalendar->getEncoding()) {
-            $strValue = iconv($strFrom, $this->oICalendar->getEncoding(), $strValue);
-            if ($strValue === false) {      // I have no testcase for PHPUnit so far, but phpstan wants this code...
-                $strValue = '';             // @codeCoverageIgnore
-            }
-        }
-
-        return $strValue;
-    }
-
-    /**
-     * Unmask delimiter and newline.
-     * @param string $strValue
-     * @return string
-     */
-    protected function unmaskString(string $strValue) : string
-    {
-        $strValue = str_replace("\\n", "\n", $strValue);
-        $strValue = str_replace("\\,", ",", $strValue);
-        $strValue = str_replace("\\;", ";", $strValue);
-
-        $strFrom = mb_detect_encoding($strValue);
-        if ($strFrom !== false && $strFrom != $this->oICalendar->getEncoding()) {
-            $strValue = iconv($strFrom, $this->oICalendar->getEncoding() . "//IGNORE", $strValue);
-            if ($strValue === false) {      // I have no testcase for PHPUnit so far, but phpstan wants this code...
-                $strValue = '';             // @codeCoverageIgnore
-            }
-        }
-
-        return $strValue;
-    }
-
-    /**
-     * Longer lines have to be broken down in iCal format.
-     * @param string $strLine
-     * @return string
-     */
-    protected function foldLine(string $strLine) : string
-    {
-        $strFoldedLines = '';
-        // Folding-technique:
-        // 1. first replace al 'real' linebreaks ( CR, LF, CRLF ) with '\n'
-        $strLine = str_replace( "\r\n", PHP_EOL, $strLine );
-        $strLine = str_replace( "\r", PHP_EOL, $strLine );
-        $strLine = str_replace( PHP_EOL, '\n', $strLine );
-
-        // 2. split in multiple lines with max. 75 chars
-        while (strlen($strLine) > 75) {
-            // CRLF immediately followed by a single blank mark multiline content
-            if ($strLine[74] == chr(92)) {
-                // don't break inside control sequence!
-                $strFoldedLines .=  substr($strLine, 0, 74) . PHP_EOL . " ";
-                $strLine = substr($strLine, 74);
-            } else {
-                $strFoldedLines .=  substr($strLine, 0, 75) . PHP_EOL . " ";
-                $strLine = substr($strLine, 75);
-            }
-        }
-        // last line only with closing CRLF
-        $strFoldedLines .=  $strLine . PHP_EOL;
-
-        return $strFoldedLines;
+        return $this->oICalendar;
     }
 
     /**
@@ -148,66 +46,6 @@ trait iCalHelper
     }
 
     /**
-     * Parses and converts an DATE / DATE-TIME property into a UNIX timestamp.
-     * @param string $strValue
-     * @param array<string> $aParams
-     * @return int  UNIX timestamp
-     */
-    protected function parseDateTimeValue(string $strValue, array $aParams) : ?int
-    {
-        $strType = $aParams['VALUE'] ?? 'DATE-TIME';
-
-        $strDateTime = $strValue;
-        $dtResult = null;
-        if ($strType == 'DATE') {
-            // simply enhance to a full date-time
-            if (strlen($strDateTime) == 8) {
-                $strDateTime .= 'T000000';
-            }
-        }
-        if (substr($strDateTime, -1) !== 'Z') {
-            if (isset($aParams['TZID']) && $this->oICalendar !== null) {
-                $oTimezone = $this->oICalendar->getTimezone($aParams['TZID']);
-                if ($oTimezone !== null) {
-                    $strDateTime .= $oTimezone->findTimeOffset($strDateTime);
-                } else {
-                    // unknown timezone... just extend to UTC time
-                    $this->oICalendar->log(LogLevel::WARNING, 'Undefined TZID [' . $aParams['TZID'] . ']set for DATE-TIME value!');
-                    $strDateTime .= 'Z';
-                }
-            } else {
-                // no timezone set... just extend to UTC time
-                $strDateTime .= 'Z';
-            }
-        }
-        try {
-            $dtResult = new \DateTime($strDateTime);
-        } catch (\Exception $e) {
-            $this->oICalendar->log(LogLevel::CRITICAL, 'Invalid Date/DateTime value: ' . $strValue . ' (' . $e->getMessage() . ')');
-        }
-        return $dtResult ? $dtResult->getTimestamp() : null;
-    }
-
-    /**
-     * Parses and converts a list of DATE / DATE-TIME into an array of UNIX timestamps.
-     * @param string $strValue
-     * @param array<string> $aParams
-     * @return array<int>  array of UNIX timestamps
-     */
-    protected function parseDateTimeList(string $strValue, array $aParams) : array
-    {
-        $aValues = explode(',', $strValue);
-        $aResult = [];
-        foreach ($aValues as $strDateTime) {
-            $uxtsValue = $this->parseDateTimeValue(trim($strDateTime), $aParams);
-            if ($uxtsValue !== null) {
-                $aResult[] = $uxtsValue;
-            }
-        }
-        return $aResult;
-    }
-
-    /**
      * Parses and converts a DURATION property into seconds value.
      * Note that unlike ISO.8601.2004, an iCal duration doesn't support the
      * "Y" and "M" designators to specify durations in terms of years and months.
@@ -216,8 +54,12 @@ trait iCalHelper
      * @param bool $bAllDay         if set only the dur-day and dur-week designators used
      * @return int  duration in seconds (simply to add/sub from an UNIX timestamp)
      */
-    protected function parseDurationValue(string $strDuration, bool $bAllDay = false) : ?int
+    protected function parseDurationString(string $strDuration, bool $bAllDay = false) : ?int
     {
+        // check for valid duration string
+        if (preg_match('/^-{0,1}P(\d{1,}W){0,1}(\d{1,}D){0,1}(T(\d{1,}H){0,1}(\d{1,}M){0,1}(\d{1,}S){0,1}){0,1}$/', $strDuration) !== 1) {
+            return null;
+        }
         $iDuration = 0;
         $iSign = ($strDuration[0] == '-') ? -1 : 1;
         // remove sign
@@ -256,6 +98,44 @@ trait iCalHelper
     }
 
     /**
+     * Build the duration string from given seconds.
+     * Further information at `parseDurationString()`.
+     * @see iCalHelper::parseDurationString()
+     * @param int $iDuration    duration in seconds
+     * @return string
+     */
+    protected function getDurationString(int $iDuration) : string
+    {
+        if ($iDuration == 0) {
+            return 'P0D';
+        }
+        $strSign = ($iDuration < 0 ? '-' : '');
+        $iDuration = abs($iDuration);
+        $aParts = [
+            ''  => [604800 => 'W',  86400 => 'D'],
+            'T' => [  3600 => 'H',     60 => 'M',	1 => 'S']
+        ];
+
+        $strDuration = '';
+        foreach ($aParts as $strPart => $aPart) {
+            $strDurationPart = '';
+            foreach ($aPart as $iFaktor => $strElement) {
+                if ($iDuration >= $iFaktor) {
+                    $iPart = floor($iDuration / $iFaktor);
+                    $strDurationPart .= $iPart . $strElement;
+                    $iDuration %= $iFaktor;
+                }
+            }
+            if (!empty($strDurationPart)) {
+                $strDuration .= $strPart . $strDurationPart;
+            }
+        }
+        $strDuration = $strSign . 'P' . $strDuration;
+
+        return $strDuration;
+    }
+
+    /**
      * Parse a time offset string into seconds.
      * @param string $strOffset
      * @return int
@@ -274,26 +154,6 @@ trait iCalHelper
             $iOffset += $iSec;
         }
         return $iOffset;
-    }
-
-    /**
-     * Parse param string
-     * @param array<string> $aParamsIn
-     * @return array<string,string>
-     */
-    protected function parseParams(array $aParamsIn) : array
-    {
-        $aParams = array();
-        $iCount = count($aParamsIn);
-        for ($i = 1; $i < $iCount; $i++) {
-            $aSplit = explode('=', $aParamsIn[$i], 2);
-            if (count($aSplit) == 2) {
-                $strName = strtoupper($aSplit[0]);
-                $strValue = trim($aSplit[1], ' "');
-                $aParams[$strName] = $strValue;
-            }
-        }
-        return $aParams;
     }
 
     /**
@@ -332,8 +192,9 @@ trait iCalHelper
     protected function getTimezoneOffset(int $uxtsDateTime) : int
     {
         $iOffset = 0;
-        if ($this->oCalcTimezone) {
-            $strOffset = $this->oCalcTimezone->findTimeOffset($uxtsDateTime);
+        $oCalcTimezone = $this->oICalendar->getCalcTimezone();
+        if ($oCalcTimezone) {
+            $strOffset = $oCalcTimezone->findTimeOffset($uxtsDateTime);
             $iOffset = $this->parseOffset($strOffset);
         }
         return $iOffset;

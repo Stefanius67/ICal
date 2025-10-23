@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SKien\Test\iCal;
 
 use PHPUnit\Framework\TestCase;
+use SKien\iCal\Writer;
 use SKien\iCal\iCalTimezone;
 use SKien\iCal\iCalendar;
 
@@ -17,12 +18,14 @@ use SKien\iCal\iCalendar;
 class iCalTimezoneTest extends TestCase
 {
     protected iCalendar $oICal;
+    protected Writer $oWriter;
 
     /**
      */
     public function setUp() : void
     {
         $this->oICal = new iCalendar();
+        $this->oWriter = new Writer($this->oICal);
     }
 
     public function test_fromTimezone() : void
@@ -60,12 +63,15 @@ class iCalTimezoneTest extends TestCase
         $this->assertEquals('+0100', $oTZ->findTimeOffset('1999-11-01 12:00:00'));
     }
 
-    public function test_buildData() : void
+    public function test_writeData() : void
     {
         $oTZ = new iCalTimezone($this->oICal);
         $oTZ->fromTimezone('Europe/Berlin', mktime(0,0,0,1,1,2025), mktime(0,0,0,31,12,2025));
         $strTimezone = file_get_contents(__DIR__ . '/testdata/BerlinFromTimezone.txt');
-        $this->assertEquals($strTimezone, $oTZ->buildData());
+        $strTimezone = trim($strTimezone);
+        $oTZ->writeData($this->oWriter);
+        $strData = trim($this->oWriter->getBuffer());
+        $this->assertEquals($strTimezone, $strData);
     }
 }
 

@@ -36,9 +36,10 @@ class iCalHelperTest extends TestCase
         $this->strOldTZ = date_default_timezone_get();
         date_default_timezone_set('Europe/Berlin');
         $this->oICal = new iCalendar();
+        $this->oICalendar = $this->oICal;
         $this->oTZ = new iCalTimezone($this->oICal);
         $this->oTZ->fromTimezone('Europe/Berlin', gmmktime(0,0,0,1,1,1995), gmmktime(0,0,0,31,12,2030));
-        $this->oCalcTimezone = $this->oTZ;
+        $this->oICalendar->setCalcTimezone($this->oTZ);
     }
 
     /**
@@ -65,6 +66,43 @@ class iCalHelperTest extends TestCase
         $uxtsTo = mktime(10,0,0,10,26,2025);
         $iDuration = $this->calcDuration($uxtsFrom, $uxtsTo);
         $this->assertEquals(86400, $iDuration);
+    }
+
+    /**
+     * @dataProvider providerDurationString
+     */
+    public function test_getDurationString(?int $iDuration, string $strExcpected) : void
+    {
+        $strDuration = $this->getDurationString($iDuration ?? 0);
+        if ($iDuration !== null) {
+            $this->assertEquals($strExcpected, $strDuration);
+        } else {
+            $this->assertEquals('P0D', $strDuration);
+        }
+    }
+
+    /**
+     * @dataProvider providerDurationString
+     */
+    public function test_parseDurationString(?int $iExpected, string $strDuration) : void
+    {
+        $iDuration = $this->parseDurationString($strDuration);
+        $this->assertEquals($iExpected, $iDuration);
+    }
+
+    public function providerDurationString() : array
+    {
+        $aDurations = [
+            [   null, 'PT1D'],
+            [   3600, 'PT1H'],
+            [  95220, 'P1DT2H27M'],
+            [    620, 'PT10M20S'],
+            [  12600, 'PT3H30M'],
+            [  34200, 'PT9H30M'],
+            [   7610, 'PT2H6M50S'],
+            [   5640, 'PT1H34M'],
+        ];
+        return $aDurations;
     }
 }
 

@@ -17,10 +17,13 @@ abstract class Reader
 {
     use iCalHelper;
 
+    /** @var Reader sub-reader for nested components (VTIMEZONE, VEVENT, ...)     */
+    protected ?Reader $oReader = null;
+
     /**
      * @param iCalendar $oICalendar
      */
-    public function __construct(iCalendar &$oICalendar)
+    public function __construct(iCalendar $oICalendar)
     {
         $this->oICalendar = $oICalendar;
     }
@@ -48,34 +51,196 @@ abstract class Reader
     /**
      * Read next line from the line buffer.
      * Takes care about iCal - folded lines.
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.1
      * @param array<string> $aLines
      * @param int $iLine
      * @return string
      */
-    static public function nextLine(array $aLines, int &$iLine) : string
+    public function nextLine(array $aLines, int &$iLine) : string
     {
-        // remove EOL and check for iCal-folded lines
+        // remove linebreak
         $strLine = rtrim($aLines[$iLine++], "\r\n");
-        while ($iLine < count($aLines) && substr($aLines[$iLine], 0, 1) == ' ') {
+
+        // Check for folded lines:
+        // A linebreak immediately followed by a single linear white-space character
+        // (SPACE or HTAB)
+        $aFoldChar = [" ", "\t"];
+        while ($iLine < count($aLines) && in_array(substr($aLines[$iLine], 0, 1), $aFoldChar)) {
             $strLine .= rtrim(substr($aLines[$iLine++], 1), "\r\n");
         }
         return $strLine;
     }
 
     /**
-     * Parses the given line.
+     * Parses current unfolded line.
+     * If previous lines started any nested component, the parsing is delegated to the
+     * sub-reader that is able to handle this current component.
      * @param string $strLine
      */
     public function parseLine(string $strLine) : void
     {
-        // split property name/params from value
-        $aSplit = explode(':', $strLine, 2);
-        if (count($aSplit) == 2) {
-            $aNameParams = explode(';', $aSplit[0]);
-            $strName = $aNameParams[0];
-            $aParams = $this->parseParams($aNameParams);
-            $this->addProperty($strName, $aParams, $aSplit[1]);
+        if ($this->oReader) {
+            if ($this->oReader->hasEndReached($strLine)) {
+                $this->oReader = null;
+            } else {
+                $this->oReader->parseLine($strLine);
+            }
+        } else {
+            // split property name/params from value
+            [$strProp, $strValue] = $this->explodeUnquoted($strLine, ':', '"', 2);
+            if (!empty($strProp) && !empty($strValue)) {
+                $aNameParams = $this->explodeUnquoted($strProp, ';', '"');
+                $strName = array_shift($aNameParams);
+                if ($strName !== null && $strName != '') {
+                    $aParams = $this->parseParams($aNameParams);
+                    $this->addProperty($strName, $aParams, $strValue);
+                }
+            }
         }
+    }
+
+    /**
+     * Parse param string
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.2
+     * @param array<string> $aParamsIn
+     * @return array<string,string>
+     */
+    protected function parseParams(array $aParamsIn) : array
+    {
+        $aResult = [];
+        foreach ($aParamsIn as $strParam) {
+            $aParam = explode('=', $strParam, 2);
+            if (count($aParam) == 2) {
+                $strName = strtoupper($aParam[0]);
+                $strValue = trim($aParam[1], ' "');
+                $aResult[$strName] = $strValue;
+            }
+        }
+        return $aResult;
+    }
+
+    /**
+     * Split a string by given delimiter but ignore delimiters inside quoted string.
+     *
+     * Example: <br>
+     * `DESCRIPTION;ALTREP="cid:part1.0001@example.org":The Fall'98 Wild Wizards Conference - - Las Vegas\, NV\, USA`   <br>
+     * <br>
+     * -> The first COLON after 'cid' must be ignored since it belongs to the param value!
+     *
+     * @param string $strLine
+     * @param string $strDelimiter
+     * @param string $strQuotes
+     * @param int $iMax
+     * @return array<string>
+     */
+    protected function explodeUnquoted(string $strLine, string $strDelimiter, string $strQuotes = '"', int $iMax = 0) : array
+    {
+        $aExplode = [];
+        $bInQuotes = false;
+        $iFrom = $iTo = 0;
+        $iLen = strlen($strLine);
+        $iCnt = 0;
+        $iMax--;
+        for ($i = 0; $i < $iLen; $i++, $iTo++) {
+            if ($iMax >= 0 && $iCnt >= $iMax) {
+                break;
+            }
+            $ch = $strLine[$i];
+            if ($ch == $strDelimiter && !$bInQuotes) {
+                $aExplode[] = substr($strLine, $iFrom, $iTo);
+                $iFrom = $i + 1;
+                $iTo = -1;
+                $iCnt++;
+            }
+            if ($ch == $strQuotes) {
+                $bInQuotes = !$bInQuotes;
+            }
+        }
+        $aExplode[] = substr($strLine, $iFrom);
+
+        return $aExplode;
+    }
+
+    /**
+     * Unmask delimiter and newline.
+     * @param string $strValue
+     * @return string
+     */
+    protected function unmaskString(string $strValue) : string
+    {
+        $strValue = str_replace("\\n", "\n", $strValue);
+        $strValue = str_replace("\\,", ",", $strValue);
+        $strValue = str_replace("\\;", ";", $strValue);
+
+        $strFrom = mb_detect_encoding($strValue);
+        if ($strFrom !== false && $strFrom != $this->oICalendar->getEncoding()) {
+            $strValue = iconv($strFrom, $this->oICalendar->getEncoding() . "//IGNORE", $strValue);
+            if ($strValue === false) {      // I have no testcase for PHPUnit so far, but phpstan wants this code...
+                $strValue = '';             // @codeCoverageIgnore
+            }
+        }
+
+        return $strValue;
+    }
+
+    /**
+     * Parses and converts an DATE / DATE-TIME property into a UNIX timestamp.
+     * @param string $strValue
+     * @param array<string> $aParams
+     * @return int  UNIX timestamp
+     */
+    protected function parseDateTimeValue(string $strValue, array $aParams) : ?int
+    {
+        $strType = $aParams['VALUE'] ?? 'DATE-TIME';
+
+        $strDateTime = $strValue;
+        $dtResult = null;
+        if ($strType == 'DATE') {
+            // simply enhance to a full date-time
+            if (strlen($strDateTime) == 8) {
+                $strDateTime .= 'T000000';
+            }
+        }
+        if (substr($strDateTime, -1) !== 'Z') {
+            if (isset($aParams['TZID']) && $this->oICalendar !== null) {
+                $oTimezone = $this->oICalendar->getTimezone($aParams['TZID']);
+                if ($oTimezone !== null) {
+                    $strDateTime .= $oTimezone->findTimeOffset($strDateTime);
+                } else {
+                    // unknown timezone... just extend to UTC time
+                    $this->oICalendar->log(LogLevel::ERROR, 'Undefined TZID [' . $aParams['TZID'] . '] set for DATE-TIME value!');
+                    $strDateTime .= 'Z';
+                }
+            } else {
+                // no timezone set... just extend to UTC time
+                $strDateTime .= 'Z';
+            }
+        }
+        try {
+            $dtResult = new \DateTime($strDateTime);
+        } catch (\Exception $e) {
+            $this->oICalendar->log(LogLevel::CRITICAL, 'Invalid Date/DateTime value: ' . $strValue . ' (' . $e->getMessage() . ')');
+        }
+        return $dtResult ? $dtResult->getTimestamp() : null;
+    }
+
+    /**
+     * Parses and converts a list of DATE / DATE-TIME into an array of UNIX timestamps.
+     * @param string $strValue
+     * @param array<string> $aParams
+     * @return array<int>  array of UNIX timestamps
+     */
+    protected function parseDateTimeList(string $strValue, array $aParams) : array
+    {
+        $aValues = explode(',', $strValue);
+        $aResult = [];
+        foreach ($aValues as $strDateTime) {
+            $uxtsValue = $this->parseDateTimeValue(trim($strDateTime), $aParams);
+            if ($uxtsValue !== null) {
+                $aResult[] = $uxtsValue;
+            }
+        }
+        return $aResult;
     }
 
     /**

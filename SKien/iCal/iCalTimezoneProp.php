@@ -13,13 +13,11 @@ namespace SKien\iCal;
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class iCalTimezoneProp extends iCalRecurrenceBase
+class iCalTimezoneProp extends iCalRecurrentComponent
 {
     public const DAYLIGHT = 'DAYLIGHT';
     public const STANDARD = 'STANDARD';
 
-    /** @var string type 'DAYLIGHT' or 'STANDARD'          */
-    protected string $strType = '';
     /** @var string TZNAME          */
     protected string $strName = '';
     /** @var string TZOFFSETFROM             */
@@ -34,13 +32,22 @@ class iCalTimezoneProp extends iCalRecurrenceBase
     protected array $aExcludeDates = [];
 
     /**
-     * @param iCalendar $oICalendar
+     * Creates a instance of a iCalTimezoneProp property.
+     * @param iCalTimezone $oTimezone
      * @param string $strType
      */
-    public function __construct(iCalendar &$oICalendar, string $strType)
+    public function __construct(iCalTimezone $oTimezone, string $strType)
     {
-        parent::__construct($oICalendar, true);
-        $this->strType = $strType;
+        parent::__construct($strType, $oTimezone->getICalendar(), true);
+
+        /*
+         * After quite a few iCalendar files surfaced for testing, where the definition
+         * of the changes between Daylight/Standard Time started in the 16th century
+         * and earlier (which often led to 700 or more date changes...), I decided to
+         * start with a minimum date of UNIX timestamp 0 (1970-01-01) for performance
+         * reasons.
+         */
+        $this->uxtsMinStart = 0;
     }
 
     /**
@@ -48,7 +55,7 @@ class iCalTimezoneProp extends iCalRecurrenceBase
      */
     public function getType() : string
     {
-        return $this->strType;
+        return $this->strComponentName;
     }
 
     /**
@@ -209,21 +216,20 @@ class iCalTimezoneProp extends iCalRecurrenceBase
     }
 
     /**
-     * Build the data buffer to insert in the iCalendar
-     * @return string
+     * Write the component data to the Writer instance.
+     * {@inheritDoc}
+     * @see \SKien\iCal\iCalComponent::writeData()
      */
-    public function buildData() : string
+    public function writeData(Writer $oWriter, string $strTZID = '') : void
     {
-        $buffer  = 'BEGIN:' . $this->strType . PHP_EOL;
-        $buffer .= 'TZOFFSETFROM:' . $this->strOffsetFrom . PHP_EOL;
-        $buffer .= 'TZOFFSETTO:' . $this->strOffsetTo . PHP_EOL;
-        $buffer .= 'TZNAME:' . $this->maskString($this->strName) . PHP_EOL;
-        $buffer .= 'DTSTART:' . date('Ymd\THis', $this->uxtsStart) . PHP_EOL;
+        $oWriter->addProperty('BEGIN', $this->strComponentName);
+        $oWriter->addProperty('TZOFFSETFROM', $this->strOffsetFrom);
+        $oWriter->addProperty('TZOFFSETTO', $this->strOffsetTo);
+        $oWriter->addProperty('TZNAME', $this->strName);
+        $oWriter->addProperty('DTSTART', date('Ymd\THis', $this->uxtsStart));
         if (!empty($this->strRRule)) {
-            $buffer .= 'RRULE:' . $this->strRRule . PHP_EOL;
+            $oWriter->addProperty('RRULE', $this->strRRule, false);
         }
-        $buffer  .= 'END:' . $this->strType . PHP_EOL;
-
-        return $buffer;
+        $oWriter->addProperty('END', $this->strComponentName);
     }
 }

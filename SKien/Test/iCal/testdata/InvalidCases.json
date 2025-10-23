@@ -1,0 +1,42 @@
+[
+    [
+        "Invalid timezone and date-time value",
+        "InvalidEvent1.ics",
+        "critical"
+    ],
+    [
+        "DTEND and DURATION are both set",
+        "InvalidEvent2.ics",
+        "warning"
+    ],
+    [
+        "DURATION and DTEND are both set",
+        "InvalidEvent3.ics",
+        "warning"
+    ],
+    [
+        "Invalid VALARM trigger (duration)",
+        "InvalidEvent4.ics",
+        "warning"
+    ],
+    [
+        "Todo containing invalid TZID",
+        "InvalidToDo1.ics",
+        "error"
+    ],
+    [
+        "Todo containing DUE and DURATION",
+        "InvalidToDo2.ics",
+        "warning"
+    ],
+    [
+        "Todo containing DURATION and DUE",
+        "InvalidToDo3.ics",
+        "warning"
+    ],
+    [
+        "File missing",
+        "InvalidEventX.ics",
+        "error"
+    ]
+]

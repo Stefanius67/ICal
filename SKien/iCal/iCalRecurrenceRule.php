@@ -6,7 +6,6 @@ namespace SKien\iCal;
 
 use Psr\Log\LogLevel;
 
-
 /**
  * Class representing a an iCalendar recurrence rule (RRULE)
  *
@@ -70,7 +69,7 @@ class iCalRecurrenceRule
      * @param iCalendar $oICalendar
      * @param string $strProperty
      */
-    public function __construct(iCalendar &$oICalendar, string $strProperty)
+    public function __construct(iCalendar $oICalendar, string $strProperty)
     {
         $this->oICalendar = $oICalendar;
         $this->parseProperty($strProperty);
@@ -322,7 +321,7 @@ class iCalRecurrenceRule
         }
 
         if (!empty($strTZID)) {
-            $this->oCalcTimezone = $this->oICalendar->getTimezone($strTZID);
+            $this->oICalendar->setCalcTimezone($this->oICalendar->getTimezone($strTZID));
         }
 
         $iIntervalCount = 0;
@@ -382,7 +381,7 @@ class iCalRecurrenceRule
             }
         }
         $this->cleanupResult($uxtsMaxDate);
-        $this->oCalcTimezone = null;
+        $this->oICalendar->setCalcTimezone(null);
 
         return $this->aResult;
     }
@@ -425,7 +424,7 @@ class iCalRecurrenceRule
     protected function nextYear(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
     {
         if (!$bFirst) {
-            $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}Y');
+            $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}Y");
             if (isset($this->aByMonth) || isset($this->aByWeekNo) || isset($this->aByYearday)) {
                 $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mon', 1);
             }
@@ -454,14 +453,14 @@ class iCalRecurrenceRule
             if (!$bFirst) {
                 // From the second run, when determining a specific day of the month, we
                 // make sure that we start with the 1st of the month!
-                $uxtsNextDate = $this->addDate($uxtsMonthStart, 'P{$this->iInterval}M');
+                $uxtsNextDate = $this->addDate($uxtsMonthStart, "P{$this->iInterval}M");
                 $uxtsNextDate = $this->setDateTimePart($uxtsNextDate, 'mday', 1);
                 $uxtsMonthStart = $uxtsNextDate;
             }
             $uxtsEndDate = $this->addDate($uxtsMonthStart, 'P1M');
         } else {
             if (!$bFirst) {
-                $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}M');
+                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}M");
             }
             $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1M');
         }
@@ -477,7 +476,7 @@ class iCalRecurrenceRule
     {
         if (isset($this->aByDay)) {
             if (!$bFirst) {
-                $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}W');
+                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
                 $uxtsNextDate = $this->getWeekNoStart($uxtsNextDate, 0, $this->iWKST) ?? $uxtsNextDate;
                 $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1W');
             } else {
@@ -486,7 +485,7 @@ class iCalRecurrenceRule
             }
         } else {
             if (!$bFirst) {
-                $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}W');
+                $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}W");
             }
             $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1W');
         }
@@ -501,7 +500,7 @@ class iCalRecurrenceRule
     protected function nextDay(int &$uxtsNextDate, int &$uxtsEndDate, bool $bFirst) : void
     {
         if (!$bFirst) {
-            $uxtsNextDate = $this->addDate($uxtsNextDate, 'P{$this->iInterval}D');
+            $uxtsNextDate = $this->addDate($uxtsNextDate, "P{$this->iInterval}D");
         }
         $uxtsEndDate = $this->addDate($uxtsNextDate, 'P1D');
     }
@@ -659,11 +658,11 @@ class iCalRecurrenceRule
                 if ($iDay > 1) {
                     // 'pos' days we need to subtract 1 (Jan 1'st is already the first day of the year.. )
                     $iDay--;
-                    $uxtsDate = $this->addDate($uxtsDate, 'P{$iDay}D');
+                    $uxtsDate = $this->addDate($uxtsDate, "P{$iDay}D");
                 } else if ($iDay < 0) {
-                    $uxtsDate = $this->addDate($uxtsDate, 'P1Y');
+                    $uxtsDate = $this->addDate($uxtsDate, "P1Y");
                     $iDay *= -1;
-                    $uxtsDate = $this->subDate($uxtsDate, 'P{$iDay}D');
+                    $uxtsDate = $this->subDate($uxtsDate, "P{$iDay}D");
                 }
                 if ($uxtsStartDate <= $uxtsDate && $uxtsDate <= $uxtsEndDate) {
                     // don't call $this->getByMonthDay since a combination of BYYEARDAY / BYMONTHDAY don't work

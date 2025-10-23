@@ -75,7 +75,7 @@ class iCalRecurrenceRuleTest extends TestCase
     /**
      * @dataProvider providerParamError
      */
-    public function test_paramError(string $strMsg, string $strRRule, string $strStart, string $strTimezone, string $strMax, array $aExpected) : void
+    public function test_paramError(string $strMsg, string $strRRule, string $strStart, string $strTimezone, string $strMax, string $strLevel) : void
     {
         $oICal = new iCalendar();
 
@@ -93,10 +93,8 @@ class iCalRecurrenceRuleTest extends TestCase
             $dtMax = new \DateTime($strMax);
         }
         $oRRule = new iCalRecurrenceRule($oICal, $strRRule);
-        $aList = $oRRule->getDateList($dtStart->getTimestamp(), $dtMax ? $dtMax->getTimestamp() : 0, $strTimezone);
-        $this->assertIsArray($aList);
-        $aLogCount = $oICal->getLogCount();
-        $this->assertGreaterThan(0, count($aLogCount));
+        $oRRule->getDateList($dtStart->getTimestamp(), $dtMax ? $dtMax->getTimestamp() : 0, $strTimezone);
+        $this->assertArrayHasKey($strLevel, $oICal->getLogCount(), $strMsg);
     }
 
     public function providerParamError() : array

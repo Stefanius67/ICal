@@ -21,14 +21,12 @@ class iCalReader extends Reader
 
     /** @var bool   is set to true as soon as BEGIN:VCALENDAR is found     */
     protected bool $bStarted = false;
-    /** @var Reader reader for nested properties (VTIMEZONE, VEVENT)     */
-    protected ?Reader    $oReader = null;
 
     /**
      * Create a reader object.
      * @param iCalendar $oICalendar
      */
-    function __construct(iCalendar &$oICalendar)
+    function __construct(iCalendar $oICalendar)
     {
         parent::__construct($oICalendar);
     }
@@ -44,23 +42,6 @@ class iCalReader extends Reader
     }
 
     /**
-     * {@inheritDoc}
-     * @see \SKien\iCal\Reader::parseLine()
-     */
-    public function parseLine(string $strLine) : void
-    {
-        if ($this->oReader) {
-            if ($this->oReader->hasEndReached($strLine)) {
-                $this->oReader = null;
-            } else {
-                $this->oReader->parseLine($strLine);
-            }
-        } else {
-            parent::parseLine($strLine);
-        }
-    }
-
-    /**
      * Add property from import file.
      * {@inheritDoc}
      * @see \SKien\iCal\Reader::addProperty()
@@ -72,7 +53,7 @@ class iCalReader extends Reader
         //
         //      methodname(string strValue, array aParams)
         //
-        // or (string) property from iCalEvent ($this->oEvent)
+        // or (string) property from iCalendart ($this->oICal)
         //
         //      settername(string strValue);
         //
@@ -80,12 +61,6 @@ class iCalReader extends Reader
             // iCalEventReader methods
             'BEGIN'         => 'beginProp',
             'CALSCALE'      => 'checkCalscale',
-            /*
-             * properties, we ignore so far since we didn't compute them anywhere
-             * and we don't want to them to be logged...
-            'VERSION'       => 'notSupported',
-            'METHOD'        => 'notSupported',
-             */
             // iCalendar setters
             'NAME'          => 'setName',
             'X-WR-CALNAME'  => 'setName',
@@ -94,13 +69,13 @@ class iCalReader extends Reader
         if (isset($aMethodOrProperty[$strName])) {
             $strPtr = $aMethodOrProperty[$strName];
             $ownMethod = [$this, $strPtr];
-            $eventMethod = [$this->oICalendar, $strPtr];
+            $childMethod = [$this->oICalendar, $strPtr];
             if (is_callable($ownMethod)) {
                 // call method
                 call_user_func_array($ownMethod, array($strName, $strValue, $aParams));
-            } elseif (is_callable($eventMethod)) {
+            } elseif (is_callable($childMethod)) {
                 // call setter from contact with unmasket value
-                call_user_func_array($eventMethod, array($this->unmaskString($strValue)));
+                call_user_func_array($childMethod, array($this->unmaskString($strValue)));
             }
         }
     }
@@ -119,10 +94,12 @@ class iCalReader extends Reader
         } else {
             if ($strValue == 'VEVENT') {
                 $this->oReader = new iCalEventReader($this->oICalendar);
+            } elseif ($strValue == 'VTODO') {
+                $this->oReader = new iCalToDoReader($this->oICalendar);
             } elseif ($strValue == 'VTIMEZONE') {
                 $this->oReader = new iCalTimezoneReader($this->oICalendar);
             } else {
-                $this->oICalendar->log(LogLevel::CRITICAL, "Not supportet property {$strValue} found!");
+                $this->oICalendar->log(LogLevel::CRITICAL, "Not supportet component {$strValue} found!");
             }
         }
     }

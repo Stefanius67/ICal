@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
+use Psr\Log\LogLevel;
 
 /**
  * Class representing a ical conform timezone (VTIMEZONE).
@@ -14,14 +15,10 @@ namespace SKien\iCal;
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class iCalTimezone
+class iCalTimezone extends iCalComponent
 {
-    use iCalHelper;
-
     /** @var string     the iCal timezone ID      */
     protected string $strTZID = '';
-    /** @var string     a description of the timezone (usually resulting from `DateTimeZone::getLocation()`)     */
-    protected string $strComment = '';
     /** @var array<iCalTimezoneProp>      containing all timezoneproperties DAYLIGHT / STANDARD     */
     protected array $aTimezoneProp = [];
     /** @var array<int,string>      timeoffset per date resulting from all timezoneproperties    */
@@ -30,9 +27,9 @@ class iCalTimezone
     /**
      * @param iCalendar $oICalendar
      */
-    public function __construct(iCalendar &$oICalendar)
+    public function __construct(iCalendar $oICalendar)
     {
-        $this->oICalendar = $oICalendar;
+        parent::__construct('VTIMEZONE', $oICalendar);
     }
 
     /**
@@ -79,7 +76,7 @@ class iCalTimezone
             }
             $strType = $aProp['isdst'] ? iCalTimezoneProp::DAYLIGHT : iCalTimezoneProp::STANDARD;
 
-            $oProp = new iCalTimezoneProp($this->oICalendar, $strType);
+            $oProp = new iCalTimezoneProp($this, $strType);
 
             $oProp->setStart($aProp['ts']);
             $oProp->setOffsetFrom($iOffsetFrom);
@@ -106,7 +103,7 @@ class iCalTimezone
             $iLine = 0;
             $bStarted = false;
             while ($iLine < count($aLines)) {
-                $strLine = Reader::nextLine($aLines, $iLine);
+                $strLine = $oReader->nextLine($aLines, $iLine);
                 if (!$bStarted) {
                     if ($strLine == 'BEGIN:VTIMEZONE') {
                         $bStarted = true;
@@ -145,24 +142,6 @@ class iCalTimezone
     }
 
     /**
-     * Sets a comment to this timezone instance.
-     * @param string $strComment
-     */
-    public function setComment(string $strComment) : void
-    {
-        $this->strComment = $strComment;
-    }
-
-    /**
-     * Returns the comment.
-     * @return string
-     */
-    public function getComment() : string
-    {
-        return $this->strComment;
-    }
-
-    /**
      * Adds a further Timezone Property (daylight or standard).
      * @param iCalTimezoneProp $oProp
      */
@@ -189,33 +168,20 @@ class iCalTimezone
     public function createTimeoffsetList() : void
     {
         $this->aTimeOffsetList = [];
-        $uxtsMin = PHP_INT_MAX;
-        $strOffsetMin = '';
 
         foreach ($this->aTimezoneProp as $oTZProp) {
             $aDates = $oTZProp->getRecurrentDates();
-            if (count($aDates) > 0 && $aDates[0] < $uxtsMin) {
-                // We determine the earliest zone change so that the 'offsetFrom'
-                // can be returned for date values ​​that lie before this change
-                $uxtsMin = $aDates[0];
-                $strOffsetMin = $oTZProp->getOffsetFrom();
-            }
             foreach ($aDates as $uxtsDate) {
                 $this->aTimeOffsetList[$uxtsDate] = $oTZProp->getOffsetTo();
             }
         }
-        if (!empty($strOffsetMin)) {
-            $this->aTimeOffsetList[PHP_INT_MIN] = $strOffsetMin;
-        }
         ksort($this->aTimeOffsetList);
 
-        /*
         $aContext = [];
         foreach ($this->aTimeOffsetList as $uxts => $strOffset) {
             $aContext[date('Y-m-d H:i:s', $uxts)] = $strOffset;
         }
         $this->oICalendar->log(LogLevel::INFO, "Timezone [{$this->strTZID}]: created TimeoffsetList.", $aContext);
-        */
     }
 
     /**
@@ -253,22 +219,21 @@ class iCalTimezone
     }
 
     /**
-     * Builds the data buffer to insert in the iCalendar
-     * @return string
+     * Write the component data to the Writer instance.
+     * {@inheritDoc}
+     * @see \SKien\iCal\iCalComponent::writeData()
      */
-    public function buildData() : string
+    public function writeData(Writer $oWriter, string $strTZID = '') : void
     {
-        $buffer  = 'BEGIN:VTIMEZONE' . PHP_EOL;
-        $buffer .= 'TZID:' . $this->strTZID . PHP_EOL;
+        $oWriter->addProperty('BEGIN', 'VTIMEZONE');
+        $oWriter->addProperty('TZID', $this->strTZID);
         if (!empty($this->strComment)) {
-            $buffer .= 'X-EM-DISPLAYNAME:' . $this->maskString($this->strComment) . PHP_EOL;
-            $buffer .= 'X-LIC-LOCATION:' . $this->maskString($this->strComment) . PHP_EOL;
+            $oWriter->addProperty('X-EM-DISPLAYNAME', $this->strComment);
+            $oWriter->addProperty('X-LIC-LOCATION', $this->strComment);
         }
         foreach ($this->aTimezoneProp as $oProp) {
-            $buffer .= $oProp->buildData();
+            $oProp->writeData($oWriter);
         }
-        $buffer .= 'END:VTIMEZONE' . PHP_EOL;
-
-        return $buffer;
+        $oWriter->addProperty('END', 'VTIMEZONE');
     }
 }

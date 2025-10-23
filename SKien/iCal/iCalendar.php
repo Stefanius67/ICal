@@ -52,15 +52,17 @@ class iCalendar implements LoggerAwareInterface
 	protected array $aTimezones = [];
 	/** @var iCalEvent[] all events in the iCal file */
 	protected array $aEvents = [];
-	/** @var int         min. date inside of the eventlist	 */
+	/** @var iCalToDo[] all todos in the iCal file */
+	protected array $aToDos = [];
+	/** @var int         min. date inside of the iCalendar	 */
 	protected int $uxtsMinDate = 0;
-	/** @var int         max. date inside of the eventlist	 */
+	/** @var int         max. date inside of the iCalendar	 */
 	protected int $uxtsMaxDate = 0;
-	/** @var bool  force the inspector software to open the calendar	 */
+	/** @var bool  force the inspector software to open the calendar file	 */
 	protected bool $bForceopen = false;
 	/** @var string     (PHP) timezone we are working in     */
 	protected string $strTimezonePHP = '';
-	/** @var integer    last line read (a.o. for use in logging) 	 */
+	/** @var integer    line that is currently processed (a.o. for use in logging) 	 */
 	protected int $iLine = -1;
 	/** @var \Psr\Log\LoggerInterface  PSR3 logger instance	 */
 	protected LoggerInterface $oLogger;
@@ -70,6 +72,8 @@ class iCalendar implements LoggerAwareInterface
 	protected array $aXProperties = [];
 	/** @var string  encoding for values    */
 	protected string $strEncoding = 'UTF-8';
+	/** @var iCalTimezone   timezone ID for several calculations     */
+	protected ?iCalTimezone $oCalcTimezone = null;
 
 	/**
 	 * Create the header info of the iCal file.
@@ -182,6 +186,24 @@ class iCalendar implements LoggerAwareInterface
 	}
 
 	/**
+	 * Sets the timezone that is needed for some timeoffset calculations.
+	 * @param iCalTimezone $oCalcTimezone
+	 */
+	public function setCalcTimezone(?iCalTimezone $oCalcTimezone) : void
+	{
+	    $this->oCalcTimezone = $oCalcTimezone;
+	}
+
+	/**
+	 * Gets the timezone that is needed for some timeoffset calculations.
+	 * @return iCalTimezone
+	 */
+	public function getCalcTimezone() : ?iCalTimezone
+	{
+	    return $this->oCalcTimezone;
+	}
+
+	/**
 	 * Sets the name of the calendar.
 	 * @param string $strName
 	 */
@@ -240,6 +262,35 @@ class iCalendar implements LoggerAwareInterface
 	}
 
 	/**
+	 * @param iCalToDo $oToDo
+	 */
+	public function addToDo(iCalToDo $oToDo) : void
+	{
+	    $this->aToDos[] = $oToDo;
+	    $uxtsStart = $oToDo->getStart();
+	    if ($uxtsStart !== null) {
+	        if ($this->uxtsMinDate === 0 || $uxtsStart < $this->uxtsMinDate) {
+	            $this->uxtsMinDate = $uxtsStart;
+	        }
+	    }
+	    $uxtsEnd = $oToDo->getEnd();
+	    if ($uxtsEnd !== null) {
+	        if ($this->uxtsMaxDate === 0 || $uxtsEnd > $this->uxtsMaxDate) {
+	            $this->uxtsMaxDate = $uxtsEnd;
+	        }
+	    }
+	}
+
+	/**
+	 * Return readed todos.
+	 * @return iCalToDo[]
+	 */
+	public function getToDos() : array
+	{
+	    return $this->aToDos;
+	}
+
+	/**
 	 * Adds the given timezone object to the calendar.
 	 * @param iCalTimezone $oTimezone
 	 */
@@ -262,35 +313,37 @@ class iCalendar implements LoggerAwareInterface
 	}
 
 	/**
-	 * Builds the data for current informations.
-	 * @return string
+	 * Writes the data for current informations.
+	 * @param Writer $oWriter
 	 */
-	public function buildData() : string
+	public function writeData(Writer $oWriter) : void
 	{
-	    $strICal  = 'BEGIN:VCALENDAR' . PHP_EOL;
-	    $strICal .= 'PRODID:' . self::PROD_ID . PHP_EOL;
-	    $strICal .= 'VERSION:2.0' . PHP_EOL;
+	    $oWriter->addProperty('BEGIN', 'VCALENDAR');
+	    $oWriter->addProperty('PRODID', self::PROD_ID);
+	    $oWriter->addProperty('VERSION', '2.0');
 
-	    $strICal .= 'CALSCALE:GREGORIAN' . PHP_EOL;
+	    $oWriter->addProperty('CALSCALE', 'GREGORIAN');
 	    if ($this->bForceopen) {
-	        $strICal .= 'X-MS-OLK-FORCEINSPECTOROPEN:TRUE' . PHP_EOL;
+	        $oWriter->addProperty('X-MS-OLK-FORCEINSPECTOROPEN', 'TRUE');
 	    }
-	    $strICal .= 'X-WR-CALNAME:' . $this->maskString($this->strName) . PHP_EOL;
-	    $strICal .= 'X-WR-TIMEZONE:' . $this->maskString($this->strTimezonePHP) . PHP_EOL;
+	    $oWriter->addProperty('X-WR-CALNAME:', $this->strName);
+	    $oWriter->addProperty('X-WR-TIMEZONE:', $this->strTimezonePHP);
 
         // create VTIMEZONE from current (PHP) timezone for the needed timespan
         $oTimezone = new iCalTimezone($this);
         $oTimezone->fromTimezone($this->strTimezonePHP, $this->uxtsMinDate, $this->uxtsMaxDate);
 
-        $strICal .= $oTimezone->buildData();
+        $oTimezone->writeData($oWriter);
 
         // insert all events
 	    foreach ($this->aEvents as $oEvent) {
-	        $strICal .= $oEvent->buildData($this->strTimezonePHP);
+	        $oEvent->writeData($oWriter, $this->strTimezonePHP);
 	    }
-		$strICal .= 'END:VCALENDAR' . PHP_EOL;
-
-		return $strICal;
+	    // ... and all todo items
+	    foreach ($this->aToDos as $oToDo) {
+	        $oToDo->writeData($oWriter, $this->strTimezonePHP);
+	    }
+	    $oWriter->addProperty('END', 'VCALENDAR');
 	}
 
 	/**
@@ -301,7 +354,10 @@ class iCalendar implements LoggerAwareInterface
 	 */
 	public function write(string $strFilename = '', $bTest = false) : string
 	{
-	    $strICal = $this->buildData();
+	    $oWriter = new Writer($this);
+	    $this->writeData($oWriter);
+
+	    $strICal = $oWriter->getBuffer();
 
 	    if (strlen($strFilename) == 0) {
 	        $strFilename = $this->strName . '.ics';
@@ -343,7 +399,7 @@ class iCalendar implements LoggerAwareInterface
         	    $this->iLine = 0;
         	    $oReader = new iCalReader($this);
         	    while ($this->iLine < count($aLines)) {
-                    $strLine = Reader::nextLine($aLines, $this->iLine);
+        	        $strLine = $oReader->nextLine($aLines, $this->iLine);
         	        if ($oReader->hasEndReached($strLine)) {
         	            break;
         	        }
@@ -353,6 +409,6 @@ class iCalendar implements LoggerAwareInterface
 	    } else {
 	        $this->log(LogLevel::ERROR, 'Missing iCalendar file ' . $strFilename);
 	    }
-	    return count($this->aEvents);
+	    return count($this->aEvents) + count($this->aToDos);
 	}
 }

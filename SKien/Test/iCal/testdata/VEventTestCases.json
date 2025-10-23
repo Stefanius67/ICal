@@ -1,7 +1,7 @@
 [
     [
         "Simple Testevent",
-        "Testcase1.ics",
+        "TestEvent1.ics",
         [
             ["VEVENT", "X-LOCATION-URL", "strLocationURL"]
         ],
@@ -28,7 +28,7 @@
     ],
     [
         "Start date-time and duration",
-        "Testcase2.ics",
+        "TestEvent2.ics",
         [],
         {
             "dateBegin": "2025-09-21",
@@ -44,7 +44,7 @@
     ],
     [
         "Allday event without end or duration",
-        "Testcase3.ics",
+        "TestEvent3.ics",
         [],
         {
             "dateBegin": "2025-09-22",
@@ -60,7 +60,7 @@
     ],
     [
         "Duration over DAYLIGHT/STANDARD change",
-        "Testcase4.ics",
+        "TestEvent4.ics",
         [],
         {
             "dateBegin": "2025-10-25",
@@ -76,7 +76,7 @@
     ],
     [
         "Allday event with duration of 2 days",
-        "Testcase5.ics",
+        "TestEvent5.ics",
         [],
         {
             "dateBegin": "2025-07-16",

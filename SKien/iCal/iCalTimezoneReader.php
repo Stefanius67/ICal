@@ -28,7 +28,7 @@ class iCalTimezoneReader extends Reader
      * Creates a timezone reader object.
      * @param iCalendar $oICalendar
      */
-    function __construct(iCalendar &$oICalendar)
+    function __construct(iCalendar $oICalendar)
     {
         parent::__construct($oICalendar);
         $this->oTimezone = new iCalTimezone($oICalendar);
@@ -74,7 +74,7 @@ class iCalTimezoneReader extends Reader
         //      `methodname(string $strName, string $strValue, array $aParams)`
         //
         // or a (string) property from iCalTimezone / iCalTimezoneProp from ($this->oTimezone
-        // / $this->oTimezoneProp) dependent, what we currently parsing.
+        // $this->oTimezoneProp) dependent, what we currently parsing.
         //
         //      settername(string $strValue);
         //
@@ -118,7 +118,7 @@ class iCalTimezoneReader extends Reader
      */
     protected function beginTimezoneProp(string $strName, string $strValue, array $aParams) : void
     {
-        $this->oTimezoneProp = new iCalTimezoneProp($this->oICalendar, $strValue);
+        $this->oTimezoneProp = new iCalTimezoneProp($this->oTimezone, $strValue);
     }
 
     /**

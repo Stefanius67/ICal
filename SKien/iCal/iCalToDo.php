@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
-use Psr\Log\LogLevel;
-
 /**
- *  Class representing a single event of an iCalendar (VEVENT)
+ * Class representing a single todo element of an iCalendar (VTODO)
  *
- *  @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.6.1
+ * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.6.2
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
-class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterface
+class iCalToDo extends iCalRecurrentComponent implements iCalAlarmParentInterface
 {
-    /** @var int    unix timestamp event end         */
-    protected ?int $uxtsEnd = null;
+    /** @var int    unix timestamp the todo is due to be completed         */
+    protected ?int $uxtsDue = null;
+    /** @var int    unix timestamp the todo has been completed         */
+    protected ?int $uxtsCompleted = null;
     /** @var int    duration in seconds     */
     protected ?int $iDuration = null;
-    /** @var bool   all day event (only the date-component of dtStart and dtEnd is used)         */
-    protected bool $bAllDay = false;
+    /** @var int    percent complete     */
+    protected ?int $iPercentComplete = null;
     /** @var iCalAlarm  an embedded VALARM component     */
     protected ?iCalAlarm $oAlarm = null;
 
@@ -30,7 +30,7 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
      */
     public function __construct(iCalendar $oICalendar)
     {
-        parent::__construct('VEVENT', $oICalendar, false);
+        parent::__construct('VTODO', $oICalendar, false);
     }
 
     /**
@@ -38,16 +38,11 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
      */
     public function validate() : void
     {
-        if ($this->uxtsStart === null) {
-            $this->oICalendar->log(LogLevel::CRITICAL, 'VEVENT: a start date-time MUST be set!');
-        } else {
+        if ($this->uxtsStart !== null) {
             if ($this->iDuration !== null) {
-                $this->uxtsEnd = $this->addDate($this->uxtsStart, "PT{$this->iDuration}S");
-            } else if ($this->uxtsEnd !== null) {
-                $this->iDuration = $this->calcDuration($this->uxtsStart, $this->uxtsEnd);
-            } else if ($this->bAllDay) {
-                $this->uxtsEnd = $this->addDate($this->uxtsStart, 'P1D');
-                $this->iDuration = $this->calcDuration($this->uxtsStart, $this->uxtsEnd);
+                $this->uxtsDue = $this->addDate($this->uxtsStart, "PT{$this->iDuration}S");
+            } else if ($this->uxtsDue !== null) {
+                $this->iDuration = $this->calcDuration($this->uxtsStart, $this->uxtsDue);
             }
             if ($this->oAlarm !== null) {
                 $this->oAlarm->validate();
@@ -56,23 +51,24 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
     }
 
     /**
-     * Returns an imported event as associative array.
+     * Returns a todo item as associative array.
      * @return array<string, mixed>
      */
     public function fetchData() : array
     {
-        $uxtsEnd = $this->uxtsEnd;
         $aValues = [
             'dateBegin'         => $this->uxtsStart ? date('Y-m-d', $this->uxtsStart) : '',
             'timeBegin'         => $this->uxtsStart ? date('H:i:s', $this->uxtsStart) : '',
             'dtBegin'           => $this->uxtsStart ? date('Y-m-d H:i:s', $this->uxtsStart) : '',
             'uxtsBegin'         => $this->uxtsStart,
-            'dateEnd'           => $this->uxtsEnd ? date('Y-m-d', $uxtsEnd) : '',
-            'timeEnd'           => $this->uxtsEnd ? date('H:i:s', $uxtsEnd) : '',
-            'dtEnd'             => $this->uxtsEnd ? date('Y-m-d H:i:s', $uxtsEnd) : '',
-            'uxtsEnd'           => $this->uxtsEnd,
+            'dateDue'           => $this->uxtsDue ? date('Y-m-d', $this->uxtsDue) : '',
+            'timeDue'           => $this->uxtsDue ? date('H:i:s', $this->uxtsDue) : '',
+            'dtDue'             => $this->uxtsDue ? date('Y-m-d H:i:s', $this->uxtsDue) : '',
+            'uxtsDue'           => $this->uxtsDue,
             'iDuration'         => $this->iDuration,
-            'bAllDay'           => $this->bAllDay ? '1' : '0',
+            'iPercentComplete'  => $this->iPercentComplete,
+            'dtCompleted'       => $this->uxtsCompleted ? date('Y-m-d H:i:s', $this->uxtsCompleted) : '',
+            'uxtsCompleted'     => $this->uxtsCompleted,
             'dtLastModified'    => $this->uxtsLastModified ? date('Y-m-d H:i:s', $this->uxtsLastModified) : '',
             'strUID'            => $this->strUID,
             'strSubject'        => $this->strSubject,
@@ -109,11 +105,19 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
     }
 
     /**
-     * @param int $uxtsEnd    unix timestamp of the events end.
+     * @param int $uxtsDue    unix timestamp the todo is due to be completed.
      */
-    public function setEnd(?int $uxtsEnd) : void
+    public function setDue(?int $uxtsDue) : void
     {
-        $this->uxtsEnd = $uxtsEnd;
+        $this->uxtsDue = $uxtsDue;
+    }
+
+    /**
+     * @return int  unix timestamp
+     */
+    public function getDue() : ?int
+    {
+        return $this->uxtsDue;
     }
 
     /**
@@ -121,23 +125,47 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
      */
     public function getEnd() : ?int
     {
-        return $this->uxtsEnd;
+        return $this->getDue();
     }
 
     /**
-     * @param bool $bAllDay
+     * @param int $uxtsCompleted    unix timestamp the todo haas been completed.
      */
-    public function setAllDay(bool $bAllDay) : void
+    public function setCompleted(?int $uxtsCompleted) : void
     {
-        $this->bAllDay = $bAllDay;
+        $this->uxtsCompleted = $uxtsCompleted;
+        if ($uxtsCompleted !== null) {
+            $this->iPercentComplete = 100;
+        }
     }
 
     /**
-     * @return bool true, if allday event
+     * @return int  unix timestamp
      */
-    public function getAllDay() : bool
+    public function getCompleted() : ?int
     {
-        return $this->bAllDay;
+        return $this->uxtsCompleted;
+    }
+
+    /**
+     * @param int|string|null $percentComplete
+     */
+    public function setPercentComplete($percentComplete) : void
+    {
+        if ($percentComplete !== null) {
+            $iPercentComplete = is_string($percentComplete) ? intval($percentComplete) : $percentComplete;
+            if ($iPercentComplete >= 0 && $iPercentComplete <= 100) {
+                $this->iPercentComplete = $iPercentComplete;
+            }
+        }
+    }
+
+    /**
+     * @return int  percentage 0 ... 100
+     */
+    public function getPercentComplete() : ?int
+    {
+        return $this->iPercentComplete;
     }
 
     /**
@@ -159,7 +187,7 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
     }
 
     /**
-     * Checks, if the event has further, recurrent siblings.
+     * Checks, if the item has further, recurrent siblings.
      * @return bool
      */
     public function hasRecurrentItems() : bool
@@ -193,28 +221,32 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
      */
     public function writeData(Writer $oWriter, string $strTZID = '') : void
     {
-        $oWriter->addProperty('BEGIN', 'VEVENT');
+        $oWriter->addProperty('BEGIN', 'VTODO');
         $oWriter->addProperty('UID', $this->strUID ?? $this->createUID());
         $oWriter->addDateTimeProperty('DTSTAMP', time(), 'GMT');
 
-        $oWriter->addDateTimeProperty('DTSTART', $this->uxtsStart, $strTZID, $this->bAllDay);
-        $oWriter->addDateTimeProperty('DTEND', $this->uxtsEnd, $strTZID, $this->bAllDay);
+        $oWriter->addProperty('PERCENT-COMPLETE', (string) ($this->iPercentComplete ?? 0));
+        $oWriter->addDateTimeProperty('COMPLETED', $this->uxtsCompleted, 'GMT');
+
+        $oWriter->addDateTimeProperty('DTSTART', $this->uxtsStart, $strTZID);
+        if ($this->iDuration !== null) {
+            $oWriter->addProperty('DURATION', $this->getDurationString($this->iDuration));
+        } else {
+            $oWriter->addDateTimeProperty('DUE', $this->uxtsDue, $strTZID);
+        }
 
         $oWriter->addDateTimeProperty('LAST-MODIFIED', $this->uxtsLastModified, 'GMT');
+        $oWriter->addProperty('LOCATION', $this->strLocation);
         if (!empty($this->strOrganizerName) && !empty($this->strOrganizerEMail)) {
             $aParams = ['CN' => $this->strOrganizerName];
             $strValue = 'mailto:' . $this->strOrganizerEMail;
             $oWriter->addProperty('ORGANIZER', $strValue, true, $aParams);
         }
-
         $oWriter->addProperty('DESCRIPTION', $this->strDescription);
         $oWriter->addProperty('SUMMARY', $this->strSubject);
-        $oWriter->addProperty('LOCATION', $this->strLocation);
+        $oWriter->addProperty('COMMENT', $this->strComment);
         $oWriter->addProperty('CATEGORIES', $this->strCategories, false);
-        $oWriter->addProperty('CLASS', $this->strClassification, false);
         $oWriter->addProperty('PRIORITY', (string) $this->iPriority, false);
-
-        $oWriter->addProperty('TRANSP', $this->strTrans, false);
         $oWriter->addProperty('STATUS', $this->strState, false);
         $oWriter->addProperty('CLASS', $this->strClassification, false);
         foreach ($this->aAttendee as $strAttendee) {
@@ -223,6 +255,6 @@ class iCalEvent extends iCalRecurrentComponent implements iCalAlarmParentInterfa
         if ($this->oAlarm !== null) {
             $this->oAlarm->writeData($oWriter);
         }
-        $oWriter->addProperty('END', 'VEVENT');
+        $oWriter->addProperty('END', 'VTODO');
     }
 }

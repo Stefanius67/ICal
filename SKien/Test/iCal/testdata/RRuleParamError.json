@@ -1,83 +1,74 @@
 [
     [
-        "Invalid FREQ - Parameter",
+        "#0: Invalid FREQ - Parameter",
         "FREQ=DAY;COUNT=10",
         "19970902T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "critical"
     ],
     [
-        "Invalid UNTIL - Parameter",
+        "#1: Invalid UNTIL - Parameter",
         "FREQ=DAILY;UNTIL=1997110T000000Z",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "critical"
     ],
     [
-        "Invalid COUNT - Parameter",
+        "#2: Invalid COUNT - Parameter",
         "FREQ=DAILY;COUNT=X",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "error"
     ],
     [
-        "Invalid INTERVAL - Parameter",
+        "#3: Invalid INTERVAL - Parameter",
         "FREQ=DAILY;INTERVAL=-1;COUNT=2",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "error"
     ],
     [
-        "Invalid BYMONTH - Parameter",
+        "#4: Invalid BYMONTH - Parameter",
         "FREQ=DAILY;COUNT=2;BYMONTH=1,6,13",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "critical"
     ],
     [
-        "Invalid BYDAY - Parameter",
+        "#5: Invalid BYDAY - Parameter",
         "FREQ=DAILY;COUNT=2;BYDAY=SO,DI",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "critical"
     ],
     [
-        "Invalid SETPOS - Parameter",
+        "#5: Invalid SETPOS - Parameter",
         "FREQ=DAILY;COUNT=2;BYSETPOS=400",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "critical"
     ],
     [
-        "UNTIL and COUNT set both",
+        "#6: UNTIL and COUNT set both",
         "FREQ=DAILY;COUNT=2;UNTIL=19971101T000000Z",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "critical"
     ],
     [
-        "WEEKNO and other FREQ than YEARLY",
+        "#7: WEEKNO and other FREQ than YEARLY",
         "FREQ=DAILY;COUNT=2;BYWEEKNO=10",
         "19971020T090000",
         "America\/New_York",
         "",
-        [
-        ]
+        "critical"
     ]
 ]

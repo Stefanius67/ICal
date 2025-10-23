@@ -1,0 +1,100 @@
+[
+    [
+        "Simple Test todo",
+        "TestToDo1.ics",
+        [],
+        {
+            "dtBegin":              "2025-09-20 20:00:00",
+            "dtDue":                "",
+            "iDuration":            null,
+            "iPercentComplete":     50,         
+            "strSubject":           "Test todo item 1 50 percent done...",
+            "strState":             "ACCEPTED",
+            "strClassification" :   "PUBLIC"
+        }
+    ],
+    [
+        "Todo with duration",
+        "TestToDo2.ics",
+        [],
+        {
+            "dtBegin":              "2025-09-20 20:00:00",
+            "dtDue":                "2025-10-04 20:00:00",
+            "iDuration":            1209600,
+            "iPercentComplete":     0,         
+            "strSubject":           "Todo with duration of 2 weeks",
+            "strState":             "ACCEPTED",
+            "strClassification" :   "PUBLIC"
+        }
+    ],
+    [
+        "Todo with X-property",
+        "TestToDo3.ics",
+        [
+            ["VTODO", "X-MOZ-PROJECT", "strProject"]
+        ],
+        {
+            "dtBegin":              "2025-09-20 20:00:00",
+            "dtDue":                "2025-10-04 20:00:00",
+            "iDuration":            1209600,
+            "iPercentComplete":     0,         
+            "strSubject":           "Todo with X-property",
+            "strState":             "ACCEPTED",
+            "strClassification" :   "PUBLIC",
+            "strProject":           "My Project"
+        }
+    ],
+    [
+        "Todo with alarm",
+        "TestToDo4.ics",
+        [],
+        {
+            "dtBegin":              "2025-09-20 20:00:00",
+            "dtDue":                "2025-10-04 20:00:00",
+            "iDuration":            1209600,
+            "iPercentComplete":     0,         
+            "strSubject":           "Todo with alarm",
+            "strState":             "ACCEPTED",
+            "strClassification" :   "PUBLIC",
+            "aAlarm":   {
+                "dtTrigger":        "2025-09-20 19:45:00",
+                "iTrigger":         -900,
+                "strAction":        "DISPLAY",
+                "strRelated":       "START"
+            }
+        }
+    ],
+    [
+        "Completed Todo",
+        "TestToDo5.ics",
+        [],
+        {
+            "dtBegin":              "2025-09-20 20:00:00",
+            "iPercentComplete":     100,         
+            "dtCompleted":          "2025-09-23 20:00:00",
+            "strSubject":           "Completed Todo",
+            "strState":             "ACCEPTED",
+            "strClassification" :   "PUBLIC"
+        }
+    ],
+    [
+        "Todo with DATE-TIME alarm",
+        "TestToDo6.ics",
+        [],
+        {
+            "dtBegin":              "2025-09-20 20:00:00",
+            "dtDue":                "2025-10-04 20:00:00",
+            "iDuration":            1209600,
+            "iPercentComplete":     0,         
+            "strSubject":           "Todo with DATE-TIME alarm",
+            "strState":             "ACCEPTED",
+            "strClassification" :   "PUBLIC",
+            "aAlarm":   {
+                "dtTrigger":        "2025-09-20 19:30:00",
+                "iTrigger":         -1800,
+                "strAction":        "DISPLAY",
+                "strRelated":       "START"
+            }
+        }
+   ]
+]

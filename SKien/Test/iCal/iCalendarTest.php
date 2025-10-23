@@ -6,7 +6,9 @@ namespace SKien\Test\iCal;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LogLevel;
+use SKien\iCal\Writer;
 use SKien\iCal\iCalEvent;
+use SKien\iCal\iCalToDo;
 use SKien\iCal\iCalendar;
 
 /**
@@ -49,15 +51,15 @@ class iCalendarTest extends TestCase
         $oLogger = new UnitTestLogger();
 
         $oICal->setLogger($oLogger);
-        $oICal->read(__DIR__ . '/testdata/Invalid1.ics');
+        $oICal->read(__DIR__ . '/testdata/InvalidEvent1.ics');
 
         $this->assertArrayHasKey(LogLevel::CRITICAL, $oLogger->getLog());
     }
 
     /**
-     * @dataProvider providerTestCases
+     * @dataProvider providerTestEvents
      */
-    public function test_read(string $strMsg, string $strFilename, array $aXProp,  array $aExpected) : void
+    public function test_readEvents(string $strMsg, string $strFilename, array $aXProp,  array $aExpected) : void
     {
         $oICal = new iCalendar();
         foreach ($aXProp as $aProp) {
@@ -70,9 +72,39 @@ class iCalendarTest extends TestCase
         }
     }
 
-    public function providerTestCases() : array
+    public function providerTestEvents() : array
     {
         $strJSON = file_get_contents(__DIR__ . '/testdata/VEventTestCases.json');
+        $aTestArray = json_decode($strJSON, true);
+
+        return $aTestArray;
+    }
+
+    /**
+     * @dataProvider providerTestTodos
+     */
+    public function test_readToDos(string $strMsg, string $strFilename, array $aXProp,  array $aExpected) : void
+    {
+        $oICal = new iCalendar();
+        foreach ($aXProp as $aProp) {
+            $oICal->defineXProperty($aProp[0], $aProp[1], $aProp[2]);
+        }
+        $this->assertEquals(1, $oICal->read(__DIR__ . '/testdata/' . $strFilename), $strMsg);
+        $aActual = $oICal->getToDos()[0]->fetchData();
+        foreach ($aExpected as $strKey => $value) {
+            if (is_array($value)) {
+                foreach ($value as $strSubKey => $subvalue) {
+                    $this->assertEquals($subvalue, $aActual[$strKey][$strSubKey], $strSubKey . ' - ' . $strMsg);
+                }
+            } else {
+                $this->assertEquals($value, $aActual[$strKey], $strKey . ' - ' . $strMsg);
+            }
+        }
+    }
+
+    public function providerTestTodos() : array
+    {
+        $strJSON = file_get_contents(__DIR__ . '/testdata/VToDoTestCases.json');
         $aTestArray = json_decode($strJSON, true);
 
         return $aTestArray;
@@ -90,7 +122,7 @@ class iCalendarTest extends TestCase
 
     public function providerNotSupportedCases() : array
     {
-        $strJSON = file_get_contents(__DIR__ . '/testdata/VEventNotSupportedCases.json');
+        $strJSON = file_get_contents(__DIR__ . '/testdata/NotSupportedCases.json');
         $aTestArray = json_decode($strJSON, true);
 
         return $aTestArray;
@@ -108,7 +140,7 @@ class iCalendarTest extends TestCase
 
     public function providerInvalidCases() : array
     {
-        $strJSON = file_get_contents(__DIR__ . '/testdata/VEventInvalidCases.json');
+        $strJSON = file_get_contents(__DIR__ . '/testdata/InvalidCases.json');
         $aTestArray = json_decode($strJSON, true);
 
         return $aTestArray;
@@ -118,7 +150,9 @@ class iCalendarTest extends TestCase
     {
         $oICal = new iCalendar();
         $oICal->forceInspectorOpen();
-        $strData = $oICal->buildData();
+        $oWriter = new Writer($oICal);
+        $oICal->writeData($oWriter);
+        $strData = $oWriter->getBuffer();
         $this->assertStringContainsString('X-MS-OLK-FORCEINSPECTOROPEN:TRUE', $strData);
     }
 
@@ -135,6 +169,7 @@ class iCalendarTest extends TestCase
     {
         $oICal = new iCalendar();
         $oICal->addEvent(new iCalEvent($oICal));
+        $oICal->addToDo(new iCalToDo($oICal));
         ob_start();
         $strFilename = $oICal->write();
         $strEcho = ob_get_contents();
@@ -146,17 +181,25 @@ class iCalendarTest extends TestCase
     public function test_readRRuleEvent() : void
     {
         $oICal = new iCalendar();
-        $this->assertEquals(12, $oICal->read(__DIR__ . '/testdata/Testcase6.ics'));
+        $this->assertEquals(12, $oICal->read(__DIR__ . '/testdata/TestEventRRule.ics'));
+    }
+
+    public function test_readRRuleToDo() : void
+    {
+        $oICal = new iCalendar();
+        $this->assertEquals(12, $oICal->read(__DIR__ . '/testdata/TestToDoRRule.ics'));
     }
 
     public function test_buildImportedEvent() : void
     {
         $oICal = new iCalendar();
-        $oICal->read(__DIR__ . '/testdata/Testcase5.ics');
+        $oICal->read(__DIR__ . '/testdata/TestEvent5.ics');
+        $oWriter = new Writer($oICal);
         $oEvent = $oICal->getEvents()[0];
-        $strData = $oEvent->buildData('');
-        $this->assertStringContainsString('DTSTART;TZID=Europe/Berlin;VALUE=DATE:20250716', $strData);
-        $this->assertStringContainsString('DTEND;TZID=Europe/Berlin;VALUE=DATE:20250718', $strData);
+        $oEvent->writeData($oWriter);
+        $strData = $oWriter->getBuffer();
+        $this->assertStringContainsString('DTSTART;VALUE=DATE;TZID=Europe/Berlin:20250716', $strData);
+        $this->assertStringContainsString('DTEND;VALUE=DATE;TZID=Europe/Berlin:20250718', $strData);
     }
 }
 
