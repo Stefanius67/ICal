@@ -153,7 +153,7 @@ class iCalendar implements LoggerAwareInterface
 	public function log(string $strLevel, string $strMessage, array $aContext = []) : void
 	{
 	    if ($this->iLine >= 0) {
-	        $aContext['Line'] = $this->iLine;
+	        $strMessage = 'Line ' . sprintf('%03d', $this->iLine) . ': ' . $strMessage;
 	    }
 	    $this->oLogger->log($strLevel, $strMessage, $aContext);
 	    if (isset($this->aLogCount[$strLevel])) {

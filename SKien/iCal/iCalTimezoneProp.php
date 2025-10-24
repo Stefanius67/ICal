@@ -171,7 +171,7 @@ class iCalTimezoneProp extends iCalComponent
      * @see iCalTimezoneProp::setOffsetTo()
      * @param string|int $rdate
      */
-    public function addRDate($rdate) : void
+    public function setRDate($rdate) : void
     {
         if (is_string($rdate)) {
             $strOffset = $this->strOffsetTo;
@@ -198,7 +198,7 @@ class iCalTimezoneProp extends iCalComponent
      * @see iCalTimezoneProp::setOffsetTo()
      * @param string|int $exdate
      */
-    public function addExcludeDate($exdate) : void
+    public function setExcludeDate($exdate) : void
     {
         if (is_string($exdate)) {
             $strOffset = $this->strOffsetTo;

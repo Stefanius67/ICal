@@ -19,9 +19,6 @@ class iCalEventReader extends Reader
 {
     public const COMPONENT_NAME = 'VEVENT';
 
-    /** @var iCalEvent  the event      */
-    protected iCalEvent $oEvent;
-
     /**
      * Create a event reader object.
      * @param iCalendar $oICalendar
@@ -29,7 +26,7 @@ class iCalEventReader extends Reader
     function __construct(iCalendar $oICalendar)
     {
         parent::__construct($oICalendar);
-        $this->oEvent = new iCalEvent($oICalendar);
+        $this->oItem = new iCalEvent($oICalendar);
     }
 
     /**
@@ -44,11 +41,11 @@ class iCalEventReader extends Reader
     {
         $bEnd = ($strLine == 'END:' . self::COMPONENT_NAME);
         if ($bEnd) {
-            $this->oEvent->validate();
-            $this->oICalendar->addItem($this->oEvent);
-            if ($this->oEvent->hasRecurrentItems()) {
+            $this->oItem->validate();
+            $this->oICalendar->addItem($this->oItem);
+            if ($this->oItem->hasRecurrentItems()) {
                 if ($this->oICalendar->getOption('createRecurrentItems', true) == true) {
-                    $this->oEvent->createRecurrentItems();
+                    $this->oItem->createRecurrentItems();
                 }
             }
         }
@@ -67,7 +64,7 @@ class iCalEventReader extends Reader
         //
         //      methodname(string strValue, array aParams)
         //
-        // or (string) property from iCalEvent ($this->oEvent)
+        // or (string) property from iCalEvent ($this->oItem)
         //
         //      settername(string strValue);
         //
@@ -81,9 +78,10 @@ class iCalEventReader extends Reader
             'ORGANIZER'     => 'parseOrganizer',
             'RDATE'         => 'parseRDate',
             'EXDATE'        => 'parseExcludeDate',
+            'DESCRIPTION'   => 'parseDescription',
+            'X-ALT-DESC'    => 'parseAltDescription',
             // iCalEvent setters
             'UID'           => 'setUID',
-            'DESCRIPTION'   => 'setDescription',
             'SUMMARY'       => 'setSubject',
             'COMMENT'       => 'setComment',
             'CATEGORIES'    => 'setCategories',
@@ -98,7 +96,7 @@ class iCalEventReader extends Reader
         if (isset($aMethodOrProperty[$strName])) {
             $strPtr = $aMethodOrProperty[$strName];
             $ownMethod = [$this, $strPtr];
-            $childMethod = [$this->oEvent, $strPtr];
+            $childMethod = [$this->oItem, $strPtr];
             if (is_callable($ownMethod)) {
                 // call own method
                 call_user_func_array($ownMethod, array($strName, $strValue, $aParams));
@@ -109,7 +107,7 @@ class iCalEventReader extends Reader
         } else {
             $strExtProperty = $this->oICalendar->getXProperty(self::COMPONENT_NAME, $strName);
             if ($strExtProperty !== null) {
-                $this->oEvent->setExtProperty($strExtProperty, $this->unmaskString($strValue));
+                $this->oItem->setExtProperty($strExtProperty, $this->unmaskString($strValue));
             }
         }
     }
@@ -129,21 +127,23 @@ class iCalEventReader extends Reader
      */
     protected function parseDtStart(string $strName, string $strValue, array $aParams) : void
     {
-        $uxtsStart = $this->parseDateTimeValue($strValue, $aParams);
-        if ($uxtsStart !== null) {
-            $this->oEvent->setStart($uxtsStart);
-            if (isset($aParams['TZID'])) {
-                // will may be needed if any duration is set...
-                $oTimezone = $this->oICalendar->getTimezone($aParams['TZID']);
-                if ($oTimezone !== null) {
-                    $this->oICalendar->setCalcTimezone($oTimezone);
-                } else {
-                    $this->oICalendar->log(LogLevel::ERROR, 'VEVENT: Invalid TZID specified!');
+        if ($this->oItem instanceof iCalEvent) {
+            $uxtsStart = $this->parseDateTimeValue($strValue, $aParams);
+            if ($uxtsStart !== null) {
+                $this->oItem->setStart($uxtsStart);
+                if (isset($aParams['TZID'])) {
+                    // will may be needed if any duration is set...
+                    $oTimezone = $this->oICalendar->getTimezone($aParams['TZID']);
+                    if ($oTimezone !== null) {
+                        $this->oICalendar->setCalcTimezone($oTimezone);
+                    } else {
+                        $this->oICalendar->log(LogLevel::ERROR, 'VEVENT: Invalid TZID specified!');
+                    }
                 }
-            }
-            if (($aParams['VALUE'] ?? '') === 'DATE') {
-                // if no time is set, we have an allday event
-                $this->oEvent->setAllDay(true);
+                if (($aParams['VALUE'] ?? '') === 'DATE') {
+                    // if no time is set, we have an allday event
+                    $this->oItem->setAllDay(true);
+                }
             }
         }
     }
@@ -156,13 +156,15 @@ class iCalEventReader extends Reader
      */
     protected function parseDtEnd(string $strName, string $strValue, array $aParams) : void
     {
-        if ($this->oEvent->getDuration() !== null) {
-            $this->oICalendar->log(LogLevel::WARNING, 'VEVENT: DTEND and DURATION MUST not be set for the same event (DTEND is ignored!)');
-            return;
-        }
-        $uxtsEnd = $this->parseDateTimeValue($strValue, $aParams);
-        if ($uxtsEnd !== null) {
-            $this->oEvent->setEnd($uxtsEnd);
+        if ($this->oItem instanceof iCalEvent) {
+            if ($this->oItem->getDuration() !== null) {
+                $this->oICalendar->log(LogLevel::WARNING, 'VEVENT: DTEND and DURATION MUST not be set for the same event (DTEND is ignored!)');
+                return;
+            }
+            $uxtsEnd = $this->parseDateTimeValue($strValue, $aParams);
+            if ($uxtsEnd !== null) {
+                $this->oItem->setEnd($uxtsEnd);
+            }
         }
     }
 
@@ -176,7 +178,7 @@ class iCalEventReader extends Reader
     {
         $uxtsLastModified = $this->parseDateTimeValue($strValue, $aParams);
         if ($uxtsLastModified !== null) {
-            $this->oEvent->setLastModified($uxtsLastModified);
+            $this->oItem->setLastModified($uxtsLastModified);
         }
     }
 
@@ -193,13 +195,15 @@ class iCalEventReader extends Reader
      */
     protected function parseDuration(string $strName, string $strValue, array $aParams) : void
     {
-        if ($this->oEvent->getEnd() !== null) {
-            $this->oICalendar->log(LogLevel::WARNING, 'VEVENT: DURATION and DTEND MUST not be set for the same event (DURATION is ignored!)');
-            return;
-        }
-        $iDuration = $this->parseDurationString($strValue, $this->oEvent->getAllDay());
-        if ($iDuration !== null) {
-            $this->oEvent->setDuration($iDuration);
+        if ($this->oItem instanceof iCalEvent) {
+            if ($this->oItem->getEnd() !== null) {
+                $this->oICalendar->log(LogLevel::WARNING, 'VEVENT: DURATION and DTEND MUST not be set for the same event (DURATION is ignored!)');
+                return;
+            }
+            $iDuration = $this->parseDurationString($strValue, $this->oItem->getAllDay());
+            if ($iDuration !== null) {
+                $this->oItem->setDuration($iDuration);
+            }
         }
     }
 
@@ -218,7 +222,7 @@ class iCalEventReader extends Reader
         if ($iPos !== false) {
             $strOrganizerEMail = substr($strValue, $iPos + 7);
         }
-        $this->oEvent->setOrganizer($strOrganizerName, $strOrganizerEMail);
+        $this->oItem->setOrganizer($strOrganizerName, $strOrganizerEMail);
     }
 
     /**
@@ -229,7 +233,7 @@ class iCalEventReader extends Reader
      */
     protected function parseRDate(string $strName, string $strValue, array $aParams) : void
     {
-        $this->oEvent->addRDate($this->parseDateTimeList($strValue, $aParams));
+        $this->oItem->addRDate($this->parseDateTimeList($strValue, $aParams));
     }
 
     /**
@@ -240,7 +244,7 @@ class iCalEventReader extends Reader
      */
     protected function parseExcludeDate(string $strName, string $strValue, array $aParams) : void
     {
-        $this->oEvent->addExcludeDate($this->parseDateTimeList($strValue, $aParams));
+        $this->oItem->addExcludeDate($this->parseDateTimeList($strValue, $aParams));
     }
 
     /**
@@ -251,7 +255,9 @@ class iCalEventReader extends Reader
     protected function beginAlarmProp(string $strName, string $strValue, array $aParams) : void
     {
         if ($strValue == 'VALARM') {
-            $this->oReader = new iCalAlarmReader($this->oEvent);
+            if ($this->oItem instanceof iCalAlarmParentInterface) {
+                $this->oReader = new iCalAlarmReader($this->oItem);
+            }
         }
     }
 }

@@ -92,8 +92,8 @@ class iCalTimezoneReader extends Reader
             'TZOFFSETFROM'      => 'setOffsetFrom',
             'TZOFFSETTO'        => 'setOffsetTo',
             'RRULE'             => 'setRRule',
-            'RDATE'             => 'addRDate',
-            'EXDATE'            => 'addExcludeDate',
+            'RDATE'             => 'setRDate',
+            'EXDATE'            => 'setExcludeDate',
         ];
 
         if (isset($aMethodOrProperty[$strName])) {

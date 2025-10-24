@@ -177,11 +177,13 @@ class iCalTimezone extends iCalComponent
         }
         ksort($this->aTimeOffsetList);
 
-        $aContext = [];
-        foreach ($this->aTimeOffsetList as $uxts => $strOffset) {
-            $aContext[date('Y-m-d H:i:s', $uxts)] = $strOffset;
+        if ($this->oICalendar->getOption('logTimezoneOffsetList') === true) {
+            $aContext = [];
+            foreach ($this->aTimeOffsetList as $uxts => $strOffset) {
+                $aContext[date('Y-m-d H:i:s', $uxts)] = $strOffset;
+            }
+            $this->oICalendar->log(LogLevel::INFO, "Timezone [{$this->strTZID}]: created TimeoffsetList.", $aContext);
         }
-        $this->oICalendar->log(LogLevel::INFO, "Timezone [{$this->strTZID}]: created TimeoffsetList.", $aContext);
     }
 
     /**

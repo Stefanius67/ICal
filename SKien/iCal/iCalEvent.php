@@ -123,38 +123,14 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * Adds further RDate value(s) to the recurrent list.
-     * @param array<int> $aRDate
-     */
-    public function addRDate(array $aRDate) : void
-    {
-        $this->aRDate = array_merge($this->aRDate, $aRDate);
-    }
-
-    /**
-     * Adds further date(s) to exclude from the recurrent list.
-     * @param array<int> $aExdate
-     */
-    public function addExcludeDate(array $aExdate) : void
-    {
-        $this->aExcludeDates = array_merge($this->aExcludeDates, $aExdate);
-    }
-
-    /**
-     * Checks, if the event has further, recurrent siblings.
-     * @return bool
-     */
-    public function hasRecurrentItems() : bool
-    {
-        return $this->strRRule !== null;
-    }
-
-    /**
      * Creates and embed an alarm component.
      * @return iCalAlarm
      */
     public function createAlarm(): iCalAlarm
     {
+        if ($this->oAlarm !== null) {
+            $this->oICalendar->log(LogLevel::WARNING, 'The VEVENT contains multiple VALARM. Only the last one ist taken!');
+        }
         $this->oAlarm = new iCalAlarm($this);
         return $this->oAlarm;
     }

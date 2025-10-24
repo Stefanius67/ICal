@@ -55,6 +55,8 @@ abstract class iCalComponent
     protected string $strSubject = '';
     /** @var string description                  */
     protected string $strDescription = '';
+    /** @var string description in HTML format                  */
+    protected string $strHtmlDescription = '';
     /** @var string a description of the component     */
     protected string $strComment = '';
     /** @var int    unix timestamp last modified        */
@@ -195,6 +197,30 @@ abstract class iCalComponent
     public function getDescription() : string
     {
         return $this->strDescription;
+    }
+
+    /**
+     * @param string $strDescription
+     */
+    public function setHtmlDescription(?string $strDescription) : void
+    {
+        $this->strHtmlDescription = $strDescription ?? '';
+    }
+
+    /**
+     * @return string
+     */
+    public function getHtmlDescription() : string
+    {
+        return $this->strHtmlDescription;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasHtmlDescription() : bool
+    {
+        return !empty($this->strHtmlDescription);
     }
 
     /**
@@ -382,6 +408,33 @@ abstract class iCalComponent
     public function getRRule() : string
     {
         return $this->strRRule;
+    }
+
+    /**
+     * Adds further RDate value(s) to the recurrent list.
+     * @param array<int> $aRDate
+     */
+    public function addRDate(array $aRDate) : void
+    {
+        $this->aRDate = array_merge($this->aRDate, $aRDate);
+    }
+
+    /**
+     * Adds further date(s) to exclude from the recurrent list.
+     * @param array<int> $aExdate
+     */
+    public function addExcludeDate(array $aExdate) : void
+    {
+        $this->aExcludeDates = array_merge($this->aExcludeDates, $aExdate);
+    }
+
+    /**
+     * Checks, if the event has further, recurrent siblings.
+     * @return bool
+     */
+    public function hasRecurrentItems() : bool
+    {
+        return $this->strRRule !== null;
     }
 
     /**

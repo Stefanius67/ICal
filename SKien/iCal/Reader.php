@@ -19,6 +19,8 @@ abstract class Reader
 
     /** @var Reader sub-reader for nested components (VTIMEZONE, VEVENT, ...)     */
     protected ?Reader $oReader = null;
+    /** @var iCalComponent  the component that currently is readed      */
+    protected iCalComponent $oItem;
 
     /**
      * @param iCalendar $oICalendar
@@ -241,6 +243,61 @@ abstract class Reader
             }
         }
         return $aResult;
+    }
+
+    /**
+     * Parsing of the description.
+     * Some agents use the ALTREP param for a HTML representation of the
+     * description (Thunderbird, ...).
+     * @param string $strName
+     * @param string $strValue
+     * @param array<string,string> $aParams
+     */
+    protected function parseDescription(string $strName, string $strValue, array $aParams) : void
+    {
+        if (isset($aParams['ALTREP'])) {
+            $strAltRep = $aParams['ALTREP'];
+            if (strtolower(substr($strAltRep, 0, 15)) == 'data:text/html,') {
+                $strHTML = rawurldecode(substr($strAltRep, 15));
+                $this->oItem->setHtmlDescription($strHTML);
+            }
+        }
+        $strDescription = $this->unmaskString($strValue);
+        if ($strDescription != strip_tags($strDescription)) {
+            // GoogleCalendar writes the HTML directly into the DESCRIPTION property
+            $this->oItem->setHtmlDescription($strDescription);
+            $this->oItem->setDescription(strip_tags($strDescription));
+        } else {
+            $this->oItem->setDescription($strDescription);
+        }
+    }
+
+    /**
+     * Parsing of the alternative description.
+     * The X-ALT-DESCR property does not belong to the RFC 5545 spec but is
+     * commonly used by a lot of agents. (MS-Outlook, eM-Client, ...).
+     * @param string $strName
+     * @param string $strValue
+     * @param array<string,string> $aParams
+     */
+    protected function parseAltDescription(string $strName, string $strValue, array $aParams) : void
+    {
+        $strFmtTYpe = $aParams['FMTTYPE'] ?? '';
+        if (strtolower($strFmtTYpe) == 'text/html') {
+            $strHTML = $this->unmaskString($strValue);
+            if ($this->oICalendar->getOption('removeHtmlBody', true) == true) {
+                // some agents deploy full `<HTML><HEAD>...</HEAD><BODY> .... </BODY></HTML>` block...
+                $iBody = strpos(strtolower($strHTML), '<body>');
+                if ($iBody !== false) {
+                    $strHTML = substr($strHTML, $iBody + 6);
+                    $iBody = strrpos(strtolower($strHTML), '</body>');
+                    if ($iBody !== false) {
+                        $strHTML = substr($strHTML, 0, $iBody);
+                    }
+                }
+            }
+            $this->oItem->setHtmlDescription($strHTML);
+        }
     }
 
     /**

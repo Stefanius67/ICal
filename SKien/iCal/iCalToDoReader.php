@@ -19,9 +19,6 @@ class iCalToDoReader extends Reader
 {
     public const COMPONENT_NAME = 'VTODO';
 
-    /** @var iCalToDo  the todo item      */
-    protected iCalToDo $oToDo;
-
     /**
      * Creates a todo reader object.
      * @param iCalendar $oICalendar
@@ -29,7 +26,7 @@ class iCalToDoReader extends Reader
     function __construct(iCalendar $oICalendar)
     {
         parent::__construct($oICalendar);
-        $this->oToDo = new iCalToDo($oICalendar);
+        $this->oItem = new iCalToDo($oICalendar);
     }
 
     /**
@@ -44,11 +41,11 @@ class iCalToDoReader extends Reader
     {
         $bEnd = ($strLine == 'END:' . self::COMPONENT_NAME);
         if ($bEnd) {
-            $this->oToDo->validate();
-            $this->oICalendar->addItem($this->oToDo);
-            if ($this->oToDo->hasRecurrentItems()) {
+            $this->oItem->validate();
+            $this->oICalendar->addItem($this->oItem);
+            if ($this->oItem->hasRecurrentItems()) {
                 if ($this->oICalendar->getOption('createRecurrentItems', true) == true) {
-                    $this->oToDo->createRecurrentItems();
+                    $this->oItem->createRecurrentItems();
                 }
             }
         }
@@ -82,10 +79,11 @@ class iCalToDoReader extends Reader
             'ORGANIZER'         => 'parseOrganizer',
             'RDATE'             => 'parseRDate',
             'EXDATE'            => 'parseExcludeDate',
+            'DESCRIPTION'   => 'parseDescription',
+            'X-ALT-DESC'    => 'parseAltDescription',
             // iCalToDo setters
             'UID'               => 'setUID',
             'PERCENT-COMPLETE'  => 'setPercentComplete',
-            'DESCRIPTION'       => 'setDescription',
             'SUMMARY'           => 'setSubject',
             'COMMENT'           => 'setComment',
             'CATEGORIES'        => 'setCategories',
@@ -100,7 +98,7 @@ class iCalToDoReader extends Reader
         if (isset($aMethodOrProperty[$strName])) {
             $strPtr = $aMethodOrProperty[$strName];
             $ownMethod = [$this, $strPtr];
-            $childMethod = [$this->oToDo, $strPtr];
+            $childMethod = [$this->oItem, $strPtr];
             if (is_callable($ownMethod)) {
                 // call own method
                 call_user_func_array($ownMethod, array($strName, $strValue, $aParams));
@@ -111,7 +109,7 @@ class iCalToDoReader extends Reader
         } else {
             $strExtProperty = $this->oICalendar->getXProperty(self::COMPONENT_NAME, $strName);
             if ($strExtProperty !== null) {
-                $this->oToDo->setExtProperty($strExtProperty, $this->unmaskString($strValue));
+                $this->oItem->setExtProperty($strExtProperty, $this->unmaskString($strValue));
             }
         }
     }
@@ -126,7 +124,7 @@ class iCalToDoReader extends Reader
     {
         $uxtsStart = $this->parseDateTimeValue($strValue, $aParams);
         if ($uxtsStart !== null) {
-            $this->oToDo->setStart($uxtsStart);
+            $this->oItem->setStart($uxtsStart);
             if (isset($aParams['TZID'])) {
                 // will may be needed if any duration is set...
                 $oTimezone = $this->oICalendar->getTimezone($aParams['TZID']);
@@ -145,11 +143,13 @@ class iCalToDoReader extends Reader
      */
     protected function parseDue(string $strName, string $strValue, array $aParams) : void
     {
-        if ($this->oToDo->getDuration() !== null) {
-            $this->oICalendar->log(LogLevel::WARNING, 'VTODO: DUE and DURATION MUST not be set for the same todo item (DUE is ignored!)');
-            return;
+        if ($this->oItem instanceof iCalToDo) {
+            if ($this->oItem->getDuration() !== null) {
+                $this->oICalendar->log(LogLevel::WARNING, 'VTODO: DUE and DURATION MUST not be set for the same todo item (DUE is ignored!)');
+                return;
+            }
+            $this->oItem->setDue($this->parseDateTimeValue($strValue, $aParams));
         }
-        $this->oToDo->setDue($this->parseDateTimeValue($strValue, $aParams));
     }
 
     /**
@@ -162,7 +162,7 @@ class iCalToDoReader extends Reader
     {
         $uxtsLastModified = $this->parseDateTimeValue($strValue, $aParams);
         if ($uxtsLastModified !== null) {
-            $this->oToDo->setLastModified($uxtsLastModified);
+            $this->oItem->setLastModified($uxtsLastModified);
         }
     }
 
@@ -174,9 +174,11 @@ class iCalToDoReader extends Reader
      */
     protected function parseDtCompleted(string $strName, string $strValue, array $aParams) : void
     {
-        $uxtsCompleted = $this->parseDateTimeValue($strValue, $aParams);
-        if ($uxtsCompleted !== null) {
-            $this->oToDo->setCompleted($uxtsCompleted);
+        if ($this->oItem instanceof iCalToDo) {
+            $uxtsCompleted = $this->parseDateTimeValue($strValue, $aParams);
+            if ($uxtsCompleted !== null) {
+                $this->oItem->setCompleted($uxtsCompleted);
+            }
         }
     }
 
@@ -188,13 +190,15 @@ class iCalToDoReader extends Reader
      */
     protected function parseDuration(string $strName, string $strValue, array $aParams) : void
     {
-        if ($this->oToDo->getDue() !== null) {
-            $this->oICalendar->log(LogLevel::WARNING, 'VTODO: DURATION and DUE MUST not be set for the same todo item (DURATION is ignored!)');
-            return;
-        }
-        $iDuration = $this->parseDurationString($strValue);
-        if ($iDuration !== null) {
-            $this->oToDo->setDuration($iDuration);
+        if ($this->oItem instanceof iCalToDo) {
+            if ($this->oItem->getDue() !== null) {
+                $this->oICalendar->log(LogLevel::WARNING, 'VTODO: DURATION and DUE MUST not be set for the same todo item (DURATION is ignored!)');
+                return;
+            }
+            $iDuration = $this->parseDurationString($strValue);
+            if ($iDuration !== null) {
+                $this->oItem->setDuration($iDuration);
+            }
         }
     }
 
@@ -213,7 +217,7 @@ class iCalToDoReader extends Reader
         if ($iPos !== false) {
             $strOrganizerEMail = substr($strValue, $iPos + 7);
         }
-        $this->oToDo->setOrganizer($strOrganizerName, $strOrganizerEMail);
+        $this->oItem->setOrganizer($strOrganizerName, $strOrganizerEMail);
     }
 
     /**
@@ -224,7 +228,7 @@ class iCalToDoReader extends Reader
      */
     protected function parseRDate(string $strName, string $strValue, array $aParams) : void
     {
-        $this->oToDo->addRDate($this->parseDateTimeList($strValue, $aParams));
+        $this->oItem->addRDate($this->parseDateTimeList($strValue, $aParams));
     }
 
     /**
@@ -235,7 +239,7 @@ class iCalToDoReader extends Reader
      */
     protected function parseExcludeDate(string $strName, string $strValue, array $aParams) : void
     {
-        $this->oToDo->addExcludeDate($this->parseDateTimeList($strValue, $aParams));
+        $this->oItem->addExcludeDate($this->parseDateTimeList($strValue, $aParams));
     }
 
     /**
@@ -246,7 +250,9 @@ class iCalToDoReader extends Reader
     protected function beginAlarmProp(string $strName, string $strValue, array $aParams) : void
     {
         if ($strValue == 'VALARM') {
-            $this->oReader = new iCalAlarmReader($this->oToDo);
+            if ($this->oItem instanceof iCalAlarmParentInterface) {
+                $this->oReader = new iCalAlarmReader($this->oItem);
+            }
         }
     }
 }
