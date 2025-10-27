@@ -12,3 +12,4 @@ parameters:
 		- SKien/iCal
 	scanDirectories:
 		- Vendor/Psr/Log
+		- Vendor/Soundasleep
