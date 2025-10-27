@@ -28,8 +28,6 @@ class iCalTimezoneProp extends iCalComponent
     protected string $strRRule = '';
     /** @var array<int> RDATE     */
     protected array $aRDate = [];
-    /** @var array<int> EXDATE     */
-    protected array $aExcludeDates = [];
 
     /**
      * Creates a instance of a iCalTimezoneProp property.
@@ -147,9 +145,6 @@ class iCalTimezoneProp extends iCalComponent
             foreach (array_keys($this->aRDate) as $i) {
                 $this->aRDate[$i] -= $iOffset;
             }
-            foreach (array_keys($this->aExcludeDates) as $i) {
-                $this->aExcludeDates[$i] -= $iOffset;
-            }
         }
     }
 
@@ -189,33 +184,6 @@ class iCalTimezoneProp extends iCalComponent
     }
 
     /**
-     * Adds another date to exclude from the list.
-     * Note: In the context of the timezone, this value MUST contain DATE-TIME(s)
-     * without timezone-specifier. <br>
-     * The same problem exists concerning the succession of 'ExDate(s)' and
-     * 'offsetTo'. <br>
-     * @see iCalTimezoneProp::setStart()
-     * @see iCalTimezoneProp::setOffsetTo()
-     * @param string|int $exdate
-     */
-    public function setExcludeDate($exdate) : void
-    {
-        if (is_string($exdate)) {
-            $strOffset = $this->strOffsetTo;
-            if (empty($this->strOffsetTo)) {
-                $strOffset = 'Z';
-            }
-            $aExDate = explode(',', $exdate);
-            foreach ($aExDate as $strExDate) {
-                $dtExDate = new \DateTime($strExDate . $strOffset);
-                $this->aExcludeDates[] = $dtExDate->getTimestamp();
-            }
-        } else {
-            $this->aExcludeDates[] = $exdate;
-        }
-    }
-
-    /**
      * Write the component data to the Writer instance.
      * {@inheritDoc}
      * @see \SKien\iCal\iCalComponent::writeData()
@@ -229,6 +197,9 @@ class iCalTimezoneProp extends iCalComponent
         $oWriter->addProperty('DTSTART', date('Ymd\THis', $this->uxtsStart));
         if (!empty($this->strRRule)) {
             $oWriter->addProperty('RRULE', $this->strRRule, false);
+        }
+        foreach ($this->aRDate as $uxtsRDate) {
+            $oWriter->addProperty('RDATE', date('Ymd\THis', $uxtsRDate));
         }
         $oWriter->addProperty('END', $this->strComponentName);
     }

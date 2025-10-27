@@ -83,7 +83,9 @@ abstract class iCalComponent
     protected string $strRRule = '';
     /** @var array<int> RDATE     */
     protected array $aRDate = [];
-    /** @var array<int> EXDATE     */
+    /** @var array<int> EXDATE  date-time value   */
+    protected array $aExcludeDateTimes = [];
+    /** @var array<int> EXDATE  date values (needs separate handling)   */
     protected array $aExcludeDates = [];
     /** @var int    unix timestamp min. start for optimization       */
     protected ?int $uxtsMinStart = null;
@@ -422,10 +424,15 @@ abstract class iCalComponent
     /**
      * Adds further date(s) to exclude from the recurrent list.
      * @param array<int> $aExdate
+     * @param bool $bExcludeDay     if true, all timestamps of the day are axcluded
      */
-    public function addExcludeDate(array $aExdate) : void
+    public function addExcludeDate(array $aExdate, bool $bExcludeDay) : void
     {
-        $this->aExcludeDates = array_merge($this->aExcludeDates, $aExdate);
+        if ($bExcludeDay) {
+            $this->aExcludeDates = array_merge($this->aExcludeDates, $aExdate);
+        } else {
+            $this->aExcludeDateTimes = array_merge($this->aExcludeDateTimes, $aExdate);
+        }
     }
 
     /**
@@ -464,7 +471,8 @@ abstract class iCalComponent
                 $oCalcTimezone = $this->oICalendar->getCalcTimezone();
                 $strTZID = $oCalcTimezone ? $oCalcTimezone->getTZID() : '';
                 $oRRule = new iCalRecurrenceRule($this->oICalendar, $this->strRRule);
-                $oRRule->setExcludeDates($this->aExcludeDates);
+                $oRRule->setExcludeDates($this->aExcludeDateTimes, false);
+                $oRRule->setExcludeDates($this->aExcludeDates, true);
                 $aResult = $oRRule->getDateList($uxtsStart, 0, $strTZID);
             } else {
                 // there's no RRULE specified...

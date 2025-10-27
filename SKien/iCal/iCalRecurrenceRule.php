@@ -48,8 +48,10 @@ class iCalRecurrenceRule
     /** @var int                yearday value (+/- 1...366)     */
     protected ?int $iBySetpos = null;
 
+    /** @var array<int>         date-times to exclude from list     */
+    protected array $aExcludeDateTimes = [];
     /** @var array<int>         dates to exclude from list     */
-    protected array $aExclude = [];
+    protected array $aExcludeDates = [];
     /** @var int                begin of the week (0 => SO; 1 => MO     */
     protected int $iWKST = 0;
     /** @var array<string,int>  weekdaynames => numbers     */
@@ -278,23 +280,39 @@ class iCalRecurrenceRule
 
     /**
      * Adds a date to the exclude list.
+     * @see iCalRecurrenceRule::setExcludeDates()
      * @param int $uxtsExDate
+     * @param bool $bExcludeDay     if true, all timestamps of the day are axcluded
      */
-    public function addExcludeDate(int $uxtsExDate) : void
+    public function addExcludeDate(int $uxtsExDate, bool $bExcludeDay = false) : void
     {
-        $this->aExclude[$uxtsExDate] = 1;
+        if ($bExcludeDay) {
+            $uxtsDay = $this->getDay($uxtsExDate);
+            $this->aExcludeDates[$uxtsDay] = 1;
+        } else {
+            $this->aExcludeDateTimes[$uxtsExDate] = 1;
+        }
     }
 
     /**
-     * Sets a complete array of dates to exclude.
+     * Sets the complete array of dates to exclude.
      * We use the timestamp as aray-key; so later we just have to use 'isset'
-     * to check, if a timestamp have to be excluded. The value itself is meaningless.
-     * @param array<int> $aExclude
+     * to check, if a timestamp have to be excluded. The value itself is meaningless.  <br>
+     * <br>
+     * > In order to decide whether an exact timestamp should be excluded or all  <br>
+     * > timestamps within a specific day, two separate lists must be maintained  <br>
+     * > (the timestamp alone gives no information about this).  <br>
+     * @param array<int> $aExcludeDates
+     * @param bool $bExcludeDay     if true, all timestamps of the day are axcluded
      */
-    public function setExcludeDates(array $aExclude) : void
+    public function setExcludeDates(array $aExcludeDates, bool $bExcludeDay = false) : void
     {
-        $aExclude = array_unique($aExclude);
-        $this->aExclude = array_flip($aExclude);
+        $aExcludeDates = array_unique($aExcludeDates);
+        if ($bExcludeDay) {
+            $this->aExcludeDates = array_flip($aExcludeDates);
+        } else {
+            $this->aExcludeDateTimes = array_flip($aExcludeDates);
+        }
     }
 
     /**
@@ -853,9 +871,17 @@ class iCalRecurrenceRule
      */
     protected function addResult(int $uxtsDate) : void
     {
-        if (count($this->aExclude) > 0) {
+        if (count($this->aExcludeDateTimes) > 0) {
             // skip, if date contains to the exclude list
-            if (isset($this->aExclude[$uxtsDate])) {
+            if (isset($this->aExcludeDateTimes[$uxtsDate])) {
+                return;
+            }
+        }
+        if (count($this->aExcludeDates) > 0) {
+            // ... a bit more complicated - check if the timestamp to add
+            // belongs to a day that have to be excluded
+            $uxtsDay = $this->getDay($uxtsDate);
+            if (isset($this->aExcludeDates[$uxtsDay])) {
                 return;
             }
         }
