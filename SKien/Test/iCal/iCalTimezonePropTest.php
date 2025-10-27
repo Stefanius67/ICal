@@ -108,7 +108,7 @@ class iCalTimezonePropTest extends TestCase
     {
         $oProp = new iCalTimezoneProp($this->oTimezone, iCalTimezoneProp::DAYLIGHT);
         $oProp->setStart('20250327T020000');
-        $oProp->addRDate('20260328T020000');
+        $oProp->setRDate('20260328T020000');
         $aExpected = [
             gmmktime(2, 0, 0, 3, 27, 2025),
             gmmktime(2, 0, 0, 3, 28, 2026),
@@ -122,26 +122,6 @@ class iCalTimezonePropTest extends TestCase
         $this->assertEquals($aExpected, $oProp->getRecurrentDates());
     }
 
-    public function test_setOffsetToAfterExDate() : void
-    {
-        $oProp = new iCalTimezoneProp($this->oTimezone, iCalTimezoneProp::DAYLIGHT);
-        $oProp->setStart('20250101T020000');
-        $oProp->setRRule('FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3;UNTIL=20280401T000000Z');
-        $oProp->addExcludeDate(gmmktime(2, 0, 0, 3, 29, 2026));
-        $oProp->addExcludeDate('2027-03-28 02:00:00');
-        $oProp->setOffsetTo('-0200');
-        $func = function(int $uxts): string {
-            return date('Y-m-d H:i:s', $uxts);
-        };
-        $aDates = array_map($func, $oProp->getRecurrentDates());
-
-        $aExpected = [
-            '2025-03-30 04:00:00',
-            '2028-03-26 04:00:00',
-        ];
-        $this->assertEquals($aExpected, $aDates);
-    }
-
     public function test_setRRule() : void
     {
         $oProp = new iCalTimezoneProp($this->oTimezone, iCalTimezoneProp::DAYLIGHT);
@@ -149,35 +129,16 @@ class iCalTimezonePropTest extends TestCase
         $this->assertEquals('FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3', $oProp->getRRule());
     }
 
-    public function test_addRDate() : void
+    public function test_setRDate() : void
     {
         $oProp = new iCalTimezoneProp($this->oTimezone, iCalTimezoneProp::DAYLIGHT);
         $oProp->setStart('20250327T020000');
-        $oProp->addRDate(gmmktime(2, 0, 0, 3, 28, 2026));
+        $oProp->setRDate(gmmktime(2, 0, 0, 3, 28, 2026));
         $aExpected = [
             gmmktime(2, 0, 0, 3, 27, 2025),
             gmmktime(2, 0, 0, 3, 28, 2026),
         ];
         $this->assertEquals($aExpected, $oProp->getRecurrentDates());
-    }
-
-    public function test_addExcludeDate() : void
-    {
-        $oProp = new iCalTimezoneProp($this->oTimezone, iCalTimezoneProp::DAYLIGHT);
-        $oProp->setStart('20250101T020000');
-        $oProp->setRRule('FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3;UNTIL=20280401T000000Z');
-        $oProp->addExcludeDate(gmmktime(2, 0, 0, 3, 29, 2026));
-        $oProp->addExcludeDate('2027-03-28 02:00:00');
-        $func = function(int $uxts): string {
-            return date('Y-m-d H:i:s', $uxts);
-        };
-        $aDates = array_map($func, $oProp->getRecurrentDates());
-
-        $aExpected = [
-            '2025-03-30 02:00:00',
-            '2028-03-26 02:00:00',
-        ];
-        $this->assertEquals($aExpected, $aDates);
     }
 
     public function test_getRecurrentDates() : void
@@ -205,8 +166,7 @@ class iCalTimezonePropTest extends TestCase
         $oProp->setName('TestTZ');
         $oProp->setOffsetFrom('-0200');
         $oProp->setOffsetTo('-0100');
-        $oProp->addRDate('20260328T020000');
-        $oProp->addExcludeDate('2027-03-28 02:00:00');
+        $oProp->setRDate('20260328T020000');
         $oProp->setRRule('FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3;UNTIL=20270330T000000Z');
         $strTimezone = <<<TZ_DEF
             BEGIN:DAYLIGHT
@@ -215,6 +175,7 @@ class iCalTimezonePropTest extends TestCase
             TZNAME:TestTZ
             DTSTART:20250101T030000
             RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3;UNTIL=20270330T000000Z
+            RDATE:20260328T030000
             END:DAYLIGHT
             TZ_DEF;
         $strTimezone = str_replace("\r", "", $strTimezone);

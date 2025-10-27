@@ -168,8 +168,8 @@ class iCalendarTest extends TestCase
     public function test_write() : void
     {
         $oICal = new iCalendar();
-        $oICal->addEvent(new iCalEvent($oICal));
-        $oICal->addToDo(new iCalToDo($oICal));
+        $oICal->addItem(new iCalEvent($oICal));
+        $oICal->addItem(new iCalToDo($oICal));
         ob_start();
         $strFilename = $oICal->write();
         $strEcho = ob_get_contents();
@@ -184,10 +184,35 @@ class iCalendarTest extends TestCase
         $this->assertEquals(12, $oICal->read(__DIR__ . '/testdata/TestEventRRule.ics'));
     }
 
+    public function test_readRRuleEvent2() : void
+    {
+        // this RRule event contains a EXDATE of type 'DATE'
+        $oICal = new iCalendar();
+        $this->assertEquals(5, $oICal->read(__DIR__ . '/testdata/TestEventRRule2.ics'));
+    }
+
+    public function test_readRRuleEventNotCreate() : void
+    {
+        $aOptions = [
+            'createRecurrentItems' => false,
+        ];
+        $oICal = new iCalendar('test', $aOptions);
+        $this->assertEquals(1, $oICal->read(__DIR__ . '/testdata/TestEventRRule.ics'));
+    }
+
     public function test_readRRuleToDo() : void
     {
         $oICal = new iCalendar();
         $this->assertEquals(12, $oICal->read(__DIR__ . '/testdata/TestToDoRRule.ics'));
+    }
+
+    public function test_readRRuleToDoNotCreate() : void
+    {
+        $aOptions = [
+            'createRecurrentItems' => false,
+        ];
+        $oICal = new iCalendar('test', $aOptions);
+        $this->assertEquals(1, $oICal->read(__DIR__ . '/testdata/TestToDoRRule.ics'));
     }
 
     public function test_buildImportedEvent() : void

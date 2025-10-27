@@ -73,5 +73,13 @@ class iCalTimezoneTest extends TestCase
         $strData = trim($this->oWriter->getBuffer());
         $this->assertEquals($strTimezone, $strData);
     }
+
+    public function test_logTimezoneOffsetList() : void
+    {
+        $aOption = ['logTimezoneOffsetList' => true];
+        $oICal = new iCalendar('test', $aOption);
+        $oICal->read(__DIR__ . '/testdata/TestEventRRule.ics');
+        $this->assertArrayHasKey('info', $oICal->getLogCount());
+    }
 }
 

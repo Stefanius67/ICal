@@ -60,7 +60,7 @@ class iCalEventTest extends TestCase
         $this->fetchAndAssert('strUID', 'UID', 'unique.id');
     }
 
-    public function test_setDescription() : void
+    public function test_setDescription1() : void
     {
         $strDescr  = 'some Testdescription. This linebreak is at pos 74 for test:   \n';
         $strDescr .= 'This iCal line and have to be folded!\n';
@@ -68,6 +68,55 @@ class iCalEventTest extends TestCase
         $this->oEvent->setDescription($strDescr);
         $this->assertEquals($strDescr, $this->oEvent->getDescription());
         $this->fetchAndAssert('strDescription', 'DESCRIPTION', $strDescr);
+    }
+
+    public function test_setDescription2() : void
+    {
+        // test the converting from plain text to HTML
+        $strDescr  = 'plain text' . PHP_EOL . PHP_EOL . PHP_EOL . 'with 2 paragraphs!';
+        $strHtmlDescr  = '<p>plain text</p><p>with 2 paragraphs!</p>';
+        $this->oEvent->setDescription($strDescr);
+        $this->oEvent->writeData($this->oWriter, 'Europe/Berlin');
+        $strData = $this->oWriter->getBuffer();
+        $strTest = $this->oWriter->foldLine('X-ALT-DESC:' . $strHtmlDescr);
+        $this->assertStringContainsString($strTest, $strData);
+    }
+
+    public function test_setDescription3() : void
+    {
+        // test the converting URLs from plain text to HTML
+        $strDescr  = 'http://www.testdomain.de/any/subpage.php?x=1&y=2';
+        $strHtmlDescr  = '<p><a href="http://www.testdomain.de/any/subpage.php?x=1&y=2">www.testdomain.de</a></p>';
+        $this->oEvent->setDescription($strDescr);
+        $this->oEvent->writeData($this->oWriter, 'Europe/Berlin');
+        $strData = $this->oWriter->getBuffer();
+        $strTest = $this->oWriter->foldLine('X-ALT-DESC:' . $strHtmlDescr);
+        $this->assertStringContainsString($strTest, $strData);
+    }
+
+    public function test_setDescription4() : void
+    {
+        // test the converting from plain text to HTML
+        $strDescr  = 'HTML header\n\nwith 1 paragraph!';
+        $strHtmlDescr  = '<h1>HTML header</h1><p>with 1 paragraph!</p>';
+        $this->oEvent->setDescription($strHtmlDescr);
+        $this->oEvent->writeData($this->oWriter, 'Europe/Berlin');
+        $strData = $this->oWriter->getBuffer();
+        $strTest = $this->oWriter->foldLine('X-ALT-DESC:' . $strHtmlDescr);
+        $this->assertStringContainsString($strTest, $strData);
+        $strTest = $this->oWriter->foldLine('DESCRIPTION:' . $strDescr);
+        $this->assertStringContainsString($strTest, $strData);
+    }
+
+    public function test_setHtmlDescription() : void
+    {
+        $strDescr  = '<h1>some HTML Description.</h1>';
+        $strDescr .= '<p>This iCal line and have to be folded!<br>';
+        $strDescr .= '... and more to produce at least 2 linebreaks in the resulting output.</p>';
+        $this->oEvent->setHtmlDescription($strDescr);
+        $this->assertEquals($strDescr, $this->oEvent->getHtmlDescription());
+        $this->assertEquals(true, $this->oEvent->hasHtmlDescription());
+        $this->fetchAndAssert('strHtmlDescription', 'X-ALT-DESC', $strDescr);
     }
 
     public function test_setStart() : void

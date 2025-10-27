@@ -118,8 +118,10 @@ class iCalRecurrenceRuleTest extends TestCase
         $dtStart = new \DateTime('19971020T090000');
         $oRRule = new iCalRecurrenceRule($oICal, 'FREQ=DAILY;INTERVAL=2;UNTIL=19971102T000000Z');
 
-        $dtExclude = new \DateTime('19971024T090000');
-        $oRRule->addExcludeDate($dtExclude->getTimestamp());
+        $dtExclude1 = new \DateTime('19971024T090000');
+        $oRRule->addExcludeDate($dtExclude1->getTimestamp());
+        $dtExclude2 = new \DateTime('1997-10-30');
+        $oRRule->addExcludeDate($dtExclude2->getTimestamp(), true);
 
         $aList = $oRRule->getDateList($dtStart->getTimestamp(), 0, $strTimezone);
         $func = function(int $uxts): string {
@@ -131,7 +133,6 @@ class iCalRecurrenceRuleTest extends TestCase
             "1997-10-22 09:00:00",
             "1997-10-26 09:00:00",
             "1997-10-28 09:00:00",
-            "1997-10-30 09:00:00",
             "1997-11-01 09:00:00"
         ];
         $this->assertEquals($aExpected, $aList);
