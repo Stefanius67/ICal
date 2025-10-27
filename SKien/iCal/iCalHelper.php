@@ -244,6 +244,25 @@ trait iCalHelper
     }
 
     /**
+     * Gets the day of the given timestamp without hours, min and seconds.
+     * @param int $uxtsDateTime
+     * @return int
+     */
+    protected function getDay(int $uxtsDateTime) : int
+    {
+        $aDate = $this->getDate($uxtsDateTime);
+        $aDate['hours'] = 0;
+        $aDate['minutes'] = 0;
+        $aDate['seconds'] = 0;
+
+        $uxtsDay = $this->mkTime($aDate);
+        if ($uxtsDay === false) {       // I have no testcase for PHPUnit so far, but phpstan wants this code...
+            $uxtsDay = $uxtsDateTime;   // @codeCoverageIgnore
+        }
+        return $uxtsDay;
+    }
+
+    /**
      * Gets a specific part of an UNIX timestamp.
      * @param int $uxtsDateTime
      * @param string $strPart
