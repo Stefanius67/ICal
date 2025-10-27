@@ -161,6 +161,12 @@ abstract class Reader
             }
         }
         $aExplode[] = substr($strLine, $iFrom);
+        if ($iMax >= 0 && $iMax >= count($aExplode)) {
+            $this->oICalendar->log(LogLevel::WARNING, "No unquoted delimiter [{$strDelimiter}] found!");
+            while ($iMax >= count($aExplode)) {
+                $aExplode[] = '';
+            }
+        }
 
         return $aExplode;
     }
