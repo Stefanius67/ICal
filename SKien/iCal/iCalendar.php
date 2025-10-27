@@ -409,15 +409,19 @@ class iCalendar implements LoggerAwareInterface
     	    }
     	    */
     	    if ($aLines !== false) {
-        	    $this->iLine = 0;
-        	    $oReader = new iCalReader($this);
-        	    while ($this->iLine < count($aLines)) {
-        	        $strLine = $oReader->nextLine($aLines, $this->iLine);
-        	        if ($oReader->hasEndReached($strLine)) {
-        	            break;
-        	        }
-        	        $oReader->parseLine($strLine);
-        	    }
+    	        $bReadTimezones = true;
+    	        for ($i = 0; $i < 2; $i++) {
+            	    $this->iLine = 0;
+            	    $oReader = new iCalReader($this, $bReadTimezones);
+            	    while ($this->iLine < count($aLines)) {
+            	        $strLine = $oReader->nextLine($aLines, $this->iLine);
+            	        if ($oReader->hasEndReached($strLine)) {
+            	            break;
+            	        }
+            	        $oReader->parseLine($strLine);
+            	    }
+            	    $bReadTimezones = false;
+    	        }
     	    }
 	    } else {
 	        $this->log(LogLevel::ERROR, 'Missing iCalendar file ' . $strFilename);
