@@ -61,29 +61,30 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     {
         $uxtsEnd = $this->uxtsEnd;
         $aValues = [
-            'dateBegin'         => $this->uxtsStart ? date('Y-m-d', $this->uxtsStart) : '',
-            'timeBegin'         => $this->uxtsStart ? date('H:i:s', $this->uxtsStart) : '',
-            'dtBegin'           => $this->uxtsStart ? date('Y-m-d H:i:s', $this->uxtsStart) : '',
-            'uxtsBegin'         => $this->uxtsStart,
-            'dateEnd'           => $this->uxtsEnd ? date('Y-m-d', $uxtsEnd) : '',
-            'timeEnd'           => $this->uxtsEnd ? date('H:i:s', $uxtsEnd) : '',
-            'dtEnd'             => $this->uxtsEnd ? date('Y-m-d H:i:s', $uxtsEnd) : '',
-            'uxtsEnd'           => $this->uxtsEnd,
-            'iDuration'         => $this->iDuration,
-            'bAllDay'           => $this->bAllDay ? '1' : '0',
-            'dtLastModified'    => $this->uxtsLastModified ? date('Y-m-d H:i:s', $this->uxtsLastModified) : '',
-            'strUID'            => $this->strUID,
-            'strSubject'        => $this->strSubject,
-            'strLocation'       => $this->strLocation,
-            'strDescription'    => $this->strDescription,
-            'iPriority'         => (string) $this->iPriority,
-            'strCategories'     => $this->strCategories,
-            'strState'          => $this->strState,
-            'strTrans'          => $this->strTrans,
-            'strOrganizerName'  => $this->strOrganizerName,
-            'strOrganizerEMail' => $this->strOrganizerEMail,
-            'strClassification' => $this->strClassification,
-            'aAlarm'            => $this->oAlarm ? $this->oAlarm->fetchData() : [],
+            'dateBegin'             => $this->uxtsStart ? date('Y-m-d', $this->uxtsStart) : '',
+            'timeBegin'             => $this->uxtsStart ? date('H:i:s', $this->uxtsStart) : '',
+            'dtBegin'               => $this->uxtsStart ? date('Y-m-d H:i:s', $this->uxtsStart) : '',
+            'uxtsBegin'             => $this->uxtsStart,
+            'dateEnd'               => $this->uxtsEnd ? date('Y-m-d', $uxtsEnd) : '',
+            'timeEnd'               => $this->uxtsEnd ? date('H:i:s', $uxtsEnd) : '',
+            'dtEnd'                 => $this->uxtsEnd ? date('Y-m-d H:i:s', $uxtsEnd) : '',
+            'uxtsEnd'               => $this->uxtsEnd,
+            'iDuration'             => $this->iDuration,
+            'bAllDay'               => $this->bAllDay ? '1' : '0',
+            'dtLastModified'        => $this->uxtsLastModified ? date('Y-m-d H:i:s', $this->uxtsLastModified) : '',
+            'strUID'                => $this->strUID,
+            'strSubject'            => $this->strSubject,
+            'strLocation'           => $this->strLocation,
+            'strDescription'        => $this->strDescription,
+            'strHtmlDescription'    => $this->strHtmlDescription,
+            'iPriority'             => (string) $this->iPriority,
+            'strCategories'         => $this->strCategories,
+            'strState'              => $this->strState,
+            'strTrans'              => $this->strTrans,
+            'strOrganizerName'      => $this->strOrganizerName,
+            'strOrganizerEMail'     => $this->strOrganizerEMail,
+            'strClassification'     => $this->strClassification,
+            'aAlarm'                => $this->oAlarm ? $this->oAlarm->fetchData() : [],
         ];
         $aValues = array_merge($aValues, $this->aExtProp);
 
@@ -165,7 +166,7 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
             $oWriter->addProperty('ORGANIZER', $strValue, true, $aParams);
         }
 
-        $oWriter->addProperty('DESCRIPTION', $this->strDescription);
+        $oWriter->addDescription($this->strDescription, $this->strHtmlDescription);
         $oWriter->addProperty('SUMMARY', $this->strSubject);
         $oWriter->addProperty('LOCATION', $this->strLocation);
         $oWriter->addProperty('CATEGORIES', $this->strCategories, false);

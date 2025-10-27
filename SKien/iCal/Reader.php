@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
+
 use Psr\Log\LogLevel;
+use Soundasleep\Html2Text;
 
 /**
  * Abstract baseclass for several readers.
@@ -246,6 +248,48 @@ abstract class Reader
     }
 
     /**
+     * Parsing of the organizer.
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.4.3
+     * @param string $strName
+     * @param string $strValue
+     * @param array<string,string> $aParams
+     */
+    protected function parseOrganizer(string $strName, string $strValue, array $aParams) : void
+    {
+        $strOrganizerName = $aParams['CN'] ?? '';
+        $strOrganizerEMail = '';
+        $iPos = strpos(strtolower($strValue), 'mailto:');
+        if ($iPos !== false) {
+            $strOrganizerEMail = substr($strValue, $iPos + 7);
+        }
+        $this->oItem->setOrganizer($strOrganizerName, $strOrganizerEMail);
+    }
+
+    /**
+     * Parse the RDATE value.
+     * @param string $strName
+     * @param string $strValue
+     * @param array<string,string> $aParams
+     */
+    protected function parseRDate(string $strName, string $strValue, array $aParams) : void
+    {
+        $this->oItem->addRDate($this->parseDateTimeList($strValue, $aParams));
+    }
+
+    /**
+     * Parse the EXDATE value.
+     * @param string $strName
+     * @param string $strValue
+     * @param array<string,string> $aParams
+     */
+    protected function parseExcludeDate(string $strName, string $strValue, array $aParams) : void
+    {
+        $strType = $aParams['VALUE'] ?? 'date-time';
+        $bExcludeDay = strtolower($strType) == 'date';
+        $this->oItem->addExcludeDate($this->parseDateTimeList($strValue, $aParams), $bExcludeDay);
+    }
+
+    /**
      * Parsing of the description.
      * Some agents use the ALTREP param for a HTML representation of the
      * description (Thunderbird, ...).
@@ -266,7 +310,13 @@ abstract class Reader
         if ($strDescription != strip_tags($strDescription)) {
             // GoogleCalendar writes the HTML directly into the DESCRIPTION property
             $this->oItem->setHtmlDescription($strDescription);
-            $this->oItem->setDescription(strip_tags($strDescription));
+            try {
+                $strPlainText = Html2Text::convert($strDescription);
+                $this->oItem->setDescription($strPlainText);
+            } catch (\Exception $e) {
+                $this->oICalendar->log(LogLevel::WARNING, 'The DESCRIPTION property contains malformed HTML!');
+                $this->oItem->setDescription(strip_tags($strDescription));
+            }
         } else {
             $this->oItem->setDescription($strDescription);
         }
@@ -274,7 +324,7 @@ abstract class Reader
 
     /**
      * Parsing of the alternative description.
-     * The X-ALT-DESCR property does not belong to the RFC 5545 spec but is
+     * The X-ALT-DESC property does not belong to the RFC 5545 spec but is
      * commonly used by a lot of agents. (MS-Outlook, eM-Client, ...).
      * @param string $strName
      * @param string $strValue

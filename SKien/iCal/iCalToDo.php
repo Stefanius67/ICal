@@ -63,31 +63,32 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     public function fetchData() : array
     {
         $aValues = [
-            'dateBegin'         => $this->uxtsStart ? date('Y-m-d', $this->uxtsStart) : '',
-            'timeBegin'         => $this->uxtsStart ? date('H:i:s', $this->uxtsStart) : '',
-            'dtBegin'           => $this->uxtsStart ? date('Y-m-d H:i:s', $this->uxtsStart) : '',
-            'uxtsBegin'         => $this->uxtsStart,
-            'dateDue'           => $this->uxtsDue ? date('Y-m-d', $this->uxtsDue) : '',
-            'timeDue'           => $this->uxtsDue ? date('H:i:s', $this->uxtsDue) : '',
-            'dtDue'             => $this->uxtsDue ? date('Y-m-d H:i:s', $this->uxtsDue) : '',
-            'uxtsDue'           => $this->uxtsDue,
-            'iDuration'         => $this->iDuration,
-            'iPercentComplete'  => $this->iPercentComplete,
-            'dtCompleted'       => $this->uxtsCompleted ? date('Y-m-d H:i:s', $this->uxtsCompleted) : '',
-            'uxtsCompleted'     => $this->uxtsCompleted,
-            'dtLastModified'    => $this->uxtsLastModified ? date('Y-m-d H:i:s', $this->uxtsLastModified) : '',
-            'strUID'            => $this->strUID,
-            'strSubject'        => $this->strSubject,
-            'strLocation'       => $this->strLocation,
-            'strDescription'    => $this->strDescription,
-            'iPriority'         => (string) $this->iPriority,
-            'strCategories'     => $this->strCategories,
-            'strState'          => $this->strState,
-            'strTrans'          => $this->strTrans,
-            'strOrganizerName'  => $this->strOrganizerName,
-            'strOrganizerEMail' => $this->strOrganizerEMail,
-            'strClassification' => $this->strClassification,
-            'aAlarm'            => $this->oAlarm ? $this->oAlarm->fetchData() : [],
+            'dateBegin'             => $this->uxtsStart ? date('Y-m-d', $this->uxtsStart) : '',
+            'timeBegin'             => $this->uxtsStart ? date('H:i:s', $this->uxtsStart) : '',
+            'dtBegin'               => $this->uxtsStart ? date('Y-m-d H:i:s', $this->uxtsStart) : '',
+            'uxtsBegin'             => $this->uxtsStart,
+            'dateDue'               => $this->uxtsDue ? date('Y-m-d', $this->uxtsDue) : '',
+            'timeDue'               => $this->uxtsDue ? date('H:i:s', $this->uxtsDue) : '',
+            'dtDue'                 => $this->uxtsDue ? date('Y-m-d H:i:s', $this->uxtsDue) : '',
+            'uxtsDue'               => $this->uxtsDue,
+            'iDuration'             => $this->iDuration,
+            'iPercentComplete'      => $this->iPercentComplete,
+            'dtCompleted'           => $this->uxtsCompleted ? date('Y-m-d H:i:s', $this->uxtsCompleted) : '',
+            'uxtsCompleted'         => $this->uxtsCompleted,
+            'dtLastModified'        => $this->uxtsLastModified ? date('Y-m-d H:i:s', $this->uxtsLastModified) : '',
+            'strUID'                => $this->strUID,
+            'strSubject'            => $this->strSubject,
+            'strLocation'           => $this->strLocation,
+            'strDescription'        => $this->strDescription,
+            'strHtmlDescription'    => $this->strHtmlDescription,
+            'iPriority'             => (string) $this->iPriority,
+            'strCategories'         => $this->strCategories,
+            'strState'              => $this->strState,
+            'strTrans'              => $this->strTrans,
+            'strOrganizerName'      => $this->strOrganizerName,
+            'strOrganizerEMail'     => $this->strOrganizerEMail,
+            'strClassification'     => $this->strClassification,
+            'aAlarm'                => $this->oAlarm ? $this->oAlarm->fetchData() : [],
         ];
         $aValues = array_merge($aValues, $this->aExtProp);
 
@@ -208,7 +209,7 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
             $strValue = 'mailto:' . $this->strOrganizerEMail;
             $oWriter->addProperty('ORGANIZER', $strValue, true, $aParams);
         }
-        $oWriter->addProperty('DESCRIPTION', $this->strDescription);
+        $oWriter->addDescription($this->strDescription, $this->strHtmlDescription);
         $oWriter->addProperty('SUMMARY', $this->strSubject);
         $oWriter->addProperty('COMMENT', $this->strComment);
         $oWriter->addProperty('CATEGORIES', $this->strCategories, false);

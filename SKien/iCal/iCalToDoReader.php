@@ -203,46 +203,6 @@ class iCalToDoReader extends Reader
     }
 
     /**
-     * Parsing of the organizer.
-     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.4.3
-     * @param string $strName
-     * @param string $strValue
-     * @param array<string,string> $aParams
-     */
-    protected function parseOrganizer(string $strName, string $strValue, array $aParams) : void
-    {
-        $strOrganizerName = $aParams['CN'] ?? '';
-        $strOrganizerEMail = '';
-        $iPos = strpos(strtolower($strValue), 'mailto:');
-        if ($iPos !== false) {
-            $strOrganizerEMail = substr($strValue, $iPos + 7);
-        }
-        $this->oItem->setOrganizer($strOrganizerName, $strOrganizerEMail);
-    }
-
-    /**
-     * Parse the RDATE value.
-     * @param string $strName
-     * @param string $strValue
-     * @param array<string,string> $aParams
-     */
-    protected function parseRDate(string $strName, string $strValue, array $aParams) : void
-    {
-        $this->oItem->addRDate($this->parseDateTimeList($strValue, $aParams));
-    }
-
-    /**
-     * Parse the EXDATE value.
-     * @param string $strName
-     * @param string $strValue
-     * @param array<string,string> $aParams
-     */
-    protected function parseExcludeDate(string $strName, string $strValue, array $aParams) : void
-    {
-        $this->oItem->addExcludeDate($this->parseDateTimeList($strValue, $aParams));
-    }
-
-    /**
      * Start VALARM property.
      * @param string $strValue
      * @param array<string,string> $aParams

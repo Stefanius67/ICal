@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
+
+use Soundasleep\Html2Text;
+
 /**
  * Class to generate the content for a new iCalendar file.
  *
@@ -116,6 +119,42 @@ class Writer
     }
 
     /**
+     * Adds a description and HTML decription (X-ALT-DESC) property to the output buffer.
+     * I've decided to use the widly used `X-ALT-DESC` property instead of the `ALTREP`
+     * param so there is no need to take care about any DQUOTES probably contained in the
+     * HTML description. <br><br>
+     * If no HTML description is passed, a rudimental HTML ist generated from the
+     * given plain text. <br>
+     * If only a html description is passed, the plain text is generated from the
+     * given HTML. <br>
+     * If a HTML formatet text is passed as plain text, it is moved to the HTML
+     * property and a converted plain text is used as raw description.
+     * @param string $strDescription
+     * @param string $strHtmlDescription
+     */
+    public function addDescription(string $strDescription, string $strHtmlDescription) : void
+    {
+        if (!empty($strDescription)) {
+            if ($strDescription != strip_tags($strDescription)) {
+                // if no HTML description is set, just move the HTML there
+                if (empty($strHtmlDescription)) {
+                    $strHtmlDescription = $strDescription;
+                }
+                $strDescription = Html2Text::convert($strDescription);
+            } else if (empty($strHtmlDescription)) {
+                // no HTML set - create rudimental HTML
+                $strHtmlDescription = $this->convTextToHTML($strDescription);
+                $strHtmlDescription = $this->replaceURLsWithLinks($strHtmlDescription);
+            }
+        } elseif (!empty($strHtmlDescription)) {
+            // only HTML set - convert and set to the plain property
+            $strDescription = Html2Text::convert($strHtmlDescription);
+        }
+        $this->addProperty('DESCRIPTION', $strDescription);
+        $this->addProperty('X-ALT-DESC', $strHtmlDescription);
+    }
+
+    /**
      * Longer lines have to be broken down in iCal format.
      * @param string $strLine
      * @return string
@@ -171,5 +210,55 @@ class Writer
         }
 
         return $strValue;
+    }
+
+    /**
+     * Replaces all contained URL's with HTML link.
+     * @param string $strText text containing URL(s)
+     * @return string text containing the generated links
+     */
+    public function replaceURLsWithLinks(string $strText) : string
+    {
+        $match = [];
+        preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $strText, $match);
+        if (is_array($match[0])) {
+            foreach ($match[0] as $strURL) {
+                $strHost = parse_url($strURL, PHP_URL_HOST);
+                $strLink = '<a href="' . $strURL . '">' . $strHost . '</a>';
+                $strText = str_replace($strURL, $strLink, $strText);
+            }
+        }
+        return $strText;
+    }
+
+    /**
+     * Converts plain text for use as HTML with monotype font.
+     * - Enclose the text in a paragraph. (&lt;p&gt; .. &lt;/p&gt;) <br>
+     * - Multiple CR/LF   => new paragraph (&lt;/p&gt;&lt;p&gt;)    <br>
+     * - CR/LF            => &lt;br/&gt;                            <br>
+     * - Tab              => 3 save blanks (&amp;nbsp;)             <br>
+     * - multiple Spaces  => save blanks (&amp;nbsp;)               <br>
+     * @param string $strText
+     * @return string
+     */
+    public function convTextToHTML(?string $strText) : string
+    {
+        $strHTML = '';
+        if ($strText !== null) {
+            $strHTML = htmlspecialchars($strText);
+            $strHTML = str_replace("\r\n", "\n", $strHTML);
+            $strHTML = str_replace("\r", "\n", $strHTML);
+            $strHTML = str_replace("\n", "<br>", $strHTML);
+            // reduce multiple linebreakt to max. double linebreak ...
+            while (strpos($strHTML, '<br><br><br>') !== false) {
+                $strHTML = str_replace('<br><br><br>', '<br><br>', $strHTML);
+            }
+            // ... and then replace double linebreak with new paragraph,
+            $strHTML = str_replace('<br><br>', '</p><p>', $strHTML);
+            $strHTML = str_replace("\t", "&nbsp;&nbsp;&nbsp;", $strHTML);
+            $strHTML = str_replace("  ", "&nbsp;&nbsp;", $strHTML);
+            $strHTML = '<p>' . $strHTML . '</p>';
+        }
+        return $strHTML;
     }
 }
