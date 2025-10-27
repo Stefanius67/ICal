@@ -89,5 +89,53 @@
             "bAllDay": "1",
             "strSubject": "Testevent 5"
         }
+    ],
+    [
+        "HTML description using ALTREP-Param",
+        "TestEvent6.ics",
+        [],
+        {
+            "dtBegin": "2025-09-21 20:00:00",
+            "dtEnd": "2025-09-21 22:30:00",
+            "strSubject": "Testevent 6",
+            "strDescription": "Header\n\nPlain text description.",
+            "strHtmlDescription": "<h1>Header</h1><p>HTML description.</p>"
+        }
+    ],
+    [
+        "HTML description using X-ALT-DESCR Property",
+        "TestEvent7.ics",
+        [],
+        {
+            "dtBegin": "2025-09-21 20:00:00",
+            "dtEnd": "2025-09-21 22:30:00",
+            "strSubject": "Testevent 7",
+            "strDescription": "Header\n\nPlain text description.",
+            "strHtmlDescription": "<h1>Header</h1><p>HTML description.</p>"
+        }
+    ],
+    [
+        "HTML description directly in the DESCRIPTION Property",
+        "TestEvent8.ics",
+        [],
+        {
+            "dtBegin": "2025-09-21 20:00:00",
+            "dtEnd": "2025-09-21 22:30:00",
+            "strSubject": "Testevent 8",
+            "strDescription": "Header\n\nHTML description.",
+            "strHtmlDescription": "<h1>Header</h1><p>HTML description.</p>"
+        }
+    ],
+    [
+        "HTML description with  <body> using X-ALT-DESCR Property",
+        "TestEvent9.ics",
+        [],
+        {
+            "dtBegin": "2025-09-21 20:00:00",
+            "dtEnd": "2025-09-21 22:30:00",
+            "strSubject": "Testevent 9",
+            "strDescription": "Header\n\nPlain text description.",
+            "strHtmlDescription": "<h1>Header</h1><p>HTML description.</p>"
+        }
     ]
 ]

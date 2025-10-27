@@ -20,6 +20,16 @@
         "warning"
     ],
     [
+        "VEVENT containing 2 VALARM components",
+        "InvalidEvent5.ics",
+        "warning"
+    ],
+    [
+        "Malformed HTML in DESCRIPTION",
+        "InvalidEvent6.ics",
+        "warning"
+    ],
+    [
         "Todo containing invalid TZID",
         "InvalidToDo1.ics",
         "error"
@@ -32,6 +42,16 @@
     [
         "Todo containing DURATION and DUE",
         "InvalidToDo3.ics",
+        "warning"
+    ],
+    [
+        "Todo containing RRULE but no DTSTART",
+        "InvalidToDo4.ics",
+        "warning"
+    ],
+    [
+        "Todo containing 2 VALARM components",
+        "InvalidToDo5.ics",
         "warning"
     ],
     [
