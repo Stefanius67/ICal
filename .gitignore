@@ -6,3 +6,5 @@
 /clover.xml
 /SKien/Test/iCal/coverage/
 /SKien/Test/iCal/log/
+/demodata
+/*.php
