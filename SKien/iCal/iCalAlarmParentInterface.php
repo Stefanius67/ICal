@@ -24,6 +24,13 @@ interface iCalAlarmParentInterface
      */
     public function createAlarm() : iCalAlarm;
 
+    /**
+     * @return int|null start unix timestamp of the parnet component - null if not set
+     */
     public function getStart() : ?int;
+
+    /**
+     * @return int|null end unix timestamp of the parnet component - null if not set
+     */
     public function getEnd() : ?int;
 }

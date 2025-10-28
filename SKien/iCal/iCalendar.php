@@ -22,14 +22,23 @@ use Psr\Log\NullLogger;
  * > (which are based on the time zone identifiers published in the IANA time zone database).
  *
  * 1. When generating a calendar, the (PHP) timezone that is set when the iCalender instance is
- *    created is generally used. An iCal time zone with the same name is automatically
- *    created.
+ *    created is generally used. An iCal TIMEZONE component with the same name is automatically
+ *    inserted.
  *
  * 2. When reading a calendar, the timezone definitions contained in the file are taken
  *    into account, and all datetime values ​​are saved as UNIX timestamps. Since these
  *    values ​​are generally UTC-based, it is up to the processing code to decide which
  *    time zone to use to display the data.
  *
+ * ## currently supported options <br>
+ * - createRecurrentItems, import   (bool, default: true)   <br>
+ *   creates the resulting events/todos at import for contained recurrent items     <br>
+ * - logTimezoneOffsetList, import  (bool, default: false)  <br>
+ *   creates an 'INFO' logentry containing the found and computed TIMEZONE offsetlist(s)    <br>
+ * - removeHtmlBody, import         (bool, default: true)   <br>
+ *   removes surounding html body from HTML descriptions    <br>
+ * - autoCreateHTML, export         (bool, default true)    <br>
+ *   create a rudimental HTML description
  *
  * <a href="https://learn.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcical/74d3bf60-f30d-4fca-84d3-cfd04da8e627">
  * Additional Information according to MS extensions to the specs</a>
@@ -248,10 +257,31 @@ class iCalendar implements LoggerAwareInterface
 	}
 
 	/**
+     * Creates a new event.
+     * @return iCalEvent
+     */
+	public function createEvent() : iCalEvent
+    {
+        $oEvent = new iCalEvent($this);
+        return $oEvent;
+    }
+
+    /**
+     * Creates a new to-do item.
+     * @return iCalToDo
+     */
+    public function createToDo() : iCalToDo
+    {
+        $oToDo = new iCalToDo($this);
+        return $oToDo;
+    }
+
+	/**
 	 * @param iCalComponent $oItem
 	 */
 	public function addItem(iCalComponent $oItem) : void
 	{
+	    $oItem->validate();
 	    $this->aItems[] = $oItem;
 	    $uxtsStart = $oItem->getStart();
 	    if ($uxtsStart !== null) {

@@ -155,11 +155,15 @@ class iCalAlarm extends iCalComponent
 
     /**
      * Sets the trigger to an absolute timestamp.
-     * @param int $uxtsTrigger
+     * @param int|\DateTime $trigger
      */
-    public function setTriggerTime($uxtsTrigger) : void
+    public function setTriggerTime($trigger) : void
     {
-        $this->uxtsTrigger = $uxtsTrigger;
+        if ($trigger instanceof \DateTime) {
+            $this->uxtsTrigger = $trigger->getTimestamp();
+        } else {
+            $this->uxtsTrigger = $trigger;
+        }
         $this->strTriggerType = 'DATE-TIME';
     }
 

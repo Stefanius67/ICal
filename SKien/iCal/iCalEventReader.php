@@ -41,7 +41,6 @@ class iCalEventReader extends Reader
     {
         $bEnd = ($strLine == 'END:' . self::COMPONENT_NAME);
         if ($bEnd) {
-            $this->oItem->validate();
             $this->oICalendar->addItem($this->oItem);
             if ($this->oItem->hasRecurrentItems()) {
                 if ($this->oICalendar->getOption('createRecurrentItems', true) == true) {

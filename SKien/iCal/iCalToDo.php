@@ -22,8 +22,6 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     protected ?int $uxtsCompleted = null;
     /** @var int    percent complete     */
     protected ?int $iPercentComplete = null;
-    /** @var iCalAlarm  an embedded VALARM component     */
-    protected ?iCalAlarm $oAlarm = null;
 
     /**
      * @param iCalendar $oICalendar
@@ -96,11 +94,15 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * @param int $uxtsDue    unix timestamp the todo is due to be completed.
+     * @param int|\DateTime|null $due    unix timestamp or DateTime the todo is due to be completed.
      */
-    public function setDue(?int $uxtsDue) : void
+    public function setDue($due) : void
     {
-        $this->uxtsDue = $uxtsDue;
+        if ($due instanceof \DateTime) {
+            $this->uxtsDue = $due->getTimestamp();
+        } else {
+            $this->uxtsDue = $due;
+        }
     }
 
     /**
@@ -160,28 +162,6 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * Creates and embed an alarm component.
-     * @return iCalAlarm
-     */
-    public function createAlarm(): iCalAlarm
-    {
-        if ($this->oAlarm !== null) {
-            $this->oICalendar->log(LogLevel::WARNING, 'The VEVENT contains multiple VALARM. Only the last one ist taken!');
-        }
-        $this->oAlarm = new iCalAlarm($this);
-        return $this->oAlarm;
-    }
-
-    /**
-     * Gets an embedded alarm component.
-     * @return iCalAlarm
-     */
-    public function getAlarm() : ?iCalAlarm
-    {
-        return $this->oAlarm;
-    }
-
-    /**
      * Write the component data to the Writer instance.
      * {@inheritDoc}
      * @see \SKien\iCal\iCalComponent::writeData()
@@ -201,21 +181,21 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
         } else {
             $oWriter->addDateTimeProperty('DUE', $this->uxtsDue, $strTZID);
         }
-
         $oWriter->addDateTimeProperty('LAST-MODIFIED', $this->uxtsLastModified, 'GMT');
-        $oWriter->addProperty('LOCATION', $this->strLocation);
-        if (!empty($this->strOrganizerName) && !empty($this->strOrganizerEMail)) {
-            $aParams = ['CN' => $this->strOrganizerName];
-            $strValue = 'mailto:' . $this->strOrganizerEMail;
-            $oWriter->addProperty('ORGANIZER', $strValue, true, $aParams);
-        }
-        $oWriter->addDescription($this->strDescription, $this->strHtmlDescription);
+
+        $oWriter->addProperty('RRULE', $this->strRRule, false);
+
         $oWriter->addProperty('SUMMARY', $this->strSubject);
+        $oWriter->addProperty('LOCATION', $this->strLocation);
         $oWriter->addProperty('COMMENT', $this->strComment);
         $oWriter->addProperty('CATEGORIES', $this->strCategories, false);
         $oWriter->addProperty('PRIORITY', (string) $this->iPriority, false);
+        $oWriter->addDescription($this->strDescription, $this->strHtmlDescription);
+        $oWriter->addOrganizer($this->strOrganizerName, $this->strOrganizerEMail);
+
         $oWriter->addProperty('STATUS', $this->strState, false);
         $oWriter->addProperty('CLASS', $this->strClassification, false);
+
         foreach ($this->aAttendee as $strAttendee) {
             $oWriter->addProperty('ATTENDEE', 'mailto:' . $strAttendee, false);
         }

@@ -20,8 +20,6 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     protected ?int $uxtsEnd = null;
     /** @var bool   all day event (only the date-component of dtStart and dtEnd is used)         */
     protected bool $bAllDay = false;
-    /** @var iCalAlarm  an embedded VALARM component     */
-    protected ?iCalAlarm $oAlarm = null;
 
     /**
      * @param iCalendar $oICalendar
@@ -92,11 +90,15 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * @param int $uxtsEnd    unix timestamp of the events end.
+     * @param int|\DateTime|null $end    unix timestamp or DateTime of the events end.
      */
-    public function setEnd(?int $uxtsEnd) : void
+    public function setEnd($end) : void
     {
-        $this->uxtsEnd = $uxtsEnd;
+        if ($end instanceof \DateTime) {
+            $this->uxtsEnd = $end->getTimestamp();
+        } else {
+            $this->uxtsEnd = $end;
+        }
     }
 
     /**
@@ -124,28 +126,6 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * Creates and embed an alarm component.
-     * @return iCalAlarm
-     */
-    public function createAlarm(): iCalAlarm
-    {
-        if ($this->oAlarm !== null) {
-            $this->oICalendar->log(LogLevel::WARNING, 'The VEVENT contains multiple VALARM. Only the last one ist taken!');
-        }
-        $this->oAlarm = new iCalAlarm($this);
-        return $this->oAlarm;
-    }
-
-    /**
-     * Gets an embedded alarm component.
-     * @return iCalAlarm
-     */
-    public function getAlarm() : ?iCalAlarm
-    {
-        return $this->oAlarm;
-    }
-
-    /**
      * Write the component data to the Writer instance.
      * {@inheritDoc}
      * @see \SKien\iCal\iCalComponent::writeData()
@@ -158,20 +138,17 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
 
         $oWriter->addDateTimeProperty('DTSTART', $this->uxtsStart, $strTZID, $this->bAllDay);
         $oWriter->addDateTimeProperty('DTEND', $this->uxtsEnd, $strTZID, $this->bAllDay);
-
         $oWriter->addDateTimeProperty('LAST-MODIFIED', $this->uxtsLastModified, 'GMT');
-        if (!empty($this->strOrganizerName) && !empty($this->strOrganizerEMail)) {
-            $aParams = ['CN' => $this->strOrganizerName];
-            $strValue = 'mailto:' . $this->strOrganizerEMail;
-            $oWriter->addProperty('ORGANIZER', $strValue, true, $aParams);
-        }
 
-        $oWriter->addDescription($this->strDescription, $this->strHtmlDescription);
+        $oWriter->addProperty('RRULE', $this->strRRule, false);
+
         $oWriter->addProperty('SUMMARY', $this->strSubject);
         $oWriter->addProperty('LOCATION', $this->strLocation);
+        $oWriter->addProperty('COMMENT', $this->strComment);
         $oWriter->addProperty('CATEGORIES', $this->strCategories, false);
-        $oWriter->addProperty('CLASS', $this->strClassification, false);
         $oWriter->addProperty('PRIORITY', (string) $this->iPriority, false);
+        $oWriter->addDescription($this->strDescription, $this->strHtmlDescription);
+        $oWriter->addOrganizer($this->strOrganizerName, $this->strOrganizerEMail);
 
         $oWriter->addProperty('TRANSP', $this->strTrans, false);
         $oWriter->addProperty('STATUS', $this->strState, false);

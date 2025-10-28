@@ -39,10 +39,10 @@ class iCalTimezone extends iCalComponent
      * by one year to ensure that all changes between daylight saving time and standard
      * time are taken into account.
      * Unlike "normal" time zone definitions, which usually work with recurring rules for
-     * multiple time periods, this generated definition specifies a single start date with
-     * corresponding time offset for each change between daylight saving and standard time
-     * within the specified period (Simply because DateTimeZone::getTransitions() returns
-     * the information in this form...).
+     * multiple time periods, this generated definition specifies a set of RDATE's for the
+     * same offset changes between daylight saving and standard time within the specified
+     * period (Simply because DateTimeZone::getTransitions() returns the information in this
+     * form...).
      * @link https://www.php.net/manual/en/timezones.php
      * @param string $strTZID
      * @param int $uxtsFrom
@@ -68,6 +68,7 @@ class iCalTimezone extends iCalComponent
         $aTransitions = $oTZ->getTransitions($uxtsFrom, $uxtsTo);
         $iOffsetFrom = null;
         $iOffsetTo = null;
+        $aProps = [];
         foreach ($aTransitions as $aProp) {
             $iOffsetTo = $aProp['offset'];
             if ($iOffsetFrom === null) {
@@ -76,14 +77,20 @@ class iCalTimezone extends iCalComponent
             }
             $strType = $aProp['isdst'] ? iCalTimezoneProp::DAYLIGHT : iCalTimezoneProp::STANDARD;
 
-            $oProp = new iCalTimezoneProp($this, $strType);
+            $strKey = $strType . $this->getOffsetString($iOffsetFrom) . $this->getOffsetString($iOffsetTo);
+            if (!isset($aProps[$strKey])) {
+                $oProp = new iCalTimezoneProp($this, $strType);
+                $oProp->setStart($aProp['ts']);
+                $oProp->setOffsetFrom($iOffsetFrom);
+                $oProp->setOffsetTo($iOffsetTo);
+                $oProp->setName($aProp['abbr']);
+                $this->addTimezoneProp($oProp);
+                $aProps[$strKey] = $oProp;
+            } else {
+                $oProp = $aProps[$strKey];
+            }
+            $oProp->setRDate($aProp['ts']);
 
-            $oProp->setStart($aProp['ts']);
-            $oProp->setOffsetFrom($iOffsetFrom);
-            $oProp->setOffsetTo($iOffsetTo);
-            $oProp->setName($aProp['abbr']);
-
-            $this->addTimezoneProp($oProp);
             $iOffsetFrom = $iOffsetTo;
         }
     }

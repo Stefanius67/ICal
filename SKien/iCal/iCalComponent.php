@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
+use Psr\Log\LogLevel;
+
 /**
  *  Abstract baseclass for all iCal components.
  *
@@ -43,7 +45,7 @@ abstract class iCalComponent
 
     use iCalHelper;
 
-    /** @var string the bane of the component      */
+    /** @var string the name of the component      */
     protected string $strComponentName;
     /** @var string unique ID          */
     protected ?string $strUID = null;
@@ -57,7 +59,7 @@ abstract class iCalComponent
     protected string $strDescription = '';
     /** @var string description in HTML format                  */
     protected string $strHtmlDescription = '';
-    /** @var string a description of the component     */
+    /** @var string a description of the item     */
     protected string $strComment = '';
     /** @var int    unix timestamp last modified        */
     protected ?int $uxtsLastModified = null;
@@ -67,10 +69,10 @@ abstract class iCalComponent
     protected string $strCategories = '';
     /** @var string location             */
     protected string $strLocation = '';
-    /** @var string state of event (default: STATE_CONFIRMED)    */
-    protected string $strState = self::STATE_CONFIRMED;
+    /** @var string state of item (default: STATE_CONFIRMED)    */
+    protected string $strState = '';
     /** @var string transparency (default: TRANSP_OPAQUE)        */
-    protected string $strTrans = self::TRANSP_OPAQUE;
+    protected string $strTrans = '';
     /** @var string classification             */
     protected string $strClassification = '';
     /** @var string organizer name       */
@@ -87,6 +89,8 @@ abstract class iCalComponent
     protected array $aExcludeDateTimes = [];
     /** @var array<int> EXDATE  date values (needs separate handling)   */
     protected array $aExcludeDates = [];
+    /** @var iCalAlarm  an embedded VALARM item     */
+    protected ?iCalAlarm $oAlarm = null;
     /** @var int    unix timestamp min. start for optimization       */
     protected ?int $uxtsMinStart = null;
     /** @var array<string,string>   additional properties that arn't included in the iCal spec (X-...)	 */
@@ -126,11 +130,15 @@ abstract class iCalComponent
     }
 
     /**
-     * @param int $uxtsStart  unix timestamp of the events start.
+     * @param int|\DateTime|null $start  unix timestamp or DateTime of the items start.
      */
-    public function setStart(?int $uxtsStart) : void
+    public function setStart($start) : void
     {
-        $this->uxtsStart = $uxtsStart;
+        if ($start instanceof \DateTime) {
+            $this->uxtsStart = $start->getTimestamp();
+        } else {
+            $this->uxtsStart = $start;
+        }
     }
 
     /**
@@ -158,7 +166,7 @@ abstract class iCalComponent
     }
 
     /**
-     * Gets the end timestamp of the component.
+     * Gets the end timestamp of the item.
      * Since the 'end' is not available or not the same in the different components,
      * the base implementation returns alway `null`!
      * @return int  unix timestamp
@@ -244,15 +252,19 @@ abstract class iCalComponent
     }
 
     /**
-     * @param int $uxtsLastModified    unix timestamp the event been last modified.
+     * @param int|\DateTime|null $lastModified    unix timestamp or DateTime the item been last modified.
      */
-    public function setLastModified(?int $uxtsLastModified) : void
+    public function setLastModified($lastModified) : void
     {
-        $this->uxtsLastModified = $uxtsLastModified;
+        if ($lastModified instanceof \DateTime) {
+            $this->uxtsLastModified = $lastModified->getTimestamp();
+        } else {
+            $this->uxtsLastModified = $lastModified;
+        }
     }
 
     /**
-     * @return int unix timestamp the event been last modified.
+     * @return int unix timestamp the item been last modified.
      */
     public function getLastModified() : ?int
     {
@@ -280,9 +292,9 @@ abstract class iCalComponent
     }
 
     /**
-     * Set/add categories to the event.
+     * Set/add categories to the item.
      * The CATEGORIES property can contain multiple categories separated by comma and
-     * can also be specified multiple times within an component
+     * can also be specified multiple times within an item.
      * @param string $strCategories
      */
     public function setCategories(?string $strCategories) : void
@@ -436,7 +448,7 @@ abstract class iCalComponent
     }
 
     /**
-     * Checks, if the event has further, recurrent siblings.
+     * Checks, if the item has further, recurrent siblings.
      * @return bool
      */
     public function hasRecurrentItems() : bool
@@ -513,10 +525,50 @@ abstract class iCalComponent
             $oSibbling->setStart($uxtsStart);
             $oSibbling->setDuration($iDuration);
             $oSibbling->setUID($strUID . '-' . ++$i);
-            $oSibbling->validate();
             $this->oICalendar->addItem($oSibbling);
         }
         return $i;
+    }
+
+    /**
+     * Creates an alarm with given properties and attach it to the item.
+     * @param int|string $trigger
+     * @param string $strAction
+     * @param string $strRelated
+     * @return iCalAlarm
+     */
+    public function setAlarm($trigger, string $strAction = iCalAlarm::DISPLAY, string $strRelated = 'START') : iCalAlarm
+    {
+        $oAlarm = $this->createAlarm();
+        $oAlarm->setAction($strAction);
+        if (is_numeric($trigger)) {
+            $oAlarm->setTriggerFrom(intval($trigger), $strRelated);
+        } else {
+            $oAlarm->setTrigger($trigger, $strRelated);
+        }
+        return $oAlarm;
+    }
+
+    /**
+     * Creates and embed an alarm item.
+     * @return iCalAlarm
+     */
+    public function createAlarm(): iCalAlarm
+    {
+        if ($this->oAlarm !== null) {
+            $this->oICalendar->log(LogLevel::WARNING, "The {$this->strComponentName} contains multiple VALARM. Only the last one ist taken!");
+        }
+        $this->oAlarm = new iCalAlarm($this);
+        return $this->oAlarm;
+    }
+
+    /**
+     * Gets an embedded alarm component.
+     * @return iCalAlarm
+     */
+    public function getAlarm() : ?iCalAlarm
+    {
+        return $this->oAlarm;
     }
 
     /**
@@ -531,7 +583,7 @@ abstract class iCalComponent
     }
 
     /**
-     * Write the component data to the Writer instance.
+     * Write the item data to the Writer instance.
      * @param Writer $oWriter
      * @param string $strTZID
      */

@@ -76,7 +76,6 @@ class Writer
             $strProp = $this->foldLine($strLine);
             $this->strBuffer .= $strProp;
         }
-
         return $strProp;
     }
 
@@ -91,7 +90,6 @@ class Writer
     public function addDateTimeProperty(string $strName, ?int $uxtsValue, string $strTZID, bool $bAllDay = false) : string
     {
         $strProp = '';
-
         if ($uxtsValue !== null) {
             $aParams = [];
             if ($strTZID == 'GMT') {
@@ -124,7 +122,7 @@ class Writer
      * param so there is no need to take care about any DQUOTES probably contained in the
      * HTML description. <br><br>
      * If no HTML description is passed, a rudimental HTML ist generated from the
-     * given plain text. <br>
+     * given plain text, if it is not deactivated through the options. <br>
      * If only a html description is passed, the plain text is generated from the
      * given HTML. <br>
      * If a HTML formatet text is passed as plain text, it is moved to the HTML
@@ -143,8 +141,10 @@ class Writer
                 $strDescription = Html2Text::convert($strDescription);
             } else if (empty($strHtmlDescription)) {
                 // no HTML set - create rudimental HTML
-                $strHtmlDescription = $this->convTextToHTML($strDescription);
-                $strHtmlDescription = $this->replaceURLsWithLinks($strHtmlDescription);
+                if ($this->oICalendar->getOption('autoCreateHTML', true)) {
+                    $strHtmlDescription = $this->convTextToHTML($strDescription);
+                    $strHtmlDescription = $this->replaceURLsWithLinks($strHtmlDescription);
+                }
             }
         } elseif (!empty($strHtmlDescription)) {
             // only HTML set - convert and set to the plain property
@@ -152,6 +152,23 @@ class Writer
         }
         $this->addProperty('DESCRIPTION', $strDescription);
         $this->addProperty('X-ALT-DESC', $strHtmlDescription);
+    }
+
+    /**
+     * Adds the organizer to the output buffer.
+     * @param string $strOrganizerName
+     * @param string $strOrganizerEMail
+     */
+    public function addOrganizer(string $strOrganizerName, string $strOrganizerEMail) : void
+    {
+        if (!empty($strOrganizerEMail)) {
+            $aParams = [];
+            if (!empty($strOrganizerName)) {
+                $aParams['CN'] = $strOrganizerName;
+            }
+            $strValue = 'mailto:' . $strOrganizerEMail;
+            $this->addProperty('ORGANIZER', $strValue, true, $aParams);
+        }
     }
 
     /**
