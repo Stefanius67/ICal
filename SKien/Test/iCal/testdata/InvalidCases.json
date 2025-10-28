@@ -55,6 +55,11 @@
         "warning"
     ],
     [
+        "Todo containing invalid property line",
+        "InvalidToDo6.ics",
+        "warning"
+    ],
+    [
         "File missing",
         "InvalidEventX.ics",
         "error"
