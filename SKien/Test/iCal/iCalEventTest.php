@@ -33,7 +33,7 @@ class iCalEventTest extends TestCase
         $this->strOldTZ = date_default_timezone_get();
         date_default_timezone_set('Europe/Berlin');
         $this->oICal = new iCalendar();
-        $this->oEvent = new iCalEvent($this->oICal);
+        $this->oEvent = $this->oICal->createEvent();
         $this->oWriter = new Writer($this->oICal);
     }
 
@@ -150,7 +150,7 @@ class iCalEventTest extends TestCase
         $this->assertStringContainsString('DTEND;TZID=Europe/Berlin:20251011T213000', $strData);
     }
 
-    public function test_setEnd() : void
+    public function test_setEnd1() : void
     {
         $dtStart = new \DateTime('2025-10-11 20:00:00');
         $this->oEvent->setStart($dtStart->getTimestamp());
@@ -168,10 +168,40 @@ class iCalEventTest extends TestCase
         $this->assertStringContainsString('DTEND;TZID=Europe/Berlin:20251011T213000', $strData);
     }
 
-    public function test_setLastModified() : void
+    public function test_setEnd2() : void
+    {
+        $dtStart = new \DateTime('2025-10-11 20:00:00');
+        $this->oEvent->setStart($dtStart);
+        $dtEnd = new \DateTime('2025-10-11 21:30:00');
+        $this->oEvent->setEnd($dtEnd);
+        $this->oEvent->validate();
+        $aData = $this->oEvent->fetchData();
+        $this->oEvent->writeData($this->oWriter, 'Europe/Berlin');
+        $strData = $this->oWriter->getBuffer();
+        $this->assertEquals(mktime(21, 30, 0, 10, 11, 2025), $this->oEvent->getEnd());
+        $this->assertEquals('2025-10-11 21:30:00', $aData['dtEnd']);
+        $this->assertEquals('2025-10-11', $aData['dateEnd']);
+        $this->assertEquals('21:30:00', $aData['timeEnd']);
+        $this->assertEquals(5400, $aData['iDuration']);
+        $this->assertStringContainsString('DTEND;TZID=Europe/Berlin:20251011T213000', $strData);
+    }
+
+    public function test_setLastModified1() : void
     {
         $dtMod = new \DateTime('2025-10-11 20:00:00');
         $this->oEvent->setLastModified($dtMod->getTimestamp());
+        $aData = $this->oEvent->fetchData();
+        $this->oEvent->writeData($this->oWriter, 'Europe/Berlin');
+        $strData = $this->oWriter->getBuffer();
+        $this->assertEquals(mktime(20, 0, 0, 10, 11, 2025), $this->oEvent->getLastModified());
+        $this->assertEquals('2025-10-11 20:00:00', $aData['dtLastModified']);
+        $this->assertStringContainsString('LAST-MODIFIED:20251011T180000Z', $strData);
+    }
+
+    public function test_setLastModified2() : void
+    {
+        $dtMod = new \DateTime('2025-10-11 20:00:00');
+        $this->oEvent->setLastModified($dtMod);
         $aData = $this->oEvent->fetchData();
         $this->oEvent->writeData($this->oWriter, 'Europe/Berlin');
         $strData = $this->oWriter->getBuffer();
@@ -274,6 +304,24 @@ class iCalEventTest extends TestCase
         $strData = $this->oWriter->getBuffer();
         $this->assertMatchesRegularExpression('/^BEGIN:VALARM(?s).*END:VALARM$/', $strData);
         $this->assertStringContainsString('ACTION:DISPLAY', $strData);
+    }
+
+    public function test_setAlarm1() : void
+    {
+        $oAlarm = $this->oEvent->setAlarm('-PT30M');
+        $this->assertEquals($oAlarm, $this->oEvent->getAlarm());
+        $oAlarm->writeData($this->oWriter);
+        $strData = $this->oWriter->getBuffer();
+        $this->assertMatchesRegularExpression('/^BEGIN:VALARM(?s).*END:VALARM$/', $strData);
+        $this->assertStringContainsString('ACTION:DISPLAY', $strData);
+    }
+
+    public function test_setAlarm2() : void
+    {
+        $oAlarm = $this->oEvent->setAlarm(-900);
+        $oAlarm->writeData($this->oWriter);
+        $strData = $this->oWriter->getBuffer();
+        $this->assertMatchesRegularExpression('/^BEGIN:VALARM(?s).*END:VALARM$/', $strData);
     }
 
     public function test_writeData() : void

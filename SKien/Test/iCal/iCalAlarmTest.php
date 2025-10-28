@@ -78,13 +78,29 @@ class iCalAlarmTest extends TestCase
         $this->assertStringContainsString('TRIGGER;RELATED=START:-PT30M', $strData);
     }
 
-    public function test_setTriggerTime() : void
+    public function test_setTriggerTime1() : void
     {
         $dtStart = new \DateTime('2025-10-11 20:00:00');
         $dtTrigger = new \DateTime('2025-10-11 19:30:00');
         $this->oEvent->setStart($dtStart->getTimestamp());
         $this->oEvent->setDuration(5400);
         $this->oAlarm->setTriggerTime($dtTrigger->getTimestamp());
+        $this->oEvent->validate();
+        $aData = $this->oAlarm->fetchData();
+        $this->oAlarm->writeData($this->oWriter);
+        $strData = $this->oWriter->getBuffer();
+        $this->assertEquals(-1800, $aData['iTrigger']);
+        $this->assertEquals($dtTrigger->getTimestamp(), $this->oAlarm->getTriggerTime());
+        $this->assertStringContainsString('TRIGGER;VALUE=DATE-TIME:' . gmdate('YmdTHisZ', $dtTrigger->getTimestamp()), $strData);
+    }
+
+    public function test_setTriggerTime2() : void
+    {
+        $dtStart = new \DateTime('2025-10-11 20:00:00');
+        $dtTrigger = new \DateTime('2025-10-11 19:30:00');
+        $this->oEvent->setStart($dtStart);
+        $this->oEvent->setDuration(5400);
+        $this->oAlarm->setTriggerTime($dtTrigger);
         $this->oEvent->validate();
         $aData = $this->oAlarm->fetchData();
         $this->oAlarm->writeData($this->oWriter);

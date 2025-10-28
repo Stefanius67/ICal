@@ -33,7 +33,7 @@ class iCalToDoTest extends TestCase
         $this->strOldTZ = date_default_timezone_get();
         date_default_timezone_set('Europe/Berlin');
         $this->oICal = new iCalendar();
-        $this->oToDo = new iCalToDo($this->oICal);
+        $this->oToDo = $this->oICal->createToDo();
         $this->oWriter = new Writer($this->oICal);
     }
 
@@ -101,12 +101,30 @@ class iCalToDoTest extends TestCase
         $this->assertStringContainsString('DURATION:PT1H30M', $strData);
     }
 
-    public function test_setDue() : void
+    public function test_setDue1() : void
     {
         $dtStart = new \DateTime('2025-10-11 20:00:00');
         $this->oToDo->setStart($dtStart->getTimestamp());
         $dtEnd = new \DateTime('2025-10-11 21:30:00');
         $this->oToDo->setDue($dtEnd->getTimestamp());
+        $this->oToDo->validate();
+        $aData = $this->oToDo->fetchData();
+        $this->oToDo->writeData($this->oWriter, 'Europe/Berlin');
+        $strData = $this->oWriter->getBuffer();
+        $this->assertEquals(mktime(21, 30, 0, 10, 11, 2025), $this->oToDo->getEnd());
+        $this->assertEquals('2025-10-11 21:30:00', $aData['dtDue']);
+        $this->assertEquals('2025-10-11', $aData['dateDue']);
+        $this->assertEquals('21:30:00', $aData['timeDue']);
+        $this->assertEquals(5400, $aData['iDuration']);
+        $this->assertStringContainsString('DURATION:PT1H30M', $strData);
+    }
+
+    public function test_setDue2() : void
+    {
+        $dtStart = new \DateTime('2025-10-11 20:00:00');
+        $this->oToDo->setStart($dtStart);
+        $dtEnd = new \DateTime('2025-10-11 21:30:00');
+        $this->oToDo->setDue($dtEnd);
         $this->oToDo->validate();
         $aData = $this->oToDo->fetchData();
         $this->oToDo->writeData($this->oWriter, 'Europe/Berlin');
