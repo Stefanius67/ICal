@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="20" viewBox="0 0 1100 200">
+  <defs>
+    <filter id="filter1">
+      <feDropShadow dx="7" dy="7" stdDeviation="1" flood-color="black"/>
+    </filter>
+    <filter id="filter2">
+      <feDropShadow dx="7" dy="7" stdDeviation="1" flood-color="#073888"/>
+    </filter>
+    <clipPath id="clipPath1">
+      <rect x="0" y="0" width="1100" height="200" rx="30" ry="30"/>
+    </clipPath>
+  </defs>
+  <style><![CDATA[text {font-size: 104px; font-weight: normal; fill: white; font-family: Verdana,Geneva,DejaVu Sans,sans-serif;}]]></style>
+  <g clip-path="url(#clipPath1)">
+    <rect x="0" y="0" width="550" height="200" style="fill: #555; stroke: none;"/>
+    <rect x="550" y="0" width="550" height="200" style="fill: #0d6efd; stroke: none;"/>
+    <text x="275" y="110" filter="url(#filter1)" text-rendering="optimizeLegibility" style="text-anchor: middle; dominant-baseline: middle;">coverage<title>PHPUnit code coverage:   Lines:   100.00% (1514/1514)</title></text>
+    <text x="1080" y="110" filter="url(#filter2)" text-rendering="optimizeLegibility" style="text-anchor: end; dominant-baseline: middle;">100.00%</text>
+  </g>
+</svg>

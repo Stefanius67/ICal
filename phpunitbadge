@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# create coverage.txt
+phpunit --coverage-text=coverage.txt	# >/dev/null
+if [ ! -f coverage.txt ]; then
+    echo
+    echo "File [coverage.txt] not found!"
+    echo
+    exit 0
+fi
+
+# grep the line containing the line coverage
+xCoverageLine=$(grep -F '  Lines:   ' coverage.txt)
+xFormat="  Lines:   (.*)% ((.*))"
+
+[[ "$xCoverageLine" =~ $xFormat ]]
+xCoverage="${BASH_REMATCH[1]}"
+
+# replace '%' with double '%%' to pass printf
+xCoverageLine="${xCoverageLine//%/"%%"}"
+
+# remove created coverage.txt
+rm coverage.txt
+
+# and finaly crate the svg ;-)
+printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"110\" height=\"20\" viewBox=\"0 0 1100 200\">
+  <defs>
+    <filter id=\"filter1\">
+      <feDropShadow dx=\"7\" dy=\"7\" stdDeviation=\"1\" flood-color=\"black\"/>
+    </filter>
+    <filter id=\"filter2\">
+      <feDropShadow dx=\"7\" dy=\"7\" stdDeviation=\"1\" flood-color=\"#073888\"/>
+    </filter>
+    <clipPath id=\"clipPath1\">
+      <rect x=\"0\" y=\"0\" width=\"1100\" height=\"200\" rx=\"30\" ry=\"30\"/>
+    </clipPath>
+  </defs>
+  <style><![CDATA[text {font-size: 104px; font-weight: normal; fill: white; font-family: Verdana,Geneva,DejaVu Sans,sans-serif;}]]></style>
+  <g clip-path=\"url(#clipPath1)\">
+    <rect x=\"0\" y=\"0\" width=\"550\" height=\"200\" style=\"fill: #555; stroke: none;\"/>
+    <rect x=\"550\" y=\"0\" width=\"550\" height=\"200\" style=\"fill: #0d6efd; stroke: none;\"/>
+    <text x=\"275\" y=\"110\" filter=\"url(#filter1)\" text-rendering=\"optimizeLegibility\" style=\"text-anchor: middle; dominant-baseline: middle;\">coverage<title>PHPUnit code coverage: ${xCoverageLine}</title></text>
+    <text x=\"1080\" y=\"110\" filter=\"url(#filter2)\" text-rendering=\"optimizeLegibility\" style=\"text-anchor: end; dominant-baseline: middle;\">${xCoverage}%%</text>
+  </g>
+</svg>
+" > PhpUnitCoverage.svg 
