@@ -4,15 +4,15 @@
  ![License](https://img.shields.io/packagist/l/gomoob/php-pushwoosh.svg) 
  [![Donate](https://img.shields.io/static/v1?label=donate&message=PayPal&color=orange)](https://www.paypal.me/SKientzler/5.00EUR)
  ![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.2-8892BF.svg)
- ![PhpUnit coverage](./PhpUnitCoverageBadge.svg) 
+ ![PhpUnit coverage](./PhpUnitCoverage.svg) 
  
 ----------
 ## Overview
 
-This package can read and write calendaring and scheduling data in the `iCalendar`
-format specified by RFC 5545.
+This package can read and write data in the `iCalendar` format specified by 
+[RFC-5545: Internet Calendaring and Scheduling Core Object Specification (iCalendar)](https://www.rfc-editor.org/rfc/rfc5545.html)
 
-The iCalendar format is ideal when such data needs to be exchanged or synchronized 
+The iCalendar format is first choice when such data needs to be exchanged or synchronized 
 between different platforms, systems, or applications. The clear time zone specifications 
 ensure unambiguous, region-independent data exchange at all times.
 
@@ -96,7 +96,17 @@ this can result in a much better read- and recognizable display by the reading a
 
 > [www.anydomain.de](https://www.anydomain.de/some-report/in20%a20%further20%folder/report.php?iew=3&source=external)
 
+## Usage
 
+The usage for reading and writing *iCalendar* files is demonstrated in the sample code files
+
+- ImportSelect.php
+- ImportTest.php
+- ExportTest.php
+
+that are part of the package and can be found in the root directory.
+
+  
 
 
 
