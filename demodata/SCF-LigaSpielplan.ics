@@ -1,0 +1,626 @@
+BEGIN:VCALENDAR
+PRODID:LIGA-SPIELPLAN.DE
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Bundesliga
+X-WR-TIMEZONE:Europe/Berlin
+X-WR-CALDESC:
+BEGIN:VEVENT
+DTSTART:20250816T160000Z
+DTEND:20250816T174500Z
+DTSTAMP:20251027T175157Z
+UID:BLSkal01rg
+DESCRIPTION:1. Runde\n15.08.25 18:00: Saarbrücken - Magdeburg 1 : 3\n15.08.25 18:00: Gütersloh - Union Berlin 0 : 5\n15.08.25 18:00: Großaspach - Leverkusen 0 : 4\n15.08.25 20:45: A. Bielefeld - W. Bremen 1 : 0\n16.08.25 13:00: BFC Dynamo - VfL Bochum 1 : 3\n16.08.25 13:00: Pirmasens - HSV 1 : 2\n16.08.25 15:30: Han. Rostock - Hoffenheim 0 : 4\n16.08.25 15:30: Illertissen - Nürnberg 6 : 5\n16.08.25 15:30: Sandhausen - RB Leipzig 2 : 4\n16.08.25 15:30: Hemelingen - Wolfsburg 0 : 9\n16.08.25 15:30: Bahlingen - Heidenheim 0 : 5\n16.08.25 15:30: E. Norderstedt - St. Pauli 2 : 3\n16.08.25 18:00: Spfrd Lotte - SC Freiburg 0 : 2\n16.08.25 18:00: VfB Lübeck - Darmstadt 1 : 2\n16.08.25 18:00: En. Cottbus - Hannover 96 1 : 0\n17.08.25 13:00: V. Köln - Paderborn 1 : 3\n17.08.25 13:00: FV Engers - Eintracht 0 : 5\n17.08.25 15:30: Regensburg - 1. FC Köln 1 : 2\n17.08.25 15:30: Delmenhorst - Gladbach 2 : 3\n17.08.25 15:30: Lok Leipzig - Schalke 0 : 1\n17.08.25 15:30: Meuselwitz - KSC 0 : 5\n17.08.25 15:30: BW Lohne - Gr. Fürth 0 : 2\n17.08.25 15:30: RSV Eintracht - Kaiserslautern 0 : 7\n17.08.25 18:00: SSV Ulm - Elversberg 0 : 1\n17.08.25 18:00: FC Homburg - Holstein Kiel 0 : 2\n17.08.25 18:00: Halle  - Augsburg 0 : 2\n18.08.25 18:00: Pr. Münster - Hertha 3 : 5\n18.08.25 18:00: Dyn. Dresden - FSV Mainz 05 0 : 1\n18.08.25 18:00: Schweinfurt - Düsseldorf 2 : 4\n18.08.25 20:45: RW Essen - BVB 0 : 1\n26.08.25 20:45: Braunschweig - VfB Stuttgart 11 : 12\n27.08.25 20:45: Wiesbaden - FC Bayern 2 : 3\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Sportfreunde Lotte - SC Freiburg (1. Runde)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250823T133000Z
+DTEND:20250823T151500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga01rg
+DESCRIPTION:1. Spieltag\n22.08.25 20:30: FC Bayern - RB Leipzig 6 : 0\n23.08.25 15:30: Eintracht - W. Bremen 4 : 1\n23.08.25 15:30: Leverkusen - Hoffenheim 1 : 2\n23.08.25 15:30: Heidenheim - Wolfsburg 1 : 3\n23.08.25 15:30: SC Freiburg - Augsburg 1 : 3\n23.08.25 15:30: Union Berlin - VfB Stuttgart 2 : 1\n23.08.25 18:30: St. Pauli - BVB 3 : 3\n24.08.25 15:30: FSV Mainz 05 - 1. FC Köln 0 : 1\n24.08.25 17:30: Gladbach - HSV 0 : 0\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - FC Augsburg (1. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250831T173000Z
+DTEND:20250831T191500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga02rg
+DESCRIPTION:2. Spieltag\n29.08.25 20:30: HSV - St. Pauli 0 : 2\n30.08.25 15:30: RB Leipzig - Heidenheim 2 : 0\n30.08.25 15:30: W. Bremen - Leverkusen 3 : 3\n30.08.25 15:30: VfB Stuttgart - Gladbach 1 : 0\n30.08.25 15:30: Hoffenheim - Eintracht 1 : 3\n30.08.25 18:30: Augsburg - FC Bayern 2 : 3\n31.08.25 15:30: Wolfsburg - FSV Mainz 05 1 : 1\n31.08.25 17:30: BVB - Union Berlin 3 : 0\n31.08.25 19:30: 1. FC Köln - SC Freiburg 4 : 1\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:1. FC Köln - SC Freiburg (2. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250913T133000Z
+DTEND:20250913T151500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga03rg
+DESCRIPTION:3. Spieltag\n12.09.25 20:30: Leverkusen - Eintracht 3 : 1\n13.09.25 15:30: SC Freiburg - VfB Stuttgart 3 : 1\n13.09.25 15:30: Wolfsburg - 1. FC Köln 3 : 3\n13.09.25 15:30: Heidenheim - BVB 0 : 2\n13.09.25 15:30: FSV Mainz 05 - RB Leipzig 0 : 1\n13.09.25 15:30: Union Berlin - Hoffenheim 2 : 4\n13.09.25 18:30: FC Bayern - HSV 5 : 0\n14.09.25 15:30: St. Pauli - Augsburg 2 : 1\n14.09.25 17:30: Gladbach - W. Bremen 0 : 4\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - VfB Stuttgart (3. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250920T133000Z
+DTEND:20250920T151500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga04rg
+DESCRIPTION:4. Spieltag\n19.09.25 20:30: VfB Stuttgart - St. Pauli 2 : 0\n20.09.25 15:30: W. Bremen - SC Freiburg 0 : 3\n20.09.25 15:30: Hoffenheim - FC Bayern 1 : 4\n20.09.25 15:30: HSV - Heidenheim 2 : 1\n20.09.25 15:30: Augsburg - FSV Mainz 05 1 : 4\n20.09.25 18:30: RB Leipzig - 1. FC Köln 3 : 1\n21.09.25 15:30: Eintracht - Union Berlin 3 : 4\n21.09.25 17:30: Leverkusen - Gladbach 1 : 1\n21.09.25 19:30: BVB - Wolfsburg 1 : 0\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Werder Bremen - SC Freiburg (4. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250924T190000Z
+DTEND:20250924T204500Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL01rg
+DESCRIPTION:1. Spieltag, EL Ligaphase\n24.09.25 18:45: FC Midtjylland - Sturm Graz\n24.09.25 18:45: PAOK Saloniki - Maccabi Tel Aviv\n24.09.25 21:00: Dinamo Zagreb - Fenerbahçe\n24.09.25 21:00: SC Freiburg - FC Basel 1893\n24.09.25 21:00: OGC Nizza - AS Rom\n24.09.25 21:00: Betis Sevilla - Nottingham Forest\n24.09.25 21:00: Malmö FF - Ludogorez Rasgrad\n24.09.25 21:00: Sporting Braga - Feyenoord Rotterdam\n24.09.25 21:00: Roter Stern Belgrad - Celtic Glasgow\n25.09.25 18:45: Go Ahead Eagles - Fotbal Club FCSB\n25.09.25 18:45: Lille OSC - SK Brann\n25.09.25 21:00: Aston Villa - Bologna FC\n25.09.25 21:00: BSC Young Boys - Panathinaikos\n25.09.25 21:00: RB Salzburg - FC Porto\n25.09.25 21:00: FC Utrecht - Olympique Lyon\n25.09.25 21:00: VfB Stuttgart - RC Celta\n25.09.25 21:00: Rangers FC - KRC Genk\n25.09.25 21:00: Ferencvárosi TC - Viktoria Pilsen\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - FC Basel 1893 (1. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250928T133000Z
+DTEND:20250928T151500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga05rg
+DESCRIPTION:5. Spieltag\n26.09.25 20:30: FC Bayern - W. Bremen 4 : 0\n27.09.25 15:30: Wolfsburg - RB Leipzig 0 : 1\n27.09.25 15:30: Heidenheim - Augsburg 2 : 1\n27.09.25 15:30: FSV Mainz 05 - BVB 0 : 2\n27.09.25 15:30: St. Pauli - Leverkusen 1 : 2\n27.09.25 18:30: Gladbach - Eintracht 4 : 6\n28.09.25 15:30: SC Freiburg - Hoffenheim 1 : 1\n28.09.25 17:30: 1. FC Köln - VfB Stuttgart 1 : 2\n28.09.25 19:30: Union Berlin - HSV 0 : 0\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - TSG Hoffenheim (5. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251002T164500Z
+DTEND:20251002T183000Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL02rg
+DESCRIPTION:2. Spieltag, EL Ligaphase\n02.10.25 18:45: Ludogorez Rasgrad - Betis Sevilla\n02.10.25 18:45: Viktoria Pilsen - Malmö FF\n02.10.25 18:45: Panathinaikos - Go Ahead Eagles\n02.10.25 18:45: Fenerbahçe - OGC Nizza\n02.10.25 18:45: Fotbal Club FCSB - BSC Young Boys\n02.10.25 18:45: SK Brann - FC Utrecht\n02.10.25 18:45: AS Rom - Lille OSC\n02.10.25 18:45: Celtic Glasgow - Sporting Braga\n02.10.25 18:45: Bologna FC - SC Freiburg\n02.10.25 21:00: Sturm Graz - Rangers FC\n02.10.25 21:00: Olympique Lyon - RB Salzburg\n02.10.25 21:00: FC Basel 1893 - VfB Stuttgart\n02.10.25 21:00: Feyenoord Rotterdam - Aston Villa\n02.10.25 21:00: RC Celta - PAOK Saloniki\n02.10.25 21:00: Nottingham Forest - FC Midtjylland\n02.10.25 21:00: FC Porto - Roter Stern Belgrad\n02.10.25 21:00: Maccabi Tel Aviv - Dinamo Zagreb\n02.10.25 21:00: KRC Genk - Ferencvárosi TC\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Bologna FC - SC Freiburg (2. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251005T173000Z
+DTEND:20251005T191500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga06rg
+DESCRIPTION:6. Spieltag\n03.10.25 20:30: Hoffenheim - 1. FC Köln 0 : 1\n04.10.25 15:30: BVB - RB Leipzig 1 : 1\n04.10.25 15:30: Leverkusen - Union Berlin 2 : 0\n04.10.25 15:30: W. Bremen - St. Pauli 1 : 0\n04.10.25 15:30: Augsburg - Wolfsburg 3 : 1\n04.10.25 18:30: Eintracht - FC Bayern 0 : 3\n05.10.25 15:30: VfB Stuttgart - Heidenheim 1 : 0\n05.10.25 17:30: HSV - FSV Mainz 05 4 : 0\n05.10.25 19:30: Gladbach - SC Freiburg 0 : 0\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Bor. Mönchengladbach - SC Freiburg (6. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251019T133000Z
+DTEND:20251019T151500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga07rg
+DESCRIPTION:7. Spieltag\n17.10.25 20:30: Union Berlin - Gladbach 3 : 1\n18.10.25 15:30: Wolfsburg - VfB Stuttgart 0 : 3\n18.10.25 15:30: Heidenheim - W. Bremen 2 : 2\n18.10.25 15:30: FSV Mainz 05 - Leverkusen 3 : 4\n18.10.25 15:30: 1. FC Köln - Augsburg 1 : 1\n18.10.25 15:30: RB Leipzig - HSV 2 : 1\n18.10.25 18:30: FC Bayern - BVB 2 : 1\n19.10.25 15:30: SC Freiburg - Eintracht 2 : 2\n19.10.25 17:30: St. Pauli - Hoffenheim 0 : 3\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Eintracht Frankfurt (7. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251023T190000Z
+DTEND:20251023T204500Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL03rg
+DESCRIPTION:3. Spieltag, EL Ligaphase\n23.10.25 18:45: KRC Genk - Betis Sevilla\n23.10.25 18:45: Fenerbahçe - VfB Stuttgart\n23.10.25 18:45: Fotbal Club FCSB - Bologna FC\n23.10.25 18:45: RB Salzburg - Ferencvárosi TC\n23.10.25 18:45: Sporting Braga - Roter Stern Belgrad\n23.10.25 18:45: SK Brann - Rangers FC\n23.10.25 18:45: Go Ahead Eagles - Aston Villa\n23.10.25 18:45: Olympique Lyon - FC Basel 1893\n23.10.25 21:00: Feyenoord Rotterdam - Panathinaikos\n23.10.25 21:00: Celtic Glasgow - Sturm Graz\n23.10.25 21:00: SC Freiburg - FC Utrecht\n23.10.25 21:00: AS Rom - Viktoria Pilsen\n23.10.25 21:00: Lille OSC - PAOK Saloniki\n23.10.25 21:00: Maccabi Tel Aviv - FC Midtjylland\n23.10.25 21:00: RC Celta - OGC Nizza\n23.10.25 21:00: Nottingham Forest - FC Porto\n23.10.25 21:00: Malmö FF - Dinamo Zagreb\n23.10.25 21:00: BSC Young Boys - Ludogorez Rasgrad\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - FC Utrecht (3. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251026T143000Z
+DTEND:20251026T161500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga08rg
+DESCRIPTION:8. Spieltag\n24.10.25 20:30: W. Bremen - Union Berlin 1 : 0\n25.10.25 15:30: Eintracht - St. Pauli 2 : 0\n25.10.25 15:30: Hoffenheim - Heidenheim 3 : 1\n25.10.25 15:30: Gladbach - FC Bayern 0 : 3\n25.10.25 15:30: HSV - Wolfsburg 0 : 1\n25.10.25 15:30: Augsburg - RB Leipzig 0 : 6\n25.10.25 18:30: BVB - 1. FC Köln 1 : 0\n26.10.25 15:30: Leverkusen - SC Freiburg 2 : 0\n26.10.25 17:30: VfB Stuttgart - FSV Mainz 05 2 : 1\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Bayer 04 Leverkusen - SC Freiburg (8. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251029T194500Z
+DTEND:20251029T213000Z
+DTSTAMP:20251027T175157Z
+UID:BLSkal02rg
+DESCRIPTION:2. Runde\n28.10.25 18:30: Eintracht - BVB\n28.10.25 18:30: Wolfsburg - Holstein Kiel\n28.10.25 18:30: Hertha - Elversberg\n28.10.25 18:30: Heidenheim - HSV\n28.10.25 20:45: En. Cottbus - RB Leipzig\n28.10.25 20:45: Gladbach - KSC\n28.10.25 20:45: Augsburg - VfL Bochum\n28.10.25 20:45: St. Pauli - Hoffenheim\n29.10.25 18:00: Paderborn - Leverkusen\n29.10.25 18:00: Illertissen - Magdeburg\n29.10.25 18:00: Gr. Fürth - Kaiserslautern\n29.10.25 18:00: FSV Mainz 05 - VfB Stuttgart\n29.10.25 20:45: Düsseldorf - SC Freiburg\n29.10.25 20:45: Union Berlin - A. Bielefeld\n29.10.25 20:45: Darmstadt - Schalke\n29.10.25 20:45: 1. FC Köln - FC Bayern\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Fortuna Düsseldorf - SC Freiburg (2. Runde)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251101T143000Z
+DTEND:20251101T161500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga09rg
+DESCRIPTION:9. Spieltag\n31.10.25 20:30: Augsburg - BVB\n01.11.25 15:30: FSV Mainz 05 - W. Bremen\n01.11.25 15:30: Heidenheim - Eintracht\n01.11.25 15:30: RB Leipzig - VfB Stuttgart\n01.11.25 15:30: Union Berlin - SC Freiburg\n01.11.25 15:30: St. Pauli - Gladbach\n01.11.25 18:30: FC Bayern - Leverkusen\n02.11.25 15:30: 1. FC Köln - HSV\n02.11.25 17:30: Wolfsburg - Hoffenheim\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:1. FC Union Berlin - SC Freiburg (9. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251106T174500Z
+DTEND:20251106T193000Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL04rg
+DESCRIPTION:4. Spieltag, EL Ligaphase\n06.11.25 18:45: Roter Stern Belgrad - Lille OSC\n06.11.25 18:45: FC Midtjylland - Celtic Glasgow\n06.11.25 18:45: Sturm Graz - Nottingham Forest\n06.11.25 18:45: Dinamo Zagreb - RC Celta\n06.11.25 18:45: FC Basel 1893 - Fotbal Club FCSB\n06.11.25 18:45: Malmö FF - Panathinaikos\n06.11.25 18:45: FC Utrecht - FC Porto\n06.11.25 18:45: RB Salzburg - Go Ahead Eagles\n06.11.25 18:45: OGC Nizza - SC Freiburg\n06.11.25 21:00: VfB Stuttgart - Feyenoord Rotterdam\n06.11.25 21:00: Viktoria Pilsen - Fenerbahçe\n06.11.25 21:00: Ferencvárosi TC - Ludogorez Rasgrad\n06.11.25 21:00: Betis Sevilla - Olympique Lyon\n06.11.25 21:00: Sporting Braga - KRC Genk\n06.11.25 21:00: Bologna FC - SK Brann\n06.11.25 21:00: Rangers FC - AS Rom\n06.11.25 21:00: Aston Villa - Maccabi Tel Aviv\n06.11.25 21:00: PAOK Saloniki - BSC Young Boys\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:OGC Nizza - SC Freiburg (4. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251109T143000Z
+DTEND:20251109T161500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga10rg
+DESCRIPTION:10. Spieltag\n07.11.25 20:30: W. Bremen - Wolfsburg\n08.11.25 15:30: Hoffenheim - RB Leipzig\n08.11.25 15:30: HSV - BVB\n08.11.25 15:30: Leverkusen - Heidenheim\n08.11.25 15:30: Union Berlin - FC Bayern\n08.11.25 18:30: Gladbach - 1. FC Köln\n09.11.25 15:30: SC Freiburg - St. Pauli\n09.11.25 17:30: VfB Stuttgart - Augsburg\n09.11.25 19:30: Eintracht - FSV Mainz 05\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - FC St. Pauli (10. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251122T143000Z
+DTEND:20251122T161500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga11rg
+DESCRIPTION:11. Spieltag\n21.11.25 20:30: FSV Mainz 05 - Hoffenheim\n22.11.25 15:30: BVB - VfB Stuttgart\n22.11.25 15:30: Wolfsburg - Leverkusen\n22.11.25 15:30: Heidenheim - Gladbach\n22.11.25 15:30: Augsburg - HSV\n22.11.25 15:30: FC Bayern - SC Freiburg\n22.11.25 18:30: 1. FC Köln - Eintracht\n23.11.25 15:30: RB Leipzig - W. Bremen\n23.11.25 17:30: St. Pauli - Union Berlin\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:FC Bayern München - SC Freiburg (11. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251127T174500Z
+DTEND:20251127T193000Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL05rg
+DESCRIPTION:5. Spieltag, EL Ligaphase\n27.11.25 18:45: FC Porto - OGC Nizza\n27.11.25 18:45: Aston Villa - BSC Young Boys\n27.11.25 18:45: Viktoria Pilsen - SC Freiburg\n27.11.25 18:45: Feyenoord Rotterdam - Celtic Glasgow\n27.11.25 18:45: Fenerbahçe - Ferencvárosi TC\n27.11.25 18:45: Ludogorez Rasgrad - RC Celta\n27.11.25 18:45: AS Rom - FC Midtjylland\n27.11.25 18:45: Lille OSC - Dinamo Zagreb\n27.11.25 18:45: PAOK Saloniki - SK Brann\n27.11.25 21:00: Betis Sevilla - FC Utrecht\n27.11.25 21:00: Maccabi Tel Aviv - Olympique Lyon\n27.11.25 21:00: Panathinaikos - Sturm Graz\n27.11.25 21:00: Bologna FC - RB Salzburg\n27.11.25 21:00: KRC Genk - FC Basel 1893\n27.11.25 21:00: Go Ahead Eagles - VfB Stuttgart\n27.11.25 21:00: Rangers FC - Sporting Braga\n27.11.25 21:00: Roter Stern Belgrad - Fotbal Club FCSB\n27.11.25 21:00: Nottingham Forest - Malmö FF\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Viktoria Pilsen - SC Freiburg (5. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251130T183000Z
+DTEND:20251130T201500Z
+DTSTAMP:20251027T175157Z
+UID:BLSiga12rg
+DESCRIPTION:12. Spieltag\n28.11.25 20:30: Gladbach - RB Leipzig\n29.11.25 15:30: W. Bremen - 1. FC Köln\n29.11.25 15:30: Hoffenheim - Augsburg\n29.11.25 15:30: FC Bayern - St. Pauli\n29.11.25 15:30: Union Berlin - Heidenheim\n29.11.25 18:30: Leverkusen - BVB\n30.11.25 15:30: HSV - VfB Stuttgart\n30.11.25 17:30: Eintracht - Wolfsburg\n30.11.25 19:30: SC Freiburg - FSV Mainz 05\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - FSV Mainz 05 (12. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251206
+DTSTAMP:20251027T175157Z
+UID:BLSiga13rg
+DESCRIPTION:13. Spieltag\n06.12.25: FSV Mainz 05 - Gladbach\n06.12.25: Wolfsburg - Union Berlin\n06.12.25: HSV - W. Bremen\n06.12.25: RB Leipzig - Eintracht\n06.12.25: Heidenheim - SC Freiburg\n06.12.25: Augsburg - Leverkusen\n06.12.25: BVB - Hoffenheim\n06.12.25: VfB Stuttgart - FC Bayern\n06.12.25: 1. FC Köln - St. Pauli\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:1. FC Heidenheim - SC Freiburg (13. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251211T200000Z
+DTEND:20251211T214500Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL06rg
+DESCRIPTION:6. Spieltag, EL Ligaphase\n11.12.25 18:45: BSC Young Boys - Lille OSC\n11.12.25 18:45: Sturm Graz - Roter Stern Belgrad\n11.12.25 18:45: FC Midtjylland - KRC Genk\n11.12.25 18:45: Dinamo Zagreb - Betis Sevilla\n11.12.25 18:45: Ludogorez Rasgrad - PAOK Saloniki\n11.12.25 18:45: FC Utrecht - Nottingham Forest\n11.12.25 18:45: Ferencvárosi TC - Rangers FC\n11.12.25 18:45: OGC Nizza - Sporting Braga\n11.12.25 18:45: VfB Stuttgart - Maccabi Tel Aviv\n11.12.25 21:00: FC Porto - Malmö FF\n11.12.25 21:00: FC Basel 1893 - Aston Villa\n11.12.25 21:00: Panathinaikos - Viktoria Pilsen\n11.12.25 21:00: Fotbal Club FCSB - Feyenoord Rotterdam\n11.12.25 21:00: SK Brann - Fenerbahçe\n11.12.25 21:00: RC Celta - Bologna FC\n11.12.25 21:00: Celtic Glasgow - AS Rom\n11.12.25 21:00: SC Freiburg - RB Salzburg\n11.12.25 21:00: Olympique Lyon - Go Ahead Eagles\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - RB Salzburg (6. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251213
+DTSTAMP:20251027T175157Z
+UID:BLSiga14rg
+DESCRIPTION:14. Spieltag\n13.12.25: Leverkusen - 1. FC Köln\n13.12.25: W. Bremen - VfB Stuttgart\n13.12.25: St. Pauli - Heidenheim\n13.12.25: Eintracht - Augsburg\n13.12.25: Gladbach - Wolfsburg\n13.12.25: Hoffenheim - HSV\n13.12.25: FC Bayern - FSV Mainz 05\n13.12.25: SC Freiburg - BVB\n13.12.25: Union Berlin - RB Leipzig\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Borussia Dortmund (14. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20251220
+DTSTAMP:20251027T175157Z
+UID:BLSiga15rg
+DESCRIPTION:15. Spieltag\n20.12.25: FSV Mainz 05 - St. Pauli\n20.12.25: Wolfsburg - SC Freiburg\n20.12.25: 1. FC Köln - Union Berlin\n20.12.25: RB Leipzig - Leverkusen\n20.12.25: Augsburg - W. Bremen\n20.12.25: HSV - Eintracht\n20.12.25: BVB - Gladbach\n20.12.25: VfB Stuttgart - Hoffenheim\n20.12.25: Heidenheim - FC Bayern\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:VfL Wolfsburg - SC Freiburg (15. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260110
+DTSTAMP:20251027T175157Z
+UID:BLSiga16rg
+DESCRIPTION:16. Spieltag\n10.01.26: Leverkusen - VfB Stuttgart\n10.01.26: W. Bremen - Hoffenheim\n10.01.26: St. Pauli - RB Leipzig\n10.01.26: Eintracht - BVB\n10.01.26: Gladbach - Augsburg\n10.01.26: Heidenheim - 1. FC Köln\n10.01.26: FC Bayern - Wolfsburg\n10.01.26: SC Freiburg - HSV\n10.01.26: Union Berlin - FSV Mainz 05\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Hamburger SV (16. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260113
+DTSTAMP:20251027T175157Z
+UID:BLSiga17rg
+DESCRIPTION:17. Spieltag\n13.01.26: FSV Mainz 05 - Heidenheim\n13.01.26: Wolfsburg - St. Pauli\n13.01.26: 1. FC Köln - FC Bayern\n13.01.26: RB Leipzig - SC Freiburg\n13.01.26: Augsburg - Union Berlin\n13.01.26: HSV - Leverkusen\n13.01.26: BVB - W. Bremen\n13.01.26: VfB Stuttgart - Eintracht\n13.01.26: Hoffenheim - Gladbach\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Rasenballsport Leipzig - SC Freiburg (17. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260117
+DTSTAMP:20251027T175157Z
+UID:BLSiga18rg
+DESCRIPTION:18. Spieltag\n17.01.26: W. Bremen - Eintracht\n17.01.26: 1. FC Köln - FSV Mainz 05\n17.01.26: BVB - St. Pauli\n17.01.26: Hoffenheim - Leverkusen\n17.01.26: HSV - Gladbach\n17.01.26: Wolfsburg - Heidenheim\n17.01.26: RB Leipzig - FC Bayern\n17.01.26: Augsburg - SC Freiburg\n17.01.26: VfB Stuttgart - Union Berlin\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:FC Augsburg - SC Freiburg (18. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260122T174500Z
+DTEND:20260122T193000Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL07rg
+DESCRIPTION:7. Spieltag, EL Ligaphase\n22.01.26 18:45: Feyenoord Rotterdam - Sturm Graz\n22.01.26 18:45: BSC Young Boys - Olympique Lyon\n22.01.26 18:45: SK Brann - FC Midtjylland\n22.01.26 18:45: PAOK Saloniki - Betis Sevilla\n22.01.26 18:45: Bologna FC - Celtic Glasgow\n22.01.26 18:45: Viktoria Pilsen - FC Porto\n22.01.26 18:45: Malmö FF - Roter Stern Belgrad\n22.01.26 18:45: SC Freiburg - Maccabi Tel Aviv\n22.01.26 21:00: RC Celta - Lille OSC\n22.01.26 21:00: Fenerbahçe - Aston Villa\n22.01.26 21:00: OGC Nizza - Go Ahead Eagles\n22.01.26 21:00: AS Rom - VfB Stuttgart\n22.01.26 21:00: Dinamo Zagreb - Fotbal Club FCSB\n22.01.26 21:00: Sporting Braga - Nottingham Forest\n22.01.26 21:00: FC Utrecht - KRC Genk\n22.01.26 21:00: Rangers FC - Ludogorez Rasgrad\n22.01.26 21:00: RB Salzburg - FC Basel 1893\n22.01.26 21:00: Ferencvárosi TC - Panathinaikos\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Maccabi Tel Aviv (7. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260124
+DTSTAMP:20251027T175157Z
+UID:BLSiga19rg
+DESCRIPTION:19. Spieltag\n24.01.26: Heidenheim - RB Leipzig\n24.01.26: FSV Mainz 05 - Wolfsburg\n24.01.26: SC Freiburg - 1. FC Köln\n24.01.26: Leverkusen - W. Bremen\n24.01.26: FC Bayern - Augsburg\n24.01.26: St. Pauli - HSV\n24.01.26: Union Berlin - BVB\n24.01.26: Gladbach - VfB Stuttgart\n24.01.26: Eintracht - Hoffenheim\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - 1. FC Köln (19. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260129T200000Z
+DTEND:20260129T214500Z
+DTSTAMP:20251027T175157Z
+UID:BLS0EL08rg
+DESCRIPTION:8. Spieltag, EL Ligaphase\n29.01.26 21:00: FC Porto - Rangers FC\n29.01.26 21:00: FC Midtjylland - Dinamo Zagreb\n29.01.26 21:00: Go Ahead Eagles - Sporting Braga\n29.01.26 21:00: FC Basel 1893 - Viktoria Pilsen\n29.01.26 21:00: Maccabi Tel Aviv - Bologna FC\n29.01.26 21:00: Sturm Graz - SK Brann\n29.01.26 21:00: Betis Sevilla - Feyenoord Rotterdam\n29.01.26 21:00: Aston Villa - RB Salzburg\n29.01.26 21:00: Roter Stern Belgrad - RC Celta\n29.01.26 21:00: Nottingham Forest - Ferencvárosi TC\n29.01.26 21:00: VfB Stuttgart - BSC Young Boys\n29.01.26 21:00: KRC Genk - Malmö FF\n29.01.26 21:00: Panathinaikos - AS Rom\n29.01.26 21:00: Lille OSC - SC Freiburg\n29.01.26 21:00: Fotbal Club FCSB - Fenerbahçe\n29.01.26 21:00: Olympique Lyon - PAOK Saloniki\n29.01.26 21:00: Celtic Glasgow - FC Utrecht\n29.01.26 21:00: Ludogorez Rasgrad - OGC Nizza\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Lille OSC - SC Freiburg (8. Spieltag, EL Ligaphase)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260131
+DTSTAMP:20251027T175157Z
+UID:BLSiga20rg
+DESCRIPTION:20. Spieltag\n31.01.26: Eintracht - Leverkusen\n31.01.26: W. Bremen - Gladbach\n31.01.26: Augsburg - St. Pauli\n31.01.26: VfB Stuttgart - SC Freiburg\n31.01.26: 1. FC Köln - Wolfsburg\n31.01.26: BVB - Heidenheim\n31.01.26: HSV - FC Bayern\n31.01.26: RB Leipzig - FSV Mainz 05\n31.01.26: Hoffenheim - Union Berlin\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:VfB Stuttgart - SC Freiburg (20. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260207
+DTSTAMP:20251027T175157Z
+UID:BLSiga21rg
+DESCRIPTION:21. Spieltag\n07.02.26: Union Berlin - Eintracht\n07.02.26: SC Freiburg - W. Bremen\n07.02.26: FC Bayern - Hoffenheim\n07.02.26: Wolfsburg - BVB\n07.02.26: St. Pauli - VfB Stuttgart\n07.02.26: Heidenheim - HSV\n07.02.26: Gladbach - Leverkusen\n07.02.26: 1. FC Köln - RB Leipzig\n07.02.26: FSV Mainz 05 - Augsburg\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Werder Bremen (21. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260214
+DTSTAMP:20251027T175157Z
+UID:BLSiga22rg
+DESCRIPTION:22. Spieltag\n14.02.26: Hoffenheim - SC Freiburg\n14.02.26: RB Leipzig - Wolfsburg\n14.02.26: Augsburg - Heidenheim\n14.02.26: BVB - FSV Mainz 05\n14.02.26: HSV - Union Berlin\n14.02.26: VfB Stuttgart - 1. FC Köln\n14.02.26: W. Bremen - FC Bayern\n14.02.26: Eintracht - Gladbach\n14.02.26: Leverkusen - St. Pauli\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:TSG Hoffenheim - SC Freiburg (22. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260219
+DTSTAMP:20251027T175157Z
+UID:BLS0EL09rg
+DESCRIPTION:EL Playoffs\n19.02.26: N.N. - N.N.\n26.02.26: N.N. - N.N.\n12.03.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Playoffs)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260221
+DTSTAMP:20251027T175157Z
+UID:BLSiga23rg
+DESCRIPTION:23. Spieltag\n21.02.26: FC Bayern - Eintracht\n21.02.26: Heidenheim - VfB Stuttgart\n21.02.26: 1. FC Köln - Hoffenheim\n21.02.26: RB Leipzig - BVB\n21.02.26: SC Freiburg - Gladbach\n21.02.26: FSV Mainz 05 - HSV\n21.02.26: Union Berlin - Leverkusen\n21.02.26: St. Pauli - W. Bremen\n21.02.26: Wolfsburg - Augsburg\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Bor. Mönchengladbach (23. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260226
+DTSTAMP:20251027T175157Z
+UID:BLS0EL09rg
+DESCRIPTION:EL Playoffs\n19.02.26: N.N. - N.N.\n26.02.26: N.N. - N.N.\n12.03.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Playoffs)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260228
+DTSTAMP:20251027T175157Z
+UID:BLSiga24rg
+DESCRIPTION:24. Spieltag\n28.02.26: Eintracht - SC Freiburg\n28.02.26: VfB Stuttgart - Wolfsburg\n28.02.26: W. Bremen - Heidenheim\n28.02.26: Leverkusen - FSV Mainz 05\n28.02.26: Gladbach - Union Berlin\n28.02.26: Augsburg - 1. FC Köln\n28.02.26: BVB - FC Bayern\n28.02.26: HSV - RB Leipzig\n28.02.26: Hoffenheim - St. Pauli\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Eintracht Frankfurt - SC Freiburg (24. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260307
+DTSTAMP:20251027T175157Z
+UID:BLSiga25rg
+DESCRIPTION:25. Spieltag\n07.03.26: St. Pauli - Eintracht\n07.03.26: FSV Mainz 05 - VfB Stuttgart\n07.03.26: Heidenheim - Hoffenheim\n07.03.26: 1. FC Köln - BVB\n07.03.26: FC Bayern - Gladbach\n07.03.26: Wolfsburg - HSV\n07.03.26: SC Freiburg - Leverkusen\n07.03.26: Union Berlin - W. Bremen\n07.03.26: RB Leipzig - Augsburg\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Bayer 04 Leverkusen (25. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260312
+DTSTAMP:20251027T175158Z
+UID:BLS0EL09rg
+DESCRIPTION:EL Achtelfinale\n19.02.26: N.N. - N.N.\n26.02.26: N.N. - N.N.\n12.03.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Achtelfinale)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260312
+DTSTAMP:20251027T175158Z
+UID:BLS0EL10rg
+DESCRIPTION:EL Achtelfinale\n12.03.26: N.N. - N.N.\n19.03.26: N.N. - N.N.\n09.04.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Achtelfinale)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260314
+DTSTAMP:20251027T175158Z
+UID:BLSiga26rg
+DESCRIPTION:26. Spieltag\n14.03.26: W. Bremen - FSV Mainz 05\n14.03.26: BVB - Augsburg\n14.03.26: Eintracht - Heidenheim\n14.03.26: VfB Stuttgart - RB Leipzig\n14.03.26: SC Freiburg - Union Berlin\n14.03.26: HSV - 1. FC Köln\n14.03.26: Leverkusen - FC Bayern\n14.03.26: Hoffenheim - Wolfsburg\n14.03.26: Gladbach - St. Pauli\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - 1. FC Union Berlin (26. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260319
+DTSTAMP:20251027T175158Z
+UID:BLS0EL10rg
+DESCRIPTION:EL Achtelfinale\n12.03.26: N.N. - N.N.\n19.03.26: N.N. - N.N.\n09.04.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Achtelfinale)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260321
+DTSTAMP:20251027T175158Z
+UID:BLSiga27rg
+DESCRIPTION:27. Spieltag\n21.03.26: FSV Mainz 05 - Eintracht\n21.03.26: Augsburg - VfB Stuttgart\n21.03.26: RB Leipzig - Hoffenheim\n21.03.26: St. Pauli - SC Freiburg\n21.03.26: 1. FC Köln - Gladbach\n21.03.26: BVB - HSV\n21.03.26: Heidenheim - Leverkusen\n21.03.26: Wolfsburg - W. Bremen\n21.03.26: FC Bayern - Union Berlin\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:FC St. Pauli - SC Freiburg (27. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260405
+DTSTAMP:20251027T175158Z
+UID:BLSiga28rg
+DESCRIPTION:28. Spieltag\n05.04.26: VfB Stuttgart - BVB\n05.04.26: Leverkusen - Wolfsburg\n05.04.26: Gladbach - Heidenheim\n05.04.26: Hoffenheim - FSV Mainz 05\n05.04.26: HSV - Augsburg\n05.04.26: Eintracht - 1. FC Köln\n05.04.26: SC Freiburg - FC Bayern\n05.04.26: W. Bremen - RB Leipzig\n05.04.26: Union Berlin - St. Pauli\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - FC Bayern München (28. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260409
+DTSTAMP:20251027T175158Z
+UID:BLS0EL10rg
+DESCRIPTION:EL Viertelfinale\n12.03.26: N.N. - N.N.\n19.03.26: N.N. - N.N.\n09.04.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Viertelfinale)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260411
+DTSTAMP:20251027T175158Z
+UID:BLSiga29rg
+DESCRIPTION:29. Spieltag\n11.04.26: BVB - Leverkusen\n11.04.26: 1. FC Köln - W. Bremen\n11.04.26: Augsburg - Hoffenheim\n11.04.26: Wolfsburg - Eintracht\n11.04.26: RB Leipzig - Gladbach\n11.04.26: VfB Stuttgart - HSV\n11.04.26: St. Pauli - FC Bayern\n11.04.26: FSV Mainz 05 - SC Freiburg\n11.04.26: Heidenheim - Union Berlin\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:FSV Mainz 05 - SC Freiburg (29. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260416
+DTSTAMP:20251027T175158Z
+UID:BLS0EL11rg
+DESCRIPTION:EL Viertelfinale\n16.04.26: N.N. - N.N.\n30.04.26: N.N. - N.N.\n07.05.26: N.N. - N.N.\n20.05.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Viertelfinale)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260418
+DTSTAMP:20251027T175158Z
+UID:BLSiga30rg
+DESCRIPTION:30. Spieltag\n18.04.26: Gladbach - FSV Mainz 05\n18.04.26: Union Berlin - Wolfsburg\n18.04.26: W. Bremen - HSV\n18.04.26: Eintracht - RB Leipzig\n18.04.26: SC Freiburg - Heidenheim\n18.04.26: Leverkusen - Augsburg\n18.04.26: Hoffenheim - BVB\n18.04.26: FC Bayern - VfB Stuttgart\n18.04.26: St. Pauli - 1. FC Köln\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - 1. FC Heidenheim (30. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260425
+DTSTAMP:20251027T175158Z
+UID:BLSiga31rg
+DESCRIPTION:31. Spieltag\n25.04.26: 1. FC Köln - Leverkusen\n25.04.26: VfB Stuttgart - W. Bremen\n25.04.26: Heidenheim - St. Pauli\n25.04.26: Augsburg - Eintracht\n25.04.26: Wolfsburg - Gladbach\n25.04.26: HSV - Hoffenheim\n25.04.26: FSV Mainz 05 - FC Bayern\n25.04.26: BVB - SC Freiburg\n25.04.26: RB Leipzig - Union Berlin\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Borussia Dortmund - SC Freiburg (31. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260430
+DTSTAMP:20251027T175158Z
+UID:BLS0EL11rg
+DESCRIPTION:EL Halbfinale\n16.04.26: N.N. - N.N.\n30.04.26: N.N. - N.N.\n07.05.26: N.N. - N.N.\n20.05.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Halbfinale)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260503
+DTSTAMP:20251027T175158Z
+UID:BLSiga32rg
+DESCRIPTION:32. Spieltag\n03.05.26: St. Pauli - FSV Mainz 05\n03.05.26: SC Freiburg - Wolfsburg\n03.05.26: Union Berlin - 1. FC Köln\n03.05.26: Leverkusen - RB Leipzig\n03.05.26: W. Bremen - Augsburg\n03.05.26: Eintracht - HSV\n03.05.26: Gladbach - BVB\n03.05.26: Hoffenheim - VfB Stuttgart\n03.05.26: FC Bayern - Heidenheim\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - VfL Wolfsburg (32. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260507
+DTSTAMP:20251027T175158Z
+UID:BLS0EL11rg
+DESCRIPTION:EL Halbfinale\n16.04.26: N.N. - N.N.\n30.04.26: N.N. - N.N.\n07.05.26: N.N. - N.N.\n20.05.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Halbfinale)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260509
+DTSTAMP:20251027T175158Z
+UID:BLSiga33rg
+DESCRIPTION:33. Spieltag\n09.05.26: VfB Stuttgart - Leverkusen\n09.05.26: Hoffenheim - W. Bremen\n09.05.26: RB Leipzig - St. Pauli\n09.05.26: BVB - Eintracht\n09.05.26: Augsburg - Gladbach\n09.05.26: 1. FC Köln - Heidenheim\n09.05.26: Wolfsburg - FC Bayern\n09.05.26: HSV - SC Freiburg\n09.05.26: FSV Mainz 05 - Union Berlin\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Hamburger SV - SC Freiburg (33. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260516T133000Z
+DTEND:20260516T151500Z
+DTSTAMP:20251027T175158Z
+UID:BLSiga34rg
+DESCRIPTION:34. Spieltag\n16.05.26 15:30: Heidenheim - FSV Mainz 05\n16.05.26 15:30: St. Pauli - Wolfsburg\n16.05.26 15:30: FC Bayern - 1. FC Köln\n16.05.26 15:30: SC Freiburg - RB Leipzig\n16.05.26 15:30: Union Berlin - Augsburg\n16.05.26 15:30: Leverkusen - HSV\n16.05.26 15:30: W. Bremen - BVB\n16.05.26 15:30: Eintracht - VfB Stuttgart\n16.05.26 15:30: Gladbach - Hoffenheim\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:SC Freiburg - Rasenballsport Leipzig (34. Spieltag)
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260520
+DTSTAMP:20251027T175158Z
+UID:BLS0EL11rg
+DESCRIPTION:EL Finale\n16.04.26: N.N. - N.N.\n30.04.26: N.N. - N.N.\n07.05.26: N.N. - N.N.\n20.05.26: N.N. - N.N.\n\n\nhttps://www.liga-spielplan.de
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:N.N. - N.N. (EL Finale)
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

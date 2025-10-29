@@ -1,0 +1,1774 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//calovo//Calendar Publishing 1.14
+METHOD:PUBLISH
+CALSCALE:GREGORIAN
+X-MICROSOFT-CALSCALE:GREGORIAN
+X-WR-CALNAME:SC Freiburg - Sportschau
+X-WR-CALDESC:Alle Spieltermine von SC Freiburg immer aktuell im Kalender.
+X-WR-TIMEZONE:Europe/Berlin
+X-WR-RELCALID:1f750fd4.2621b5c6@7549.calovo.com
+X-PUBLISHED-TTL:PT30M
+BEGIN:VEVENT
+UID:66d48f9803f2b@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241030T180000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241030T200000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 2:1 Hamburger SV | 2. Runde
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\nEndergebnis: 2 : 1 \n-------------------------\n\n\nAudiost
+ ream: https://www.sportschau.de/fussball/dfbpokal/sc-freiburg-gegen-hambur
+ ger-sv\,audiostream-sc-freiburg-gegen-hamburger-sv-100.html?at_medium=kale
+ nder&at_campaign=bundesliga\n\nLiveticker: https://www.sportschau.de/live-
+ und-ergebnisse/fussball/deutschland-dfb-pokal/ma10684409/sc-freiburg_hambu
+ rger-sv/liveticker?at_medium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbi
+ eter-Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\
+ n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250618T153042Z
+CREATED:20240901T160024Z
+LAST-MODIFIED:20250618T153042Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3becb21549@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241103T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241103T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 0:0 1. FSV Mainz 05 | Bundesliga | 9. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n9. Spieltag\n\
+ nEndergebnis: 0 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bun
+ desliga/sc-freiburg-gegen-1-fsv-mainz-05\,audiostream-sc-freiburg-gegen-1-
+ fsv-mainz-05-104.html?at_medium=kalender&at_campaign=Bundesliga\n\nLivetic
+ ker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bu
+ ndesliga/ma10347413/sc-freiburg_1-fsv-mainz-05/liveticker?at_medium=kalend
+ er&at_campaign=Bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportsc
+ hau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anle
+ itung: termine.de/ical/loeschen
+DTSTAMP:20250627T122348Z
+CREATED:20240726T152043Z
+LAST-MODIFIED:20250627T122348Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3beceec824@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241108T203000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241108T223000
+LOCATION:An der Alten Försterei (Stadion)\, Berlin\, Deutschland
+SUMMARY:1. FC Union Berlin 0:0 SC Freiburg | Bundesliga | 10. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n10. Spieltag\n
+ \nEndergebnis: 0 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/1-fc-union-berlin-gegen-sc-freiburg\,audiostream-1-fc-union-berli
+ n-gegen-sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\n
+ Liveticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutsch
+ land-bundesliga/ma10347899/1-fc-union-berlin_sc-freiburg/liveticker?at_med
+ ium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://w
+ ww.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender lös
+ chen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122349Z
+CREATED:20240726T152046Z
+LAST-MODIFIED:20250627T122349Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bed146927@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241123T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241123T173000
+LOCATION:Signal Iduna Park (Stadion)\, Dortmund\, Deutschland
+SUMMARY:Borussia Dortmund 4:0 SC Freiburg | Bundesliga | 11. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n11. Spieltag\n
+ \nEndergebnis: 4 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/borussia-dortmund-gegen-sc-freiburg\,audiostream-borussia-dortmun
+ d-gegen-sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\n
+ Liveticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutsch
+ land-bundesliga/ma10347500/borussia-dortmund_sc-freiburg/liveticker?at_med
+ ium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://w
+ ww.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender lös
+ chen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122256Z
+CREATED:20240726T152049Z
+LAST-MODIFIED:20250627T122256Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bed4a3f63@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241130T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241130T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 3:1 Bor. Mönchengladbach | Bundesliga | 12. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n12. Spieltag\n
+ \nEndergebnis: 3 : 1\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-borussia-moenchengladbach\,audiostream-sc-freib
+ urg-gegen-borussia-moenchengladbach-100.html?at_medium=kalender&at_campaig
+ n=bundesliga\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/
+ fussball/deutschland-bundesliga/ma10348055/sc-freiburg_borussia-moenchengl
+ adbach/liveticker?at_medium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbie
+ ter-Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n
+ \n\ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122257Z
+CREATED:20240726T152052Z
+LAST-MODIFIED:20250627T122257Z
+END:VEVENT
+BEGIN:VEVENT
+UID:6727c139ec7b3@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241203T180000
+SEQUENCE:2
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241203T200000
+LOCATION:SchücoArena (Stadion)\, Bielefeld\, Deutschland
+SUMMARY:Arminia Bielefeld 3:1 SC Freiburg | Achtelfinale
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\nAudiostream: h
+ ttps://www.sportschau.de/fussball/dfbpokal/arminia-bielefeld-gegen-sc-frei
+ burg\,audiostream-arminia-bielefeld-gegen-sc-freiburg-100.html?at_medium=k
+ alender&at_campaign=bundesliga\n\nLiveticker: https://www.sportschau.de/li
+ ve-und-ergebnisse/fussball/deutschland-dfb-pokal/ma10760357/arminia-bielef
+ eld_sc-freiburg/liveticker?at_medium=kalender&at_campaign=bundesliga\n\n--
+ -----------------------\n\nEndergebnis: 3 : 1 \n-------------------------\
+ n\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschauimpress
+ um-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical/l
+ oeschen
+DTSTAMP:20250618T153043Z
+CREATED:20241103T183017Z
+LAST-MODIFIED:20250618T153043Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bed8b7155@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241208T173000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241208T193000
+LOCATION:PreZero Arena (Stadion)\, Sinsheim\, Deutschland
+SUMMARY:1899 Hoffenheim 1:1 SC Freiburg | Bundesliga | 13. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n13. Spieltag\n
+ \nEndergebnis: 1 : 1\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/1899-hoffenheim-gegen-sc-freiburg\,audiostream-1899-hoffenheim-ge
+ gen-sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLive
+ ticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland
+ -bundesliga/ma10347713/1899-hoffenheim_sc-freiburg/liveticker?at_medium=ka
+ lender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.spo
+ rtschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? 
+ Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122354Z
+CREATED:20240726T152056Z
+LAST-MODIFIED:20250627T122354Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bedb7f7c2@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241213T203000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241213T223000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 3:2 VfL Wolfsburg | Bundesliga | 14. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n14. Spieltag\n
+ \nEndergebnis: 3 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-vfl-wolfsburg\,audiostream-sc-freiburg-gegen-vf
+ l-wolfsburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLivetick
+ er: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bun
+ desliga/ma10348229/sc-freiburg_vfl-wolfsburg/liveticker?at_medium=kalender
+ &at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportscha
+ u.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleit
+ ung: termine.de/ical/loeschen
+DTSTAMP:20250627T122354Z
+CREATED:20240726T152059Z
+LAST-MODIFIED:20250627T122354Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bede8f1da@7549.calovo
+DTSTART;TZID=Europe/Berlin:20241221T183000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241221T203000
+LOCATION:BayArena (Stadion)\, Leverkusen\, Deutschland
+SUMMARY:Bayer Leverkusen 5:1 SC Freiburg | Bundesliga | 15. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n15. Spieltag\n
+ \nEndergebnis: 5 : 1\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/bayer-leverkusen-gegen-sc-freiburg\,audiostream-bayer-leverkusen-
+ gegen-sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLi
+ veticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschla
+ nd-bundesliga/ma10347845/bayer-leverkusen_sc-freiburg/liveticker?at_medium
+ =kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.
+ sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender lösche
+ n? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122356Z
+CREATED:20240726T152102Z
+LAST-MODIFIED:20250627T122356Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bee42f353@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250111T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250111T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 3:2 Holstein Kiel | Bundesliga | 16. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n16. Spieltag\n
+ \nEndergebnis: 3 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-holstein-kiel\,audiostream-sc-freiburg-gegen-ho
+ lstein-kiel-100.html?at_medium=kalender&at_campaign=bundesliga\n\nLivetick
+ er: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bun
+ desliga/ma10348307/sc-freiburg_holstein-kiel/liveticker?at_medium=kalender
+ &at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportscha
+ u.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleit
+ ung: termine.de/ical/loeschen
+DTSTAMP:20250627T122304Z
+CREATED:20240726T152108Z
+LAST-MODIFIED:20250627T122304Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bee70e7e9@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250114T203000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250114T223000
+LOCATION:Deutsche Bank Park (Stadion)\, Frankfurt am Main\, Deutschland
+SUMMARY:Eintracht Frankfurt 4:1 SC Freiburg | Bundesliga | 17. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n17. Spieltag\n
+ \nEndergebnis: 4 : 1\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/eintracht-frankfurt-gegen-sc-freiburg\,audiostream-eintracht-fran
+ kfurt-gegen-sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga
+ \n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deu
+ tschland-bundesliga/ma10348073/eintracht-frankfurt_sc-freiburg/liveticker?
+ at_medium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: htt
+ ps://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalende
+ r löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122306Z
+CREATED:20240726T152111Z
+LAST-MODIFIED:20250627T122306Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3beea47170@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250118T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250118T173000
+LOCATION:MHPArena (Stadion)\, Stuttgart\, Deutschland
+SUMMARY:VfB Stuttgart 4:0 SC Freiburg | Bundesliga | 18. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n18. Spieltag\n
+ \nEndergebnis: 4 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/vfb-stuttgart-gegen-sc-freiburg\,audiostream-vfb-stuttgart-gegen-
+ sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLivetick
+ er: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bun
+ desliga/ma10346615/vfb-stuttgart_sc-freiburg/liveticker?at_medium=kalender
+ &at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportscha
+ u.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleit
+ ung: termine.de/ical/loeschen
+DTSTAMP:20250627T122307Z
+CREATED:20240726T152114Z
+LAST-MODIFIED:20250627T122307Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3beec6421f@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250125T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250125T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 1:2 Bayern München | Bundesliga | 19. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n19. Spieltag\n
+ \nEndergebnis: 1 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-bayern-muenchen\,audiostream-sc-freiburg-gegen-
+ bayern-muenchen-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLive
+ ticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland
+ -bundesliga/ma10346720/sc-freiburg_bayern-muenchen/liveticker?at_medium=ka
+ lender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.spo
+ rtschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? 
+ Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122309Z
+CREATED:20240726T152116Z
+LAST-MODIFIED:20250627T122309Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3beefcc510@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250201T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250201T173000
+LOCATION:Vonovia Ruhrstadion (Stadion)\, Bochum\, Deutschland
+SUMMARY:VfL Bochum 0:1 SC Freiburg | Bundesliga | 20. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n20. Spieltag\n
+ \nEndergebnis: 0 : 1\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/vfl-bochum-gegen-sc-freiburg\,audiostream-vfl-bochum-gegen-sc-fre
+ iburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLiveticker: ht
+ tps://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundeslig
+ a/ma10346819/vfl-bochum_sc-freiburg/liveticker?at_medium=kalender&at_campa
+ ign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/spor
+ tschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250627T122310Z
+CREATED:20240726T152119Z
+LAST-MODIFIED:20250627T122310Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bef26714d@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250208T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250208T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 1:0 1. FC Heidenheim 1846 | Bundesliga | 21. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n21. Spieltag\n
+ \nEndergebnis: 1 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-1-fc-heidenheim-1846\,audiostream-sc-freiburg-g
+ egen-1-fc-heidenheim-1846-102.html?at_medium=kalender&at_campaign=bundesli
+ ga\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball/d
+ eutschland-bundesliga/ma10346984/sc-freiburg_1-fc-heidenheim-1846/livetick
+ er?at_medium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: 
+ https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kale
+ nder löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122312Z
+CREATED:20240726T152122Z
+LAST-MODIFIED:20250627T122312Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bef57c1d9@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250215T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250215T173000
+LOCATION:Millerntor-Stadion (Stadion)\, Hamburg\, Deutschland
+SUMMARY:FC St. Pauli 0:1 SC Freiburg | Bundesliga | 22. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n22. Spieltag\n
+ \nEndergebnis: 0 : 1\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/fc-st-pauli-gegen-sc-freiburg\,audiostream-fc-st-pauli-gegen-sc-f
+ reiburg-100.html?at_medium=kalender&at_campaign=bundesliga\n\nLiveticker: 
+ https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesl
+ iga/ma10347020/fc-st-pauli_sc-freiburg/liveticker?at_medium=kalender&at_ca
+ mpaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/s
+ portschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: t
+ ermine.de/ical/loeschen
+DTSTAMP:20250627T122314Z
+CREATED:20240726T152125Z
+LAST-MODIFIED:20250627T122314Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bef826308@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250221T203000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250221T223000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 5:0 Werder Bremen | Bundesliga | 23. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n23. Spieltag\n
+ \nEndergebnis: 5 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-werder-bremen\,audiostream-sc-freiburg-gegen-we
+ rder-bremen-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLivetick
+ er: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bun
+ desliga/ma10347275/sc-freiburg_werder-bremen/liveticker?at_medium=kalender
+ &at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportscha
+ u.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleit
+ ung: termine.de/ical/loeschen
+DTSTAMP:20250627T122406Z
+CREATED:20240726T152128Z
+LAST-MODIFIED:20250627T122406Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3befb20085@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250302T173000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250302T193000
+LOCATION:WWK ARENA (Stadion)\, Augsburg\, Deutschland
+SUMMARY:FC Augsburg 0:0 SC Freiburg | Bundesliga | 24. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n24. Spieltag\n
+ \nEndergebnis: 0 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/fc-augsburg-gegen-sc-freiburg\,audiostream-fc-augsburg-gegen-sc-f
+ reiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLiveticker: 
+ https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesl
+ iga/ma10347200/fc-augsburg_sc-freiburg/liveticker?at_medium=kalender&at_ca
+ mpaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/s
+ portschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: t
+ ermine.de/ical/loeschen
+DTSTAMP:20250627T122409Z
+CREATED:20240726T152131Z
+LAST-MODIFIED:20250627T122409Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3befd03849@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250308T183000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250308T203000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 0:0 RB Leipzig | Bundesliga | 25. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n25. Spieltag\n
+ \nEndergebnis: 0 : 0\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-rb-leipzig\,audiostream-sc-freiburg-gegen-rb-le
+ ipzig-106.html?at_medium=kalender&at_campaign=bundesliga\n\nLiveticker: ht
+ tps://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundeslig
+ a/ma10347503/sc-freiburg_rb-leipzig/liveticker?at_medium=kalender&at_campa
+ ign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/spor
+ tschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250627T122410Z
+CREATED:20240726T152133Z
+LAST-MODIFIED:20250627T122410Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf01b7494@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250315T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250315T173000
+LOCATION:MEWA ARENA (Stadion)\, Mainz\, Deutschland
+SUMMARY:1. FSV Mainz 05 2:2 SC Freiburg | Bundesliga | 26. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n26. Spieltag\n
+ \nEndergebnis: 2 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/1-fsv-mainz-05-gegen-sc-freiburg\,audiostream-1-fsv-mainz-05-gege
+ n-sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLiveti
+ cker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-b
+ undesliga/ma10347416/1-fsv-mainz-05_sc-freiburg/liveticker?at_medium=kalen
+ der&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sports
+ chau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anl
+ eitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122320Z
+CREATED:20240726T152137Z
+LAST-MODIFIED:20250627T122320Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf053bd91@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250330T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250330T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 1:2 1. FC Union Berlin | Bundesliga | 27. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n27. Spieltag\n
+ \nEndergebnis: 1 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-1-fc-union-berlin\,audiostream-sc-freiburg-gege
+ n-1-fc-union-berlin-104.html?at_medium=kalender&at_campaign=bundesliga\n\n
+ Liveticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutsch
+ land-bundesliga/ma10347902/sc-freiburg_1-fc-union-berlin/liveticker?at_med
+ ium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://w
+ ww.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender lös
+ chen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122413Z
+CREATED:20240726T152141Z
+LAST-MODIFIED:20250627T122413Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf0778652@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250405T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250405T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 1:4 Borussia Dortmund | Bundesliga | 28. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n28. Spieltag\n
+ \nEndergebnis: 1 : 4\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-borussia-dortmund\,audiostream-sc-freiburg-gege
+ n-borussia-dortmund-104.html?at_medium=kalender&at_campaign=bundesliga\n\n
+ Liveticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutsch
+ land-bundesliga/ma10347506/sc-freiburg_borussia-dortmund/liveticker?at_med
+ ium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://w
+ ww.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender lös
+ chen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122324Z
+CREATED:20240726T152143Z
+LAST-MODIFIED:20250627T122324Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf0bdb945@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250412T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250412T173000
+LOCATION:Borussia-Park (Stadion)\, Mönchengladbach\, Deutschland
+SUMMARY:Bor. Mönchengladbach 1:2 SC Freiburg | Bundesliga | 29. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n29. Spieltag\n
+ \nEndergebnis: 1 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/borussia-moenchengladbach-gegen-sc-freiburg\,audiostream-borussia
+ -moenchengladbach-gegen-sc-freiburg-102.html?at_medium=kalender&at_campaig
+ n=bundesliga\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/
+ fussball/deutschland-bundesliga/ma10348058/borussia-moenchengladbach_sc-fr
+ eiburg/liveticker?at_medium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbie
+ ter-Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n
+ \n\ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122325Z
+CREATED:20240726T152147Z
+LAST-MODIFIED:20250627T122325Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf0fcf65a@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250419T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250419T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 3:2 1899 Hoffenheim | Bundesliga | 30. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n30. Spieltag\n
+ \nEndergebnis: 3 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-1899-hoffenheim\,audiostream-sc-freiburg-gegen-
+ 1899-hoffenheim-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLive
+ ticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland
+ -bundesliga/ma10347716/sc-freiburg_1899-hoffenheim/liveticker?at_medium=ka
+ lender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.spo
+ rtschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? 
+ Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122327Z
+CREATED:20240726T152151Z
+LAST-MODIFIED:20250627T122327Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf137d55c@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250426T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250426T173000
+LOCATION:Volkswagen Arena (Stadion)\, Wolfsburg\, Deutschland
+SUMMARY:VfL Wolfsburg 0:1 SC Freiburg | Bundesliga | 31. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n31. Spieltag\n
+ \nEndergebnis: 0 : 1\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/vfl-wolfsburg-gegen-sc-freiburg\,audiostream-vfl-wolfsburg-gegen-
+ sc-freiburg-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLivetick
+ er: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bun
+ desliga/ma10348232/vfl-wolfsburg_sc-freiburg/liveticker?at_medium=kalender
+ &at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportscha
+ u.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleit
+ ung: termine.de/ical/loeschen
+DTSTAMP:20250627T122329Z
+CREATED:20240726T152155Z
+LAST-MODIFIED:20250627T122329Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf15f2c55@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250504T173000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250504T193000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 2:2 Bayer Leverkusen | Bundesliga | 32. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n32. Spieltag\n
+ \nEndergebnis: 2 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-bayer-leverkusen\,audiostream-sc-freiburg-gegen
+ -bayer-leverkusen-104.html?at_medium=kalender&at_campaign=bundesliga\n\nLi
+ veticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschla
+ nd-bundesliga/ma10347851/sc-freiburg_bayer-leverkusen/liveticker?at_medium
+ =kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.
+ sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender lösche
+ n? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122419Z
+CREATED:20240726T152158Z
+LAST-MODIFIED:20250627T122419Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf1c3cd64@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250510T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250510T173000
+LOCATION:Holstein-Stadion (Stadion)\, Kiel\, Deutschland
+SUMMARY:Holstein Kiel 1:2 SC Freiburg | Bundesliga | 33. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n33. Spieltag\n
+ \nEndergebnis: 1 : 2\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/holstein-kiel-gegen-sc-freiburg\,audiostream-holstein-kiel-gegen-
+ sc-freiburg-100.html?at_medium=kalender&at_campaign=bundesliga\n\nLivetick
+ er: https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bun
+ desliga/ma10348310/holstein-kiel_sc-freiburg/liveticker?at_medium=kalender
+ &at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportscha
+ u.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleit
+ ung: termine.de/ical/loeschen
+DTSTAMP:20250627T122333Z
+CREATED:20240726T152204Z
+LAST-MODIFIED:20250627T122333Z
+END:VEVENT
+BEGIN:VEVENT
+UID:66a3bf1fa27f8@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250517T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250517T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 1:3 Eintracht Frankfurt | Bundesliga | 34. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n34. Spieltag\n
+ \nEndergebnis: 1 : 3\n\nAudiostream: https://www.sportschau.de/fussball/bu
+ ndesliga/sc-freiburg-gegen-eintracht-frankfurt\,audiostream-sc-freiburg-ge
+ gen-eintracht-frankfurt-104.html?at_medium=kalender&at_campaign=bundesliga
+ \n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball/deu
+ tschland-bundesliga/ma10348076/sc-freiburg_eintracht-frankfurt/liveticker?
+ at_medium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: htt
+ ps://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalende
+ r löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250627T122335Z
+CREATED:20240726T152207Z
+LAST-MODIFIED:20250627T122335Z
+END:VEVENT
+BEGIN:VEVENT
+UID:68578e465138f@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250816T180000
+SEQUENCE:2
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250816T200000
+LOCATION:Stadion am Lotter Kreuz (Stadion)\, Lotte\, Deutschland
+SUMMARY:Sportfreunde Lotte 0:2 SC Freiburg | DFB-Pokal | 1. Runde
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\nAudiostream: h
+ ttps://www.sportschau.de/fussball/dfbpokal/sportfreunde-lotte-gegen-sc-fre
+ iburg\,audiostream-sportfreunde-lotte-gegen-sc-freiburg-100.html?at_medium
+ =kalender&at_campaign=bundesliga\n\nAudiostream: https://www.sportschau.de
+ /fussball/dfbpokal/sportfreunde-lotte-gegen-sc-freiburg\,audiostream-sport
+ freunde-lotte-gegen-sc-freiburg-100.html?at_medium=kalender&at_campaign=bu
+ ndesliga\n\n-------------------------\n\nEndergebnis: 0 : 2 \n------------
+ -------------\n\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/spo
+ rtschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: ter
+ mine.de/ical/loeschen
+DTSTAMP:20251021T070612Z
+CREATED:20250622T050158Z
+LAST-MODIFIED:20251021T070612Z
+END:VEVENT
+BEGIN:VEVENT
+UID:685e9184a3e2e@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250823T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250823T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 1:3 FC Augsburg | Bundesliga | 1. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n1. Spieltag\n\nEndergebnis: 1 : 3 \n-----------------------
+ --\n\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball
+ /deutschland-bundesliga/ma11199446/sc-freiburg_fc-augsburg/liveticker?at_m
+ edium=kalender&at_campaign=bundesliga\n\nAudiostream: https://www.sportsch
+ au.de/fussball/bundesliga/sc-freiburg-gegen-fc-augsburg\,audiostream-sc-fr
+ eiburg-gegen-fc-augsburg-106.html?at_medium=kalender&at_campaign=bundeslig
+ a\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschauimpress
+ um-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical/l
+ oeschen
+DTSTAMP:20251021T070539Z
+CREATED:20250627T124140Z
+LAST-MODIFIED:20251021T070539Z
+END:VEVENT
+BEGIN:VEVENT
+UID:685e918c2ff0e@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250831T193000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250831T213000
+LOCATION:RheinEnergieStadion (Stadion)\, Köln\, Deutschland
+SUMMARY:1. FC Köln 4:1 SC Freiburg | Bundesliga | 2. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n2. Spieltag\n\nEndergebnis: 4 : 1 \n-----------------------
+ --\n\n\nAudiostream: https://www.sportschau.de/fussball/bundesliga/1-fc-ko
+ eln-gegen-sc-freiburg\,audiostream-1-fc-koeln-gegen-sc-freiburg-104.html?a
+ t_medium=kalender&at_campaign=bundesliga\n\nLiveticker: https://www.sports
+ chau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma11199620/1-f
+ c-koeln_sc-freiburg/liveticker?at_medium=kalender&at_campaign=bundesliga\n
+ \n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschauimpressum-
+ sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical/loes
+ chen
+DTSTAMP:20251021T070643Z
+CREATED:20250627T124148Z
+LAST-MODIFIED:20251021T070643Z
+END:VEVENT
+BEGIN:VEVENT
+UID:685e918dc244a@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250913T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250913T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 3:1 VfB Stuttgart | Bundesliga | 3. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n3. Spieltag\n\nEndergebnis: 3 : 1 \n-----------------------
+ --\n\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball
+ /deutschland-bundesliga/ma11199470/sc-freiburg_vfb-stuttgart/liveticker?at
+ _medium=kalender&at_campaign=bundesliga\n\nAudiostream: https://www.sports
+ chau.de/fussball/bundesliga/sc-freiburg-gegen-vfb-stuttgart\,audiostream-s
+ c-freiburg-gegen-vfb-stuttgart-106.html?at_medium=kalender&at_campaign=bun
+ desliga\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschaui
+ mpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/
+ ical/loeschen
+DTSTAMP:20251021T070542Z
+CREATED:20250627T124149Z
+LAST-MODIFIED:20251021T070542Z
+END:VEVENT
+BEGIN:VEVENT
+UID:685e9193c4d0c@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250920T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250920T173000
+LOCATION:Weserstadion (Stadion)\, Bremen\, Deutschland
+SUMMARY:Werder Bremen 0:3 SC Freiburg | Bundesliga | 4. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n4. Spieltag\n\nEndergebnis: 0 : 3 \n-----------------------
+ --\n\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball
+ /deutschland-bundesliga/ma11199752/werder-bremen_sc-freiburg/liveticker?at
+ _medium=kalender&at_campaign=bundesliga\n\nAudiostream: https://www.sports
+ chau.de/fussball/bundesliga/werder-bremen-gegen-sc-freiburg\,audiostream-w
+ erder-bremen-gegen-sc-freiburg-106.html?at_medium=kalender&at_campaign=bun
+ desliga\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschaui
+ mpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/
+ ical/loeschen
+DTSTAMP:20251021T070543Z
+CREATED:20250627T124155Z
+LAST-MODIFIED:20251021T070543Z
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d71141ca4@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250924T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250924T230000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 2:1 FC Basel 1893 | UEL | Ligaphase | 1. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n1. Spieltag\n\nEndergebnis: 2 : 1\n------------------------
+ -\n\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschauimpre
+ ssum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical
+ /loeschen
+DTSTAMP:20251021T070617Z
+CREATED:20250831T050105Z
+LAST-MODIFIED:20251021T070617Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg 2:1 FC Basel 1893 | UEL | Ligaphase | 1. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e9196558eb@7549.calovo
+DTSTART;TZID=Europe/Berlin:20250928T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250928T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 1:1 1899 Hoffenheim | Bundesliga | 5. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n5. Spieltag\n\nEndergebnis: 1 : 1 \n-----------------------
+ --\n\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball
+ /deutschland-bundesliga/ma11199569/borussia-moenchengladbach_eintracht-fra
+ nkfurt/liveticker?at_medium=kalender&at_campaign=bundesliga\n\nAudiostream
+ : https://www.sportschau.de/fussball/bundesliga/sc-freiburg-gegen-1899-hof
+ fenheim\,audiostream-sc-freiburg-gegen-1899-hoffenheim-106.html?at_medium=
+ kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.s
+ portschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen
+ ? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070647Z
+CREATED:20250627T124158Z
+LAST-MODIFIED:20251021T070647Z
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d7133c4fd@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251002T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251002T204500
+LOCATION:Renato DallAra (Stadion)\, Bologna\, Italien
+SUMMARY:Bologna FC 1:1 SC Freiburg | UEL | Ligaphase | 2. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n2. Spieltag\n\nEndergebnis: 1 : 1\n------------------------
+ -\n\n\n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschauimpre
+ ssum-sp-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical
+ /loeschen
+DTSTAMP:20251021T070618Z
+CREATED:20250831T050107Z
+LAST-MODIFIED:20251021T070618Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Bologna FC 1:1 SC Freiburg | UEL | Ligaphase | 2. Spi
+ eltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e919de154d@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251005T193000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251005T213000
+LOCATION:Borussia-Park (Stadion)\, Mönchengladbach\, Deutschland
+SUMMARY:Bor. Mönchengladbach 0:0 SC Freiburg | Bundesliga | 6. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n6. Spieltag\n\nEndergebnis: 0 : 0 \n-----------------------
+ --\n\n\nLiveticker: https://www.sportschau.de/live-und-ergebnisse/fussball
+ /deutschland-bundesliga/ma11199935/borussia-moenchengladbach_sc-freiburg/l
+ iveticker?at_medium=kalender&at_campaign=bundesliga\n\nAudiostream: https:
+ //www.sportschau.de/fussball/bundesliga/borussia-moenchengladbach-gegen-sc
+ -freiburg\,audiostream-borussia-moenchengladbach-gegen-sc-freiburg-104.htm
+ l?at_medium=kalender&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: h
+ ttps://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalen
+ der löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070649Z
+CREATED:20250627T124205Z
+LAST-MODIFIED:20251021T070649Z
+END:VEVENT
+BEGIN:VEVENT
+UID:685e919feeabf@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251019T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251019T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg 2:2 Eintracht Frankfurt | Bundesliga | 7. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n7. Spieltag\n\nEndergebnis: 2 : 2 \n-----------------------
+ --\n\n\nAudiostream: https://www.sportschau.de/fussball/bundesliga/sc-frei
+ burg-gegen-eintracht-frankfurt\,audiostream-sc-freiburg-gegen-eintracht-fr
+ ankfurt-106.html?at_medium=kalender&at_campaign=bundesliga\n\nLiveticker: 
+ https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesl
+ iga/ma11199638/sc-freiburg_eintracht-frankfurt/liveticker?at_medium=kalend
+ er&at_campaign=bundesliga\n\n\n\n\nAnbieter-Impressum: https://www.sportsc
+ hau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalender löschen? Anle
+ itung: termine.de/ical/loeschen
+DTSTAMP:20251021T070650Z
+CREATED:20250627T124207Z
+LAST-MODIFIED:20251021T070650Z
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d7160b595@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251023T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251023T230000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg - FC Utrecht | UEL | Ligaphase | 3. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n3. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter-
+ Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\n
+ calovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070620Z
+CREATED:20250831T050110Z
+LAST-MODIFIED:20251021T070620Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - FC Utrecht | UEL | Ligaphase | 3. Spiel
+ tag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91a44a3f5@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251026T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251026T173000
+LOCATION:BayArena (Stadion)\, Leverkusen\, Deutschland
+SUMMARY:Bayer Leverkusen - SC Freiburg | Bundesliga | 8. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n8. Spieltag \n-------------------------\n\n\nAudiostream: h
+ ttps://www.sportschau.de/fussball/bundesliga/bayer-leverkusen-gegen-sc-fre
+ iburg\,audiostream-bayer-leverkusen-gegen-sc-freiburg-106.html?at_medium=k
+ alender&at_campaign=Bundesliga\n\nLiveticker: https://www.sportschau.de/li
+ ve-und-ergebnisse/fussball/deutschland-bundesliga/ma11200040/bayer-leverku
+ sen_sc-freiburg/liveticker?at_medium=kalender&at_campaign=Bundesliga\n\n\n
+ \n\nAnbieter-Impressum: https://www.sportschau.de/sportschauimpressum-sp-1
+ 00.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070652Z
+CREATED:20250627T124212Z
+LAST-MODIFIED:20251021T070652Z
+END:VEVENT
+BEGIN:VEVENT
+UID:68b486af19a96@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251029T204500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251029T224500
+LOCATION:Merkur Spiel-Arena (Stadion)\, Düsseldorf\, Deutschland
+SUMMARY:Fortuna Düsseldorf - SC Freiburg | DFB-Pokal | 2. Runde
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n-------------------------\n\n\n\n\n\nAnbieter-Impressum: ht
+ tps://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalovo Kalend
+ er löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070617Z
+CREATED:20250831T173023Z
+LAST-MODIFIED:20251021T070617Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Fortuna Düsseldorf - SC Freiburg | DFB-Pokal | 2. Ru
+ nde
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91abb362c@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251101T153000
+SEQUENCE:1
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251101T173000
+LOCATION:An der Alten Försterei (Stadion)\, Berlin\, Deutschland
+SUMMARY:1. FC Union Berlin - SC Freiburg | Bundesliga | 9. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n9. Spieltag \n-------------------------\n\n\nAudiostream: h
+ ttps://www.sportschau.de/fussball/bundesliga/1-fc-union-berlin-gegen-sc-fr
+ eiburg\,audiostream-1-fc-union-berlin-gegen-sc-freiburg-106.html?at_medium
+ =kalender&at_campaign=bundesliga\n\nLiveticker: https://www.sportschau.de/
+ live-und-ergebnisse/fussball/deutschland-bundesliga/ma11199758/1-fc-union-
+ berlin_sc-freiburg/liveticker?at_medium=kalender&at_campaign=bundesliga\n\
+ n\n\n\nAnbieter-Impressum: https://www.sportschau.de/sportschauimpressum-s
+ p-100.html\n\n\ncalovo Kalender löschen? Anleitung: termine.de/ical/loesc
+ hen
+DTSTAMP:20251022T152605Z
+CREATED:20250627T124219Z
+LAST-MODIFIED:20251022T152605Z
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d717192e3@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251106T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251106T204500
+LOCATION:Allianz Riviera (Stadion)\, Nice\, Frankreich
+SUMMARY:OGC Nizza - SC Freiburg | UEL | Ligaphase | 4. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n4. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter-
+ Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\n
+ calovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070621Z
+CREATED:20250831T050111Z
+LAST-MODIFIED:20251021T070621Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: OGC Nizza - SC Freiburg | UEL | Ligaphase | 4. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91ae8af9b@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251109T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251109T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg - FC St. Pauli | Bundesliga | 10. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n10. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter
+ -Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\
+ ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070655Z
+CREATED:20250627T124222Z
+LAST-MODIFIED:20251021T070655Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - FC St. Pauli | Bundesliga | 10. Spielta
+ g
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91b1e8e4e@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251122T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251122T173000
+LOCATION:Allianz Arena (Stadion)\, München\, Deutschland
+SUMMARY:Bayern München - SC Freiburg | Bundesliga | 11. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n11. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter
+ -Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\
+ ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070555Z
+CREATED:20250627T124225Z
+LAST-MODIFIED:20251021T070555Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Bayern München - SC Freiburg | Bundesliga | 11. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d71936e88@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251127T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251127T204500
+LOCATION:Doosan Arena (Stadion)\, Pilsen\, Tschechien
+SUMMARY:Viktoria Pilsen - SC Freiburg | UEL | Ligaphase | 5. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n5. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter-
+ Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\n
+ calovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070622Z
+CREATED:20250831T050113Z
+LAST-MODIFIED:20251021T070622Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Viktoria Pilsen - SC Freiburg | UEL | Ligaphase | 5. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91b88d074@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251130T193000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251130T213000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg - 1. FSV Mainz 05 | Bundesliga | 12. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n12. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter
+ -Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\
+ ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070659Z
+CREATED:20250627T124232Z
+LAST-MODIFIED:20251021T070659Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - 1. FSV Mainz 05 | Bundesliga | 12. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91be57173@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20251206
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20251206
+LOCATION:Voith-Arena (Stadion)\, Heidenheim\, Deutschland
+SUMMARY:* 1. FC Heidenheim 1846 - SC Freiburg | Bundesliga | 13. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n13. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070600Z
+CREATED:20250627T124238Z
+LAST-MODIFIED:20251021T070600Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * 1. FC Heidenheim 1846 - SC Freiburg | Bundesliga | 
+ 13. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d71b84ed1@7549.calovo
+DTSTART;TZID=Europe/Berlin:20251211T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251211T230000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg - RB Salzburg | UEL | Ligaphase | 6. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n6. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter-
+ Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\n
+ calovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070624Z
+CREATED:20250831T050115Z
+LAST-MODIFIED:20251021T070624Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - RB Salzburg | UEL | Ligaphase | 6. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91c1b0769@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20251213
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20251213
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - Borussia Dortmund | Bundesliga | 14. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n14. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070602Z
+CREATED:20250627T124241Z
+LAST-MODIFIED:20251021T070602Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - Borussia Dortmund | Bundesliga | 14. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91c6e7d2c@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20251220
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20251220
+LOCATION:Volkswagen Arena (Stadion)\, Wolfsburg\, Deutschland
+SUMMARY:* VfL Wolfsburg - SC Freiburg | Bundesliga | 15. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n15. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070605Z
+CREATED:20250627T124246Z
+LAST-MODIFIED:20251021T070605Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * VfL Wolfsburg - SC Freiburg | Bundesliga | 15. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e9e331a6b4@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260110
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260110
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - Hamburger SV | Bundesliga | 16. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n16. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070606Z
+CREATED:20250627T133547Z
+LAST-MODIFIED:20251021T070606Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - Hamburger SV | Bundesliga | 16. Spiel
+ tag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91ca78083@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260113
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260113
+LOCATION:Red Bull Arena (Stadion)\, Leipzig\, Deutschland
+SUMMARY:* RB Leipzig - SC Freiburg | Bundesliga | 17. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n17. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070608Z
+CREATED:20250627T124250Z
+LAST-MODIFIED:20251021T070608Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * RB Leipzig - SC Freiburg | Bundesliga | 17. Spielta
+ g
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91cfaa167@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260117
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260117
+LOCATION:WWK ARENA (Stadion)\, Augsburg\, Deutschland
+SUMMARY:* FC Augsburg - SC Freiburg | Bundesliga | 18. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n18. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070610Z
+CREATED:20250627T124255Z
+LAST-MODIFIED:20251021T070610Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * FC Augsburg - SC Freiburg | Bundesliga | 18. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d71ccdc04@7549.calovo
+DTSTART;TZID=Europe/Berlin:20260122T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20260122T204500
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg - Maccabi Tel Aviv | UEL | Ligaphase | 7. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n7. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter-
+ Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\n
+ calovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070625Z
+CREATED:20250831T050116Z
+LAST-MODIFIED:20251021T070625Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - Maccabi Tel Aviv | UEL | Ligaphase | 7.
+  Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91d6d9ff9@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260124
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260124
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - 1. FC Köln | Bundesliga | 19. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n19. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070613Z
+CREATED:20250627T124302Z
+LAST-MODIFIED:20251021T070613Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - 1. FC Köln | Bundesliga | 19. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b3d71ed68a1@7549.calovo
+DTSTART;TZID=Europe/Berlin:20260129T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20260129T230000
+LOCATION:Decathlon Arena Stade Pierre-Mauroy (Stadion)\, Villeneuve dAscq\,
+  Frankreich
+SUMMARY:Lille OSC - SC Freiburg | UEL | Ligaphase | 8. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n8. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter-
+ Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\n
+ calovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070626Z
+CREATED:20250831T050118Z
+LAST-MODIFIED:20251021T070626Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Lille OSC - SC Freiburg | UEL | Ligaphase | 8. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91d93181d@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260131
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260131
+LOCATION:MHPArena (Stadion)\, Stuttgart\, Deutschland
+SUMMARY:* VfB Stuttgart - SC Freiburg | Bundesliga | 20. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n20. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070614Z
+CREATED:20250627T124305Z
+LAST-MODIFIED:20251021T070614Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * VfB Stuttgart - SC Freiburg | Bundesliga | 20. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91df119d0@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260207
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260207
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - Werder Bremen | Bundesliga | 21. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n21. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070616Z
+CREATED:20250627T124311Z
+LAST-MODIFIED:20251021T070616Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - Werder Bremen | Bundesliga | 21. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91e20c7c8@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260214
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260214
+LOCATION:PreZero Arena (Stadion)\, Sinsheim\, Deutschland
+SUMMARY:* 1899 Hoffenheim - SC Freiburg | Bundesliga | 22. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n22. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070617Z
+CREATED:20250627T124314Z
+LAST-MODIFIED:20251021T070617Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * 1899 Hoffenheim - SC Freiburg | Bundesliga | 22. Sp
+ ieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91e84a3d1@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260221
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260221
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - Bor. Mönchengladbach | Bundesliga | 23. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n23. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070620Z
+CREATED:20250627T124320Z
+LAST-MODIFIED:20251021T070620Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - Bor. Mönchengladbach | Bundesliga | 
+ 23. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91eb0de89@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260228
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260228
+LOCATION:Deutsche Bank Park (Stadion)\, Frankfurt am Main\, Deutschland
+SUMMARY:* Eintracht Frankfurt - SC Freiburg | Bundesliga | 24. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n24. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070621Z
+CREATED:20250627T124323Z
+LAST-MODIFIED:20251021T070621Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Eintracht Frankfurt - SC Freiburg | Bundesliga | 24
+ . Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91ee5f952@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260307
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260307
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - Bayer Leverkusen | Bundesliga | 25. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n25. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070622Z
+CREATED:20250627T124326Z
+LAST-MODIFIED:20251021T070622Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - Bayer Leverkusen | Bundesliga | 25. S
+ pieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91f5760ed@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260314
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260314
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - 1. FC Union Berlin | Bundesliga | 26. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n26. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070625Z
+CREATED:20250627T124333Z
+LAST-MODIFIED:20251021T070625Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - 1. FC Union Berlin | Bundesliga | 26.
+  Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91f8da739@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260321
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260321
+LOCATION:Millerntor-Stadion (Stadion)\, Hamburg\, Deutschland
+SUMMARY:* FC St. Pauli - SC Freiburg | Bundesliga | 27. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n27. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070626Z
+CREATED:20250627T124336Z
+LAST-MODIFIED:20251021T070626Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * FC St. Pauli - SC Freiburg | Bundesliga | 27. Spiel
+ tag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e91fc51bad@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260405
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260405
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - Bayern München | Bundesliga | 28. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n28. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070628Z
+CREATED:20250627T124340Z
+LAST-MODIFIED:20251021T070628Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - Bayern München | Bundesliga | 28. Sp
+ ieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e9202dd0af@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260411
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260411
+LOCATION:MEWA ARENA (Stadion)\, Mainz\, Deutschland
+SUMMARY:* 1. FSV Mainz 05 - SC Freiburg | Bundesliga | 29. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n29. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070630Z
+CREATED:20250627T124346Z
+LAST-MODIFIED:20251021T070630Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * 1. FSV Mainz 05 - SC Freiburg | Bundesliga | 29. Sp
+ ieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e920846e15@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260418
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260418
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - 1. FC Heidenheim 1846 | Bundesliga | 30. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n30. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070633Z
+CREATED:20250627T124352Z
+LAST-MODIFIED:20251021T070633Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - 1. FC Heidenheim 1846 | Bundesliga | 
+ 30. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e920c37e88@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260425
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260425
+LOCATION:Signal Iduna Park (Stadion)\, Dortmund\, Deutschland
+SUMMARY:* Borussia Dortmund - SC Freiburg | Bundesliga | 31. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n31. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070634Z
+CREATED:20250627T124356Z
+LAST-MODIFIED:20251021T070634Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Borussia Dortmund - SC Freiburg | Bundesliga | 31. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e92116d9c3@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260503
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260503
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:* SC Freiburg - VfL Wolfsburg | Bundesliga | 32. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n32. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070636Z
+CREATED:20250627T124401Z
+LAST-MODIFIED:20251021T070636Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * SC Freiburg - VfL Wolfsburg | Bundesliga | 32. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e92164e9b5@7549.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260509
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260509
+LOCATION:Volksparkstadion (Stadion)\, Hamburg\, Deutschland
+SUMMARY:* Hamburger SV - SC Freiburg | Bundesliga | 33. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n33. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde 
+ noch nicht festgelegt.\n-------------------------\n\n\n\n\n\nAnbieter-Impr
+ essum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\ncalo
+ vo Kalender löschen? Anleitung: termine.de/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251021T070638Z
+CREATED:20250627T124406Z
+LAST-MODIFIED:20251021T070638Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Hamburger SV - SC Freiburg | Bundesliga | 33. Spiel
+ tag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e9219ccc37@7549.calovo
+DTSTART;TZID=Europe/Berlin:20260516T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20260516T173000
+LOCATION:Europa-Park Stadion (Stadion)\, Freiburg\, Deutschland
+SUMMARY:SC Freiburg - RB Leipzig | Bundesliga | 34. Spieltag
+DESCRIPTION:Alle Infos zum SC Freiburg: https://www.sportschau.de/fussball
+ /vereine/sc-freiburg\,sc-freiburg-klub-index-sp-100.html\n\n--------------
+ -----------\n\n34. Spieltag\n-------------------------\n\n\n\n\n\nAnbieter
+ -Impressum: https://www.sportschau.de/sportschauimpressum-sp-100.html\n\n\
+ ncalovo Kalender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251021T070639Z
+CREATED:20250627T124409Z
+LAST-MODIFIED:20251021T070639Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - RB Leipzig | Bundesliga | 34. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZNAME:CEST
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+DTSTART:19810329T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:CET
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+DTSTART:19961027T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+END:VCALENDAR

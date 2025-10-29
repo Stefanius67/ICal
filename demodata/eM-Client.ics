@@ -1,0 +1,45 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MailClient.VObject/10.3.2619.0
+BEGIN:VTIMEZONE
+TZID:W. Europe Standard Time
+X-EM-DISPLAYNAME:(UTC+01:00) Amsterdam\, Berlin\, Bern\, Rom\, Stockholm\, 
+ Wien
+BEGIN:DAYLIGHT
+TZNAME:Mitteleuropäische Sommerzeit
+DTSTART:00010325T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:Mitteleuropäische Zeit
+DTSTART:00011028T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:CD75D152-5C30-E6A3-EBAC-0CB702CACEBD
+DTSTART;TZID=W. Europe Standard Time:20251102T113000
+DTEND;TZID=W. Europe Standard Time:20251102T180000
+TRANSP:OPAQUE
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+LAST-MODIFIED:20251024T001122Z
+DTSTAMP:20251024T001122Z
+CREATED:20250821T131910Z
+SUMMARY:Heimspieltag Sporthalle im Bürgerpark\, Lahr
+DESCRIPTION:11:30: weibl. Jugend E I - HSG Willstätt/Hanauerland\n13:00: Fr
+ auen - Freiburger TS 1844\n15:00: Herren III - SG Hornberg/Lauterbach/Trib
+ erg 2\n17:00: Herren I - TSV Alemannia Freiburg-Zähringen 2
+X-ALT-DESC;FMTTYPE=text/html:<html><head></head><body><ul style="list-style
+ -type: disc\;"><li><i>11:30: </i>weibl. Jugend E I - HSG Willstätt/Hanauer
+ land</li><li><i>13:00: </i>Frauen - Freiburger TS 1844</li><li><i>15:00:</
+ i> Herren III - SG Hornberg/Lauterbach/Triberg 2</li><li><i>17:00:</i> Her
+ ren I - TSV Alemannia Freiburg-Zähringen 2</li></ul></body></html>
+LOCATION:Sporthalle im Bürgerpark\, Lahr
+STATUS:CONFIRMED
+CATEGORIES:HSG
+END:VEVENT
+END:VCALENDAR

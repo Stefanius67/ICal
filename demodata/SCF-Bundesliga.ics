@@ -1,0 +1,1758 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//calovo//Calendar Publishing 1.14
+METHOD:PUBLISH
+CALSCALE:GREGORIAN
+X-MICROSOFT-CALSCALE:GREGORIAN
+X-WR-CALNAME:Sport-Club Freiburg
+X-WR-CALDESC:Alle Bundesliga-Spieltermine von Sport-Club Freiburg immer akt
+ uell im Kalender.
+X-WR-TIMEZONE:Europe/Berlin
+X-WR-RELCALID:1f750fd4.2621b5c6@2715.calovo.com
+X-PUBLISHED-TTL:PT30M
+BEGIN:VEVENT
+UID:66d57ec153155@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241030T180000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241030T200000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - Hamburger SV | DFB-Pokal | 2. Runde
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n2. Runde\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bun
+ desliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.
+ de/ical/loeschen
+DTSTAMP:20241030T150210Z
+CREATED:20240902T090049Z
+LAST-MODIFIED:20241030T150210Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - Hamburger SV | DFB-Pokal | 2. Runde
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a39831e49@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241103T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241103T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - 1. FSV Mainz 05 | Bundesliga | 9. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n9. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20241102T220300Z
+CREATED:20240704T132856Z
+LAST-MODIFIED:20241102T220300Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - 1. FSV Mainz 05 | Bundesliga | 9. Spiel
+ tag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a39ea9b16@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241108T203000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241108T223000
+LOCATION:An der Alten Försterei
+SUMMARY:1. FC Union Berlin - SC Freiburg | Bundesliga | 10. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n10. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20241108T160511Z
+CREATED:20240704T132902Z
+LAST-MODIFIED:20241108T160511Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: 1. FC Union Berlin - SC Freiburg | Bundesliga | 10. S
+ pieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3a40e8c0@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241123T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241123T173000
+LOCATION:SIGNAL IDUNA PARK
+SUMMARY:Borussia Dortmund - SC Freiburg | Bundesliga | 11. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n11. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20241122T220121Z
+CREATED:20240704T132908Z
+LAST-MODIFIED:20241122T220121Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Borussia Dortmund - SC Freiburg | Bundesliga | 11. Sp
+ ieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3aa7d5cb@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241130T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241130T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - Borussia Mönchengladbach | Bundesliga | 12. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n12. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20241129T220132Z
+CREATED:20240704T132914Z
+LAST-MODIFIED:20241129T220132Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - Borussia Mönchengladbach | Bundesliga 
+ | 12. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:67289b9632641@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241203T180000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241203T200000
+LOCATION:SchücoArena
+SUMMARY:DSC Arminia Bielefeld - SC Freiburg | DFB-Pokal | 3. Runde
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n3. Runde\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bun
+ desliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.
+ de/ical/loeschen
+DTSTAMP:20241203T120056Z
+CREATED:20241104T100158Z
+LAST-MODIFIED:20241203T120056Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: DSC Arminia Bielefeld - SC Freiburg | DFB-Pokal | 3. 
+ Runde
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3b0ed977@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241208T173000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241208T193000
+LOCATION:PreZero Arena
+SUMMARY:TSG Hoffenheim - SC Freiburg | Bundesliga | 13. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n13. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20241208T150233Z
+CREATED:20240704T132920Z
+LAST-MODIFIED:20241208T150233Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: TSG Hoffenheim - SC Freiburg | Bundesliga | 13. Spiel
+ tag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3b65f552@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241213T203000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241213T223000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - VfL Wolfsburg | Bundesliga | 14. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n14. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20241213T180404Z
+CREATED:20240704T132926Z
+LAST-MODIFIED:20241213T180404Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - VfL Wolfsburg | Bundesliga | 14. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3bb68595@2715.calovo
+DTSTART;TZID=Europe/Berlin:20241221T183000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20241221T203000
+LOCATION:BayArena
+SUMMARY:Bayer 04 Leverkusen - SC Freiburg | Bundesliga | 15. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n15. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20241221T160236Z
+CREATED:20240704T132931Z
+LAST-MODIFIED:20241221T160236Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Bayer 04 Leverkusen - SC Freiburg | Bundesliga | 15. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3c18b28f@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250111T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250111T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - Holstein Kiel | Bundesliga | 16. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n16. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250110T220208Z
+CREATED:20240704T132937Z
+LAST-MODIFIED:20250110T220208Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - Holstein Kiel | Bundesliga | 16. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3c3e13b9@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250114T203000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250114T223000
+LOCATION:Deutsche Bank Park
+SUMMARY:Eintracht Frankfurt - SC Freiburg | Bundesliga | 17. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n17. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250114T150036Z
+CREATED:20240704T132939Z
+LAST-MODIFIED:20250114T150036Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Eintracht Frankfurt - SC Freiburg | Bundesliga | 17. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3c5a22fe@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250118T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250118T173000
+LOCATION:MHPArena
+SUMMARY:VfB Stuttgart - SC Freiburg | Bundesliga | 18. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n18. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250118T060149Z
+CREATED:20240704T132941Z
+LAST-MODIFIED:20250118T060149Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: VfB Stuttgart - SC Freiburg | Bundesliga | 18. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3cadd777@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250125T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250125T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - FC Bayern München | Bundesliga | 19. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n19. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250125T140115Z
+CREATED:20240704T132946Z
+LAST-MODIFIED:20250125T140115Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - FC Bayern München | Bundesliga | 19. S
+ pieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3d107632@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250201T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250201T173000
+LOCATION:Vonovia Ruhrstadion
+SUMMARY:VfL Bochum 1848 - SC Freiburg | Bundesliga | 20. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n20. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250201T140131Z
+CREATED:20240704T132953Z
+LAST-MODIFIED:20250201T140131Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: VfL Bochum 1848 - SC Freiburg | Bundesliga | 20. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3d515ef0@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250208T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250208T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - 1. FC Heidenheim 1846 | Bundesliga | 21. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n21. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250208T100129Z
+CREATED:20240704T132957Z
+LAST-MODIFIED:20250208T100129Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - 1. FC Heidenheim 1846 | Bundesliga | 21
+ . Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3e199936@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250215T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250215T173000
+LOCATION:Millerntor-Stadion
+SUMMARY:FC St. Pauli - SC Freiburg | Bundesliga | 22. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n22. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250214T220801Z
+CREATED:20240704T133009Z
+LAST-MODIFIED:20250214T220801Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: FC St. Pauli - SC Freiburg | Bundesliga | 22. Spielta
+ g
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3e9b2483@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250221T203000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250221T223000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - SV Werder Bremen | Bundesliga | 23. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n23. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250221T180144Z
+CREATED:20240704T133017Z
+LAST-MODIFIED:20250221T180144Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - SV Werder Bremen | Bundesliga | 23. Spi
+ eltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3f1a4b27@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250302T173000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250302T193000
+LOCATION:WWK ARENA
+SUMMARY:FC Augsburg - SC Freiburg | Bundesliga | 24. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n24. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250302T150402Z
+CREATED:20240704T133025Z
+LAST-MODIFIED:20250302T150402Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: FC Augsburg - SC Freiburg | Bundesliga | 24. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3f747ad7@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250308T183000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250308T203000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - RB Leipzig | Bundesliga | 25. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n25. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250308T160344Z
+CREATED:20240704T133031Z
+LAST-MODIFIED:20250308T160344Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - RB Leipzig | Bundesliga | 25. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a3fdca47a@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250315T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250315T173000
+LOCATION:MEWA ARENA
+SUMMARY:1. FSV Mainz 05 - SC Freiburg | Bundesliga | 26. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n26. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250315T140227Z
+CREATED:20240704T133037Z
+LAST-MODIFIED:20250315T140227Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: 1. FSV Mainz 05 - SC Freiburg | Bundesliga | 26. Spie
+ ltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a4030df21@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250330T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250330T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - 1. FC Union Berlin | Bundesliga | 27. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n27. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250330T091126Z
+CREATED:20240704T133043Z
+LAST-MODIFIED:20250330T091126Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - 1. FC Union Berlin | Bundesliga | 27. S
+ pieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a407d7f10@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250405T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250405T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - Borussia Dortmund | Bundesliga | 28. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n28. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250405T090128Z
+CREATED:20240704T133047Z
+LAST-MODIFIED:20250405T090128Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - Borussia Dortmund | Bundesliga | 28. Sp
+ ieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a40eaa388@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250412T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250412T173000
+LOCATION:BORUSSIA-PARK
+SUMMARY:Borussia Mönchengladbach - SC Freiburg | Bundesliga | 29. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n29. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250411T210130Z
+CREATED:20240704T133054Z
+LAST-MODIFIED:20250411T210130Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Borussia Mönchengladbach - SC Freiburg | Bundesliga 
+ | 29. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:67531f9949ba7@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250412T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250412T173000
+LOCATION:BORUSSIA-PARK
+SUMMARY:Borussia Mönchengladbach - SC Freiburg | Test
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nBorussia Mönchengladbach vs. SC Freiburg\n\n\n\n\nAnbieter-Impressum: 
+ https://www.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Kalen
+ der löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250411T210146Z
+CREATED:20241206T160025Z
+LAST-MODIFIED:20250411T210146Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Borussia Mönchengladbach - SC Freiburg | Test
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a412d3d1e@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250419T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250419T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - TSG Hoffenheim | Bundesliga | 30. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n30. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250417T160241Z
+CREATED:20240704T133058Z
+LAST-MODIFIED:20250417T160241Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - TSG Hoffenheim | Bundesliga | 30. Spiel
+ tag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a41a32f5b@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250426T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250426T173000
+LOCATION:Volkswagen Arena
+SUMMARY:VfL Wolfsburg - SC Freiburg | Bundesliga | 31. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n31. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250426T130444Z
+CREATED:20240704T133106Z
+LAST-MODIFIED:20250426T130444Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: VfL Wolfsburg - SC Freiburg | Bundesliga | 31. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a41e26b89@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250504T173000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250504T193000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - Bayer 04 Leverkusen | Bundesliga | 32. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n32. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250504T140229Z
+CREATED:20240704T133110Z
+LAST-MODIFIED:20250504T140229Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - Bayer 04 Leverkusen | Bundesliga | 32. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a424f0702@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250510T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250510T173000
+LOCATION:Holstein-Stadion
+SUMMARY:Holstein Kiel - SC Freiburg | Bundesliga | 33. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n33. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250510T130246Z
+CREATED:20240704T133116Z
+LAST-MODIFIED:20250510T130246Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Holstein Kiel - SC Freiburg | Bundesliga | 33. Spielt
+ ag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6686a428bdef5@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250517T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250517T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:SC Freiburg - Eintracht Frankfurt | Bundesliga | 34. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n34. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20250517T090401Z
+CREATED:20240704T133120Z
+LAST-MODIFIED:20250517T090401Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SC Freiburg - Eintracht Frankfurt | Bundesliga | 34. 
+ Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:6859b2afde132@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250816T180000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250816T200000
+LOCATION:Stadion am Lotter Kreuz
+SUMMARY:Sportfreunde Lotte - Sport-Club Freiburg | DFB-Pokal | 1. Runde
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n1. Runde\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bun
+ desliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.
+ de/ical/loeschen
+DTSTAMP:20250816T050214Z
+CREATED:20250623T200151Z
+LAST-MODIFIED:20250816T050214Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sportfreunde Lotte - Sport-Club Freiburg | DFB-Pokal 
+ | 1. Runde
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d0b109b8@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250823T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250823T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - FC Augsburg | Bundesliga | 1. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n1. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20250822T210139Z
+CREATED:20250627T122235Z
+LAST-MODIFIED:20250822T210139Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - FC Augsburg | Bundesliga | 1. S
+ pieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d16559da@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250831T193000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250831T213000
+LOCATION:RheinEnergieSTADION
+SUMMARY:1. FC Köln - Sport-Club Freiburg | Bundesliga | 2. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n2. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20250831T170257Z
+CREATED:20250627T122246Z
+LAST-MODIFIED:20250831T170257Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: 1. FC Köln - Sport-Club Freiburg | Bundesliga | 2. S
+ pieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d1ba94c8@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250913T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250913T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - VfB Stuttgart | Bundesliga | 3. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n3. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20250913T120050Z
+CREATED:20250627T122251Z
+LAST-MODIFIED:20250913T120050Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - VfB Stuttgart | Bundesliga | 3.
+  Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d26eede2@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250920T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250920T173000
+LOCATION:Weserstadion
+SUMMARY:SV Werder Bremen - Sport-Club Freiburg | Bundesliga | 4. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n4. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20250919T210047Z
+CREATED:20250627T122302Z
+LAST-MODIFIED:20250919T210047Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: SV Werder Bremen - Sport-Club Freiburg | Bundesliga |
+  4. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c5ccc9f9@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250924T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250924T230000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - FC Basel | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nSport-Club Freiburg vs. FC Basel\n\n\n\n\nAnbieter-Impressum: https://w
+ ww.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Kalender lösc
+ hen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20250924T170219Z
+CREATED:20250903T130220Z
+LAST-MODIFIED:20250924T170219Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - FC Basel | UEFA EUROPA LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d2f4316a@2715.calovo
+DTSTART;TZID=Europe/Berlin:20250928T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20250928T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - TSG Hoffenheim | Bundesliga | 5. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n5. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20250928T050222Z
+CREATED:20250627T122311Z
+LAST-MODIFIED:20250928T050222Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - TSG Hoffenheim | Bundesliga | 5
+ . Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c61a1c62@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251002T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251002T204500
+LOCATION:Bologna Stadio Renato DallAra
+SUMMARY:Bologna FC - Sport-Club Freiburg | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nBologna FC vs. Sport-Club Freiburg\n\n\n\n\nAnbieter-Impressum: https:/
+ /www.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Kalender lö
+ schen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251002T150716Z
+CREATED:20250903T130225Z
+LAST-MODIFIED:20251002T150716Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Bologna FC - Sport-Club Freiburg | UEFA EUROPA LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d394bead@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251005T193000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251005T213000
+LOCATION:BORUSSIA-PARK
+SUMMARY:Borussia Mönchengladbach - Sport-Club Freiburg | Bundesliga | 6. S
+ pieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n6. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20251005T160411Z
+CREATED:20250627T122321Z
+LAST-MODIFIED:20251005T160411Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Borussia Mönchengladbach - Sport-Club Freiburg | Bun
+ desliga | 6. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d4022e71@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251019T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251019T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - Eintracht Frankfurt | Bundesliga | 7. Spielta
+ g
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n7. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20251007T160805Z
+CREATED:20250627T122328Z
+LAST-MODIFIED:20251007T160805Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - Eintracht Frankfurt | Bundeslig
+ a | 7. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c6a0411c@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251023T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251023T230000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - FC Utrecht | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nSport-Club Freiburg vs. FC Utrecht\n\n\n\n\nAnbieter-Impressum: https:/
+ /www.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Kalender lö
+ schen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251007T160818Z
+CREATED:20250903T130234Z
+LAST-MODIFIED:20251007T160818Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - FC Utrecht | UEFA EUROPA LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d4a4d891@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251026T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251026T173000
+LOCATION:BayArena
+SUMMARY:Bayer 04 Leverkusen - Sport-Club Freiburg | Bundesliga | 8. Spielta
+ g
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n8. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20251007T160806Z
+CREATED:20250627T122338Z
+LAST-MODIFIED:20251007T160806Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Bayer 04 Leverkusen - Sport-Club Freiburg | Bundeslig
+ a | 8. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b5617cb02ff@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251029T204500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251029T224500
+LOCATION:Merkur Spielarena
+SUMMARY:Fortuna Düsseldorf - Sport-Club Freiburg | DFB-Pokal | 2. Runde
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n2. Runde\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bun
+ desliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.
+ de/ical/loeschen
+DTSTAMP:20251027T151752Z
+CREATED:20250901T090356Z
+LAST-MODIFIED:20251027T151752Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Fortuna Düsseldorf - Sport-Club Freiburg | DFB-Pokal
+  | 2. Runde
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d556acd5@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251101T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251101T173000
+LOCATION:An der Alten Försterei
+SUMMARY:1. FC Union Berlin - Sport-Club Freiburg | Bundesliga | 9. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n9. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/
+ bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termi
+ ne.de/ical/loeschen
+DTSTAMP:20251027T151754Z
+CREATED:20250627T122349Z
+LAST-MODIFIED:20251027T151754Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: 1. FC Union Berlin - Sport-Club Freiburg | Bundesliga
+  | 9. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c7427abe@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251106T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251106T204500
+LOCATION:Nice Allianz Riviera
+SUMMARY:OGC Nice - Sport-Club Freiburg | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nOGC Nice vs. Sport-Club Freiburg\n\n\n\n\nAnbieter-Impressum: https://w
+ ww.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Kalender lösc
+ hen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251027T151937Z
+CREATED:20250903T130244Z
+LAST-MODIFIED:20251027T151937Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: OGC Nice - Sport-Club Freiburg | UEFA EUROPA LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d5c872be@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251109T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251109T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - FC St. Pauli | Bundesliga | 10. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n10. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20251027T151929Z
+CREATED:20250627T122356Z
+LAST-MODIFIED:20251027T151929Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - FC St. Pauli | Bundesliga | 10.
+  Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d694f3f7@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251122T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251122T173000
+LOCATION:Allianz Arena
+SUMMARY:FC Bayern München - Sport-Club Freiburg | Bundesliga | 11. Spielta
+ g
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n11. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20251027T151801Z
+CREATED:20250627T122409Z
+LAST-MODIFIED:20251027T151801Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: FC Bayern München - Sport-Club Freiburg | Bundesliga
+  | 11. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c7bb2bf6@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251127T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251127T204500
+LOCATION:Pilsen Doosan Arena
+SUMMARY:FC Viktoria Pilsen - Sport-Club Freiburg | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nFC Viktoria Pilsen vs. Sport-Club Freiburg\n\n\n\n\nAnbieter-Impressum:
+  https://www.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Kale
+ nder löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251027T151937Z
+CREATED:20250903T130251Z
+LAST-MODIFIED:20251027T151937Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: FC Viktoria Pilsen - Sport-Club Freiburg | UEFA EUROP
+ A LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d75b2e27@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251130T193000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251130T213000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - 1. FSV Mainz 05 | Bundesliga | 12. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n12. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20251027T151931Z
+CREATED:20250627T122421Z
+LAST-MODIFIED:20251027T151931Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - 1. FSV Mainz 05 | Bundesliga | 
+ 12. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d800cf11@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20251205
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20251208
+LOCATION:Voith-Arena
+SUMMARY:* 1. FC Heidenheim 1846 - Sport-Club Freiburg | Bundesliga | 13. Sp
+ ieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n13. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151810Z
+CREATED:20250627T122432Z
+LAST-MODIFIED:20251027T151810Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * 1. FC Heidenheim 1846 - Sport-Club Freiburg | Bunde
+ sliga | 13. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c837e7eb@2715.calovo
+DTSTART;TZID=Europe/Berlin:20251211T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20251211T230000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - FC Red Bull Salzburg | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nSport-Club Freiburg vs. FC Red Bull Salzburg\n\n\n\n\nAnbieter-Impressu
+ m: https://www.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Ka
+ lender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251027T151937Z
+CREATED:20250903T130259Z
+LAST-MODIFIED:20251027T151937Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - FC Red Bull Salzburg | UEFA EUR
+ OPA LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d8774d8b@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20251212
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20251215
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - Borussia Dortmund | Bundesliga | 14. Spielt
+ ag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n14. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151814Z
+CREATED:20250627T122439Z
+LAST-MODIFIED:20251027T151814Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - Borussia Dortmund | Bundeslig
+ a | 14. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d911e458@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20251219
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20251222
+LOCATION:Volkswagen Arena
+SUMMARY:* VfL Wolfsburg - Sport-Club Freiburg | Bundesliga | 15. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n15. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151817Z
+CREATED:20250627T122449Z
+LAST-MODIFIED:20251027T151817Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * VfL Wolfsburg - Sport-Club Freiburg | Bundesliga | 
+ 15. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d98455bc@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260109
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260112
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - Hamburger SV | Bundesliga | 16. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n16. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151820Z
+CREATED:20250627T122456Z
+LAST-MODIFIED:20251027T151820Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - Hamburger SV | Bundesliga | 1
+ 6. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8d9c520d9@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260113
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260116
+LOCATION:Red Bull Arena
+SUMMARY:* RB Leipzig - Sport-Club Freiburg | Bundesliga | 17. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n17. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151821Z
+CREATED:20250627T122500Z
+LAST-MODIFIED:20251027T151821Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * RB Leipzig - Sport-Club Freiburg | Bundesliga | 17.
+  Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8da84c15f@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260116
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260119
+LOCATION:WWK ARENA
+SUMMARY:* FC Augsburg - Sport-Club Freiburg | Bundesliga | 18. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n18. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151822Z
+CREATED:20250627T122512Z
+LAST-MODIFIED:20251027T151822Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * FC Augsburg - Sport-Club Freiburg | Bundesliga | 18
+ . Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c92b96ae@2715.calovo
+DTSTART;TZID=Europe/Berlin:20260122T184500
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20260122T204500
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - Maccabi Tel Aviv FC | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nSport-Club Freiburg vs. Maccabi Tel Aviv FC\n\n\n\n\nAnbieter-Impressum
+ : https://www.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Kal
+ ender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251027T151937Z
+CREATED:20250903T130314Z
+LAST-MODIFIED:20251027T151937Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - Maccabi Tel Aviv FC | UEFA EURO
+ PA LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8db11fd73@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260123
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260126
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - 1. FC Köln | Bundesliga | 19. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n19. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151826Z
+CREATED:20250627T122521Z
+LAST-MODIFIED:20251027T151826Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - 1. FC Köln | Bundesliga | 19
+ . Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:68b83c96f136a@2715.calovo
+DTSTART;TZID=Europe/Berlin:20260129T210000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20260129T230000
+LOCATION:Villeneuve-dAscq Decathlon A.
+SUMMARY:LOSC Lille Metropole - Sport-Club Freiburg | UEFA EUROPA LEAGUE
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\nLOSC Lille Metropole vs. Sport-Club Freiburg\n\n\n\n\nAnbieter-Impressu
+ m: https://www.bundesliga.com/de/bundesliga/info/impressum/\n\n\ncalovo Ka
+ lender löschen? Anleitung: termine.de/ical/loeschen
+DTSTAMP:20251027T151829Z
+CREATED:20250903T130318Z
+LAST-MODIFIED:20251027T151829Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: LOSC Lille Metropole - Sport-Club Freiburg | UEFA EUR
+ OPA LEAGUE
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8dbb9db44@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260130
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260202
+LOCATION:MHPArena
+SUMMARY:* VfB Stuttgart - Sport-Club Freiburg | Bundesliga | 20. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n20. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151829Z
+CREATED:20250627T122531Z
+LAST-MODIFIED:20251027T151829Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * VfB Stuttgart - Sport-Club Freiburg | Bundesliga | 
+ 20. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8dc309c62@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260206
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260209
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - SV Werder Bremen | Bundesliga | 21. Spielta
+ g
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n21. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151832Z
+CREATED:20250627T122539Z
+LAST-MODIFIED:20251027T151832Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - SV Werder Bremen | Bundesliga
+  | 21. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8dcfde374@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260213
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260216
+LOCATION:PreZero Arena
+SUMMARY:* TSG Hoffenheim - Sport-Club Freiburg | Bundesliga | 22. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n22. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151836Z
+CREATED:20250627T122551Z
+LAST-MODIFIED:20251027T151836Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * TSG Hoffenheim - Sport-Club Freiburg | Bundesliga |
+  22. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8dd6b192c@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260220
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260223
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - Borussia Mönchengladbach | Bundesliga | 23
+ . Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n23. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151838Z
+CREATED:20250627T122558Z
+LAST-MODIFIED:20251027T151838Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - Borussia Mönchengladbach | B
+ undesliga | 23. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8de6b2d50@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260227
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260302
+LOCATION:Deutsche Bank Park
+SUMMARY:* Eintracht Frankfurt - Sport-Club Freiburg | Bundesliga | 24. Spie
+ ltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n24. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151841Z
+CREATED:20250627T122614Z
+LAST-MODIFIED:20251027T151841Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Eintracht Frankfurt - Sport-Club Freiburg | Bundesl
+ iga | 24. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8df1780cc@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260306
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260309
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - Bayer 04 Leverkusen | Bundesliga | 25. Spie
+ ltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n25. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151844Z
+CREATED:20250627T122625Z
+LAST-MODIFIED:20251027T151844Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - Bayer 04 Leverkusen | Bundesl
+ iga | 25. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8dfb1b587@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260313
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260316
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - 1. FC Union Berlin | Bundesliga | 26. Spiel
+ tag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n26. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151847Z
+CREATED:20250627T122635Z
+LAST-MODIFIED:20251027T151847Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - 1. FC Union Berlin | Bundesli
+ ga | 26. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8e07896ee@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260320
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260323
+LOCATION:Millerntor-Stadion
+SUMMARY:* FC St. Pauli - Sport-Club Freiburg | Bundesliga | 27. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n27. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151851Z
+CREATED:20250627T122647Z
+LAST-MODIFIED:20251027T151851Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * FC St. Pauli - Sport-Club Freiburg | Bundesliga | 2
+ 7. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8e0d10af3@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260404
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260406
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - FC Bayern München | Bundesliga | 28. Spiel
+ tag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n28. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151853Z
+CREATED:20250627T122653Z
+LAST-MODIFIED:20251027T151853Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - FC Bayern München | Bundesli
+ ga | 28. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8e15196ae@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260410
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260413
+LOCATION:MEWA ARENA
+SUMMARY:* 1. FSV Mainz 05 - Sport-Club Freiburg | Bundesliga | 29. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n29. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151856Z
+CREATED:20250627T122701Z
+LAST-MODIFIED:20251027T151856Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * 1. FSV Mainz 05 - Sport-Club Freiburg | Bundesliga 
+ | 29. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e8e2025b02@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260417
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260420
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - 1. FC Heidenheim 1846 | Bundesliga | 30. Sp
+ ieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n30. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151859Z
+CREATED:20250627T122712Z
+LAST-MODIFIED:20251027T151859Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - 1. FC Heidenheim 1846 | Bunde
+ sliga | 30. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e9306b18d6@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260424
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260427
+LOCATION:SIGNAL IDUNA PARK
+SUMMARY:* Borussia Dortmund - Sport-Club Freiburg | Bundesliga | 31. Spielt
+ ag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n31. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151903Z
+CREATED:20250627T124806Z
+LAST-MODIFIED:20251027T151903Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Borussia Dortmund - Sport-Club Freiburg | Bundeslig
+ a | 31. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e930fadd60@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260502
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260504
+LOCATION:Europa-Park Stadion
+SUMMARY:* Sport-Club Freiburg - VfL Wolfsburg | Bundesliga | 32. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n32. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151907Z
+CREATED:20250627T124815Z
+LAST-MODIFIED:20251027T151907Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Sport-Club Freiburg - VfL Wolfsburg | Bundesliga | 
+ 32. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e931981220@2715.calovo
+DTSTART;TZID=Europe/Berlin;VALUE=DATE:20260508
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin;VALUE=DATE:20260511
+LOCATION:Volksparkstadion
+SUMMARY:* Hamburger SV - Sport-Club Freiburg | Bundesliga | 33. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n33. Spieltag\n\nAchtung: Der endgültige Spieltermin wurde noch nicht f
+ estgelegt.\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de/bund
+ esliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: termine.d
+ e/ical/loeschen
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+DTSTAMP:20251027T151911Z
+CREATED:20250627T124825Z
+LAST-MODIFIED:20251027T151911Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: * Hamburger SV - Sport-Club Freiburg | Bundesliga | 3
+ 3. Spieltag
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:685e931edad1e@2715.calovo
+DTSTART;TZID=Europe/Berlin:20260516T153000
+SEQUENCE:0
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+DTEND;TZID=Europe/Berlin:20260516T173000
+LOCATION:Europa-Park Stadion
+SUMMARY:Sport-Club Freiburg - RB Leipzig | Bundesliga | 34. Spieltag
+DESCRIPTION:Dieser Kalenderservice wird dir präsentiert von bundesliga.de\
+ n\n34. Spieltag\n\n\n\n\nAnbieter-Impressum: https://www.bundesliga.com/de
+ /bundesliga/info/impressum/\n\n\ncalovo Kalender löschen? Anleitung: term
+ ine.de/ical/loeschen
+DTSTAMP:20251027T151913Z
+CREATED:20250627T124830Z
+LAST-MODIFIED:20251027T151913Z
+BEGIN:VALARM
+TRIGGER:-P0DT1H0M0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Sport-Club Freiburg - RB Leipzig | Bundesliga | 34. S
+ pieltag
+END:VALARM
+END:VEVENT
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZNAME:CEST
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+DTSTART:19810329T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:CET
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+DTSTART:19961027T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+END:VCALENDAR
