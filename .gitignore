@@ -1,10 +1,17 @@
+# Eclipse IDE files
 /.settings/
-/wiki/
 /.buildpath
 /.project
+
+# PHPUnit results
 /.phpunit.result.cache
 /clover.xml
-/SKien/Test/iCal/coverage/
-/SKien/Test/iCal/log/
-/demodata
-/*.php
+/SKien/Test/iCal/coverage/*
+/SKien/Test/iCal/log/*
+
+# wiki is an independent own git
+/wiki/
+
+# exclude following while development for better overview...
+# /demodata
+# /*.php
