@@ -7,7 +7,14 @@ namespace SKien\iCal;
 use Psr\Log\LogLevel;
 
 /**
- *  Abstract baseclass for all iCal components.
+ * Abstract baseclass for all iCal components.
+ *
+ * For the components defined in RFC 5545, several common properties are defined,
+ * which are implemented in this abstract base class. <br>
+ * To prevent multiple coding, this class contains properties/methods that are supported
+ * by several, but **not all**, components. In the case of invalid calls in an extending
+ * class, this is checked during validation in the respective component and logged
+ * accordingly.
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
@@ -15,32 +22,23 @@ use Psr\Log\LogLevel;
 abstract class iCalComponent
 {
     /**
-     * Values for the state
-     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.2.12
-     */
-    public const STATE_ACCEPTED         = 'ACCEPTED';
-    public const STATE_CANCELLED        = 'CANCELLED';
-    public const STATE_COMPLETED        = 'COMPLETED';
-    public const STATE_CONFIRMED        = 'CONFIRMED';
-    public const STATE_DECLINED         = 'DECLINED';
-    public const STATE_DELEGATED        = 'DELEGATED';
-    public const STATE_IN_PROCESS       = 'IN-PROCESS';
-    public const STATE_NEEDS_ACTION     = 'NEEDS-ACTION';
-    public const STATE_TENTATIVE        = 'TENTATIVE';
-
-    /**
-     * Values for the time transparency
+     * Values for the event transparency
      * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.2.7
      */
+    /** Blocks or opaque an event on busy time searches.     */
     public const   TRANSP_OPAQUE        = 'OPAQUE';
+    /** Transparent on busy time searches.     */
     public const   TRANSP_TRANSPARENT   = 'TRANSPARENT';
 
     /**
      * Values for the classification
      * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.1.3
      */
+    /** The item is classified as public     */
     public const   CLASS_PUBLIC         = 'PUBLIC';
+    /** The item is classified as privte     */
     public const   CLASS_PRIVATE        = 'PRIVATE';
+    /** The item is classified as confidential     */
     public const   CLASS_CONFIDENTIAL   = 'CONFIDENTIAL';
 
     use iCalHelper;
@@ -107,13 +105,41 @@ abstract class iCalComponent
 
     /**
      * Validates a instance.
+     * The basic implementation does nothing, but since validation is not strictly
+     * necessary in an extending class either, this method is not declared as abstract!
      */
     public function validate() : void
     {
-
     }
 
     /**
+     * Returns an event as associative array.
+     * For a fast access to all properties, this method returns an 'DB-record like'
+     * associative array with all values of the event. <br>
+     * > **Note:** <br>
+     * > The string values of the date and/or time properties representing the  <br>
+     * > respective unix timestamp using the current set PHP timezone!       <br>
+     * @return array<string, mixed>
+     */
+    public function fetchData() : array
+    {
+        return [];  // @codeCoverageIgnore
+    }
+
+    /**
+     * Sets the unique ID for this item.
+     * Each entry in an "iCalendar" must be identified by a persistent, globally unique
+     * identifier. <br>
+     * Within an application system, each element (each data record) typically has a
+     * unique ID or identifier. This ID should (must) also be unique across applications
+     * to ensure that an element can always be uniquely named or referenced when exchanging
+     * data. <br>
+     * > A proven approach would therefore be to simply extend the existing, unique ID
+     * > from the local system with your own domain to create a UUID. This also makes
+     * > reverse mapping significantly easier.
+     * If no UID is set, internaly an 'pseudo' UUID is generated during export.
+     * @see iCalHelper::createUID
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.4.7
      * @param string $strUID
      */
     public function setUID(string $strUID) : void
@@ -122,7 +148,8 @@ abstract class iCalComponent
     }
 
     /**
-     * @return string
+     * Gets the unique ID of this item.
+     * @return string   empty string if no UID is set
      */
     public function getUID() : string
     {
@@ -130,6 +157,8 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the start timestamp of the item.
+     * The value can either be a unix timestamp or a DateTime instance.
      * @param int|\DateTime|null $start  unix timestamp or DateTime of the items start.
      */
     public function setStart($start) : void
@@ -142,6 +171,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the start timestamp of the item.
      * @return int  unix timestamp
      */
     public function getStart() : ?int
@@ -150,6 +180,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the duration of the item in seconds.
      * @param int $iDuration  Duration in seconds.
      */
     public function setDuration(?int $iDuration) : void
@@ -158,6 +189,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the duration of the item in seconds.
      * @return int  Duration in seconds
      */
     public function getDuration() : ?int
@@ -168,7 +200,7 @@ abstract class iCalComponent
     /**
      * Gets the end timestamp of the item.
      * Since the 'end' is not available or not the same in the different components,
-     * the base implementation returns alway `null`!
+     * the base implementation returns always `null`!
      * @return int  unix timestamp
      * @codeCoverageIgnore
      */
@@ -178,6 +210,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the subject of the item.
      * @param string $strSubject
      */
     public function setSubject(string $strSubject) : void
@@ -186,6 +219,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the subject of the item.
      * @return string
      */
     public function getSubject() : string
@@ -194,6 +228,13 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the description of the item.
+     * The description SHOULD be plain text. If formatted text is available, use the
+     * HTML description property. When the data is written to the iCalendar file, the
+     * `Writer` class correctly assigns plain and formatted text, or generates them
+     * automatically if necessary.
+     * @see iCalComponent::setHtmlDescription()
+     * @see Writer::addDescription()
      * @param string $strDescription
      */
     public function setDescription(?string $strDescription) : void
@@ -202,6 +243,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the description as plain text.
      * @return string
      */
     public function getDescription() : string
@@ -210,6 +252,9 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the HTML description of the item.
+     * @see iCalComponent::setDescription()
+     * @see Writer::addDescription()
      * @param string $strDescription
      */
     public function setHtmlDescription(?string $strDescription) : void
@@ -218,6 +263,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the HTML description of the item.
      * @return string
      */
     public function getHtmlDescription() : string
@@ -226,6 +272,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Checks, if a HTML description of the item is available.
      * @return bool
      */
     public function hasHtmlDescription() : bool
@@ -234,7 +281,7 @@ abstract class iCalComponent
     }
 
     /**
-     * Sets a comment to this timezone instance.
+     * Sets a comment of the item.
      * @param string $strComment
      */
     public function setComment(string $strComment) : void
@@ -243,7 +290,7 @@ abstract class iCalComponent
     }
 
     /**
-     * Returns the comment.
+     * Returns the comment of the item.
      * @return string
      */
     public function getComment() : string
@@ -252,6 +299,8 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the last modified timestamp of the item.
+     * The value can be passed as uinx timestamp or a DateTime instance.
      * @param int|\DateTime|null $lastModified    unix timestamp or DateTime the item been last modified.
      */
     public function setLastModified($lastModified) : void
@@ -264,6 +313,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the last modified timestamp of the item.
      * @return int unix timestamp the item been last modified.
      */
     public function getLastModified() : ?int
@@ -272,6 +322,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the priority of the item.
      * @param int|string $priority
      */
     public function setPriority($priority) : void
@@ -284,6 +335,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the priority of the item.
      * @return int
      */
     public function getPriority() : int
@@ -306,6 +358,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the categories of the item.
      * @return string
      */
     public function getCategories() : ?string
@@ -314,6 +367,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the location of the item.
      * @param string $strLocation
      */
     public function setLocation(?string $strLocation) : void
@@ -322,6 +376,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the location of the item.
      * @return string
      */
     public function getLocation() : ?string
@@ -330,6 +385,10 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the state of the item.
+     * Dependent on the component, different states are possible. Use the appropriate
+     * class constants `iCalEvent::STAT_EVENT_...`, `iCalToDo::STAT_TODO_...`
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.1.11
      * @param string $strState
      */
     public function setState(string $strState) : void
@@ -338,6 +397,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the state of the item.
      * @return string
      */
     public function getState() : string
@@ -346,6 +406,9 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the transparency of the item.
+     * Use one of the class constants `TRANSP_OPAQUE` or `TRANSP_TRANSPARENT`.
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.2.7
      * @param string $strTrans
      */
     public function setTransparency(string $strTrans) : void
@@ -354,6 +417,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the transparency of the item.
      * @return string
      */
     public function getTransparency() : string
@@ -362,6 +426,8 @@ abstract class iCalComponent
     }
 
     /**
+     * Sets the classification of the item.
+     * Use one of the class constants `CLASS_PUBLIC`, `CLASS_PRIVATE` or `CLASS_CONFIDENTIAL`.
      * @param string $strClassification
      */
     public function setClassification(string $strClassification) : void
@@ -370,6 +436,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the classification of the item.
      * @return string
      */
     public function getClassification() : string
@@ -398,6 +465,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the attendees of the item.
      * @return array<string>
      */
     public function getAttendees() : array
@@ -417,6 +485,7 @@ abstract class iCalComponent
     }
 
     /**
+     * Gets the RRULE definition.
      * @return string
      */
     public function getRRule() : string
@@ -425,7 +494,7 @@ abstract class iCalComponent
     }
 
     /**
-     * Adds further RDate value(s) to the recurrent list.
+     * Adds further RDate value(s) for recurrent items.
      * @param array<int> $aRDate
      */
     public function addRDate(array $aRDate) : void
@@ -435,8 +504,17 @@ abstract class iCalComponent
 
     /**
      * Adds further date(s) to exclude from the recurrent list.
+     * Note that it makes a difference whether an exclude value have to be treated as
+     * full timestamp or as simple date value! In case of a full timestamp, recurrent
+     * datetimes are only excluded, if they exactly match this timestamp. In case of
+     * a simple date (without hour, minute, second) it means that all timestamps
+     * resulting from the recurrence rule and falls in this date will be excluded (f.i.:
+     * if set an eclude dtae '2025-10-24', all timestamps of this date independent of
+     * the time component will be excluded - '2025-10-24 14:00:00', '2025-10-24 14:30:00',
+     * ...). If the excludedate should be treated as full timestamp, only the exact
+     * timestamp '2025-10-24 00:00:00' will be excluded!
      * @param array<int> $aExdate
-     * @param bool $bExcludeDay     if true, all timestamps of the day are axcluded
+     * @param bool $bExcludeDay     if true, all timestamps of the day are excluded
      */
     public function addExcludeDate(array $aExdate, bool $bExcludeDay) : void
     {
@@ -551,6 +629,11 @@ abstract class iCalComponent
 
     /**
      * Creates and embed an alarm item.
+     * Although the RFC 5545 spec allows an component to include multiple VALARM's,
+     * `iCalComponent` currently supports only one single VALARM per item. If an
+     * item contains more than one VALARM at import the last one found is taken
+     * and a WARNING ist generated in the log.
+     * @see iCalAlarm
      * @return iCalAlarm
      */
     public function createAlarm(): iCalAlarm
@@ -558,7 +641,7 @@ abstract class iCalComponent
         if ($this->oAlarm !== null) {
             $this->oICalendar->log(LogLevel::WARNING, "The {$this->strComponentName} contains multiple VALARM. Only the last one ist taken!");
         }
-        $this->oAlarm = new iCalAlarm($this);
+        $this->oAlarm = new iCalAlarm($this);  // @phpstan-ignore-line
         return $this->oAlarm;
     }
 

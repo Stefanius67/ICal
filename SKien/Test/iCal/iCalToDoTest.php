@@ -7,7 +7,6 @@ namespace SKien\Test\iCal;
 use PHPUnit\Framework\TestCase;
 use SKien\iCal\Writer;
 use SKien\iCal\iCalAlarm;
-use SKien\iCal\iCalEvent;
 use SKien\iCal\iCalHelper;
 use SKien\iCal\iCalToDo;
 use SKien\iCal\iCalendar;
@@ -187,9 +186,9 @@ class iCalToDoTest extends TestCase
 
     public function test_setState() : void
     {
-        $this->oToDo->setState(iCalEvent::STATE_CONFIRMED);
-        $this->assertEquals(iCalEvent::STATE_CONFIRMED, $this->oToDo->getState());
-        $this->fetchAndAssert('strState', 'STATUS', iCalEvent::STATE_CONFIRMED);
+        $this->oToDo->setState(iCalToDo::STAT_TODO_NEEDS_ACTION);
+        $this->assertEquals(iCalToDo::STAT_TODO_NEEDS_ACTION, $this->oToDo->getState());
+        $this->fetchAndAssert('strState', 'STATUS', iCalToDo::STAT_TODO_NEEDS_ACTION);
     }
 
     public function test_setClassification() : void

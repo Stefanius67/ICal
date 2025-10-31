@@ -7,10 +7,29 @@ namespace SKien\iCal;
 use Psr\Log\LogLevel;
 
 /**
- *  Class representing a alarm component from an iCalendar (VALARM)
+ * Class representing an alarm component from an iCalendar (VALARM)
  *
- *  An instance of an alarm component must only appear within either a "VEVENT" or
- *  "VTODO" calendar component.
+ * An alarm can be set to notify the user.
+ * You can configure:
+ * <ul><li>
+ *   The action to be performed (display, audio signal, email)
+ * </li><li>
+ *   The time
+ * </li><li>
+ *   An interval and a number of possible repetitions
+ * </li></ul>
+ *
+ * An instance of an alarm component must only appear within either a "VEVENT" or
+ * "VTODO" calendar component.
+ *
+ * In most cases, the time at which an alarm notification should be triggered is set
+ * in relation to the start or end time of the embedded element. However, it is also
+ * possible to set an absolute time independent of the parent element. It should be
+ * noted that this can lead to undesirable effects with recurring elements.
+ *
+ * > When configuring a 'VALARM', it should always be noted that the real triggered
+ * > action depends on both the processing application program and the capabilities
+ * > of the device on which the data is processed.
  *
  *  @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.6.6
  *
@@ -21,8 +40,11 @@ class iCalAlarm extends iCalComponent
 {
     use iCalHelper;
 
+    /** Audio notification at trigger time     */
     public const AUDIO      = 'AUDIO';
+    /** Visual notification at trigger time     */
     public const DISPLAY    = 'DISPLAY';
+    /** E-Mail notification at trigger time     */
     public const EMAIL      = 'EMAIL';
 
     /** @var iCalAlarmParentInterface  the parent, this alarm belongs to     */
@@ -44,7 +66,9 @@ class iCalAlarm extends iCalComponent
     protected ?int $iRepeatCount = null;
 
     /**
-     * @param iCalAlarmParentInterface $oParent
+     * Creates a new VALARM.
+     * The item (VEVENT or VTODO), the new alarm must be passed.
+     * @param iCalAlarmParentInterface $oParent item, this alarm is embedded in.
      */
     public function __construct(iCalAlarmParentInterface $oParent)
     {
@@ -53,11 +77,10 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
-     * Validates a instance.
-     * This method should be called from the parent as last call within
-     * its `validate()` method!
-     * TODO: adjust trigger if a recurring event is created, because $this->uxtsTrigger
-     * relates to date-times of the origin event!
+     * Validates an instance.
+     * This method should be called from the parent as last call within its own
+     * `validate()` method after all informations verified that may be needed
+     * to callculate the trigger time!
      */
     public function validate() : void
     {
@@ -101,8 +124,9 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
-     * Returns an alarm item as associative array.
-     * @return array<string, mixed>
+     * Returns an event as associative array.
+     * {@inheritDoc}
+     * @see \SKien\iCal\iCalComponent::fetchData()
      */
     public function fetchData() : array
     {
@@ -122,6 +146,7 @@ class iCalAlarm extends iCalComponent
 
     /**
      * Sets the action to perform at the alarms trigger time.
+     * It's on the agent if and how to perform the action at designated time.
      * @param string $strAction     Action ('AUDIO', 'DISPLAY' or 'EMAIL')
      */
     public function setAction(string $strAction) : void
@@ -133,7 +158,8 @@ class iCalAlarm extends iCalComponent
 
     /**
      * Gets the action to perform at the alarms trigger time.
-     * @return string
+     * @see iCalAlarm::setAction
+     * @return string       Action ('AUDIO', 'DISPLAY' or 'EMAIL')
      */
     public function getAction() : ?string
     {
@@ -141,8 +167,12 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
-     * Sets the trigger as duration string related to start/end of the event.
-     * @param string $strTrigger
+     * Sets the trigger as ISO 8601 duration string related to start/end of the event.
+     * A negative value (a `-` character before the complete string / f.i. `-PT15M`
+     * 15 min **before**...) indicates a time before the specified reference point.
+     * @link https://en.wikipedia.org/wiki/ISO_8601#Durations
+     * @param string $strTrigger    trigger as ISO 8601 duration
+     * @param string $strRelated    trigger relates to ('START' or 'END'; default: 'START')
      */
     public function setTrigger(string $strTrigger, string $strRelated = 'START') : void
     {
@@ -154,7 +184,8 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
-     * Sets the trigger to an absolute timestamp.
+     * Sets the trigger as absolute timestamp.
+     * The absolute trigger is independent from any sttings of the embedding item.
      * @param int|\DateTime $trigger
      */
     public function setTriggerTime($trigger) : void
@@ -169,8 +200,10 @@ class iCalAlarm extends iCalComponent
 
     /**
      * Sets the trigger in seconds related to start/end of the event.
-     * @param int $iTrigger
-     * @param string $strRelated
+     * A negative value indicates a trigger time **before** the specified reference
+     * point.
+     * @param int $iTrigger         seconds related to the specified reference
+     * @param string $strRelated    trigger relates to ('START' or 'END'; default: 'START')
      */
     public function setTriggerFrom(int $iTrigger, string $strRelated = 'START') : void
     {
@@ -180,7 +213,8 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
-     * @return int
+     * Returns the absolute trigger timestamp if set.
+     * @return int  unix timestamp of the alarm trigger
      */
     public function getTriggerTime() : ?int
     {
@@ -190,7 +224,7 @@ class iCalAlarm extends iCalComponent
     /**
      * Gets the trigger related to the event start/end.
      * @param string $strRelated    reference param!
-     * @return int|NULL
+     * @return int|null
      */
     public function getTriggerFrom(string &$strRelated) : ?int
     {
@@ -201,7 +235,8 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
-     * @return string
+     * Reference point of the trigger.
+     * @return string   'START' or 'END'
      */
     public function relatesTo() : string
     {
@@ -209,6 +244,12 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
+     * Sets the repeat interval time.
+     * This interval allows to set the alarm to be repeated after the specified
+     * time. <br>
+     * The interval can be passed as integer (in seconds) or as a ISO 8601
+     * duration string.
+     * @link https://en.wikipedia.org/wiki/ISO_8601#Durations
      * @param int|string $repeatInterval
      */
     public function setRepeatInterval($repeatInterval) : void
@@ -221,7 +262,9 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
-     * @return int
+     * Gets the repeat interval time.
+     * @see iCalAlarm::setRepeatInterval()
+     * @return int  repeat interval in seconds
      */
     public function getRepeatInterval() : ?int
     {
@@ -229,6 +272,9 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
+     * Sets the repeat count.
+     * This  is the count, how often the alarm will be repeated until it has
+     * been conformed by the user.
      * @param int $iRepeatCount
      */
     public function setRepeatCount(int $iRepeatCount) : void
@@ -237,6 +283,7 @@ class iCalAlarm extends iCalComponent
     }
 
     /**
+     * Gets the repeat count.
      * @return int
      */
     public function getRepeatCount() : ?int

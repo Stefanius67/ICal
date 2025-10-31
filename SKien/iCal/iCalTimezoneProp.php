@@ -15,7 +15,9 @@ namespace SKien\iCal;
  */
 class iCalTimezoneProp extends iCalComponent
 {
+    /** Defines the changes for daylight time   */
     public const DAYLIGHT = 'DAYLIGHT';
+    /** Defines the changes for standard time   */
     public const STANDARD = 'STANDARD';
 
     /** @var string TZNAME          */
@@ -31,8 +33,8 @@ class iCalTimezoneProp extends iCalComponent
 
     /**
      * Creates a instance of a iCalTimezoneProp property.
-     * @param iCalTimezone $oTimezone
-     * @param string $strType
+     * @param iCalTimezone $oTimezone   parent timezone component
+     * @param string $strType           either iCalTimezoneProp::DAYLIGHT or iCalTimezoneProp::STANDARD
      */
     public function __construct(iCalTimezone $oTimezone, string $strType)
     {
@@ -49,7 +51,8 @@ class iCalTimezoneProp extends iCalComponent
     }
 
     /**
-     * @return string
+     * Gets the type of this component.
+     * @return string   iCalTimezoneProp::DAYLIGHT or iCalTimezoneProp::STANDARD
      */
     public function getType() : string
     {
@@ -57,6 +60,7 @@ class iCalTimezoneProp extends iCalComponent
     }
 
     /**
+     * Sets the name of this timezone property.
      * @param string $strName
      */
     public function setName(string $strName) : void
@@ -65,6 +69,7 @@ class iCalTimezoneProp extends iCalComponent
     }
 
     /**
+     * Gets the name of this timezone property.
      * @return string
      */
     public function getName() : string
@@ -115,6 +120,7 @@ class iCalTimezoneProp extends iCalComponent
     }
 
     /**
+     * Gets the time offset this timezone changes from.
      * @return string
      */
     public function getOffsetFrom() : string
@@ -149,6 +155,7 @@ class iCalTimezoneProp extends iCalComponent
     }
 
     /**
+     * Gets the time offset this timezone changes to.
      * @return string
      */
     public function getOffsetTo() : string

@@ -35,15 +35,6 @@ class iCalTimezoneReader extends Reader
     }
 
     /**
-     * Returns the internal created timezone instance.
-     * @return iCalTimezone
-     */
-    public function getTimezone() : iCalTimezone
-    {
-        return $this->oTimezone;
-    }
-
-    /**
      * After the end of this component is reached, the parent reader will destroy
      * this instance an goes on with the next component.
      * {@inheritDoc}

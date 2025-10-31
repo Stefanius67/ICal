@@ -33,9 +33,10 @@ class iCalTimezonePropTest extends TestCase
 
     public function test_getType() : void
     {
-        $oICalTZ = iCalTimezone::fromFile(__DIR__ . '/testdata/NewYork.txt', $this->oICal);
-        $aProps = $oICalTZ->getTimezoneProps();
-        $this->assertEquals(iCalTimezoneProp::STANDARD, $aProps[0]->getType());
+        $oTZ = new iCalTimezone($this->oICal);
+        $oTZ->fromTimezone('Europe/Berlin', mktime(0,0,0,1,1,1995), mktime(0,0,0,31,12,2030));
+        $aProps = $oTZ->getTimezoneProps();
+        $this->assertEquals(iCalTimezoneProp::DAYLIGHT, $aProps[0]->getType());
     }
 
     public function test_setgetName() : void

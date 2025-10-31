@@ -7,22 +7,37 @@ namespace SKien\iCal;
 use Psr\Log\LogLevel;
 
 /**
- *  Class representing a single event of an iCalendar (VEVENT)
+ * Class representing a single event of an iCalendar (VEVENT)
  *
- *  @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.6.1
+ * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.6.1
  *
  * @author Stefanius <s.kientzler@online.de>
  * @copyright MIT License - see the LICENSE file for details
  */
 class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
 {
+    /**
+     * Values for the status property for events
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.1.11
+     */
+    /** The event is cancelled     */
+    public const STAT_EVENT_CANCELLED        = 'CANCELLED';
+    /** The event is confirmed     */
+    public const STAT_EVENT_CONFIRMED        = 'CONFIRMED';
+    /** The event is tentatively (not finally fixed)     */
+    public const STAT_EVENT_TENTATIVE        = 'TENTATIVE';
+
     /** @var int    unix timestamp event end         */
     protected ?int $uxtsEnd = null;
     /** @var bool   all day event (only the date-component of dtStart and dtEnd is used)         */
     protected bool $bAllDay = false;
 
     /**
-     * @param iCalendar $oICalendar
+     * Creates an instance of an event.
+     * It is recommended not to create instances directly, but use the
+     * `iCalendar::createEvent()` method instead.
+     * @see iCalendar::createEvent()
+     * @param iCalendar $oICalendar  The iCalendar instance the event belongs to.
      */
     public function __construct(iCalendar $oICalendar)
     {
@@ -52,8 +67,9 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * Returns an imported event as associative array.
-     * @return array<string, mixed>
+     * Returns an event as associative array.
+     * {@inheritDoc}
+     * @see \SKien\iCal\iCalComponent::fetchData()
      */
     public function fetchData() : array
     {
@@ -72,10 +88,11 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
             'dtLastModified'        => $this->uxtsLastModified ? date('Y-m-d H:i:s', $this->uxtsLastModified) : '',
             'strUID'                => $this->strUID,
             'strSubject'            => $this->strSubject,
+            'strComment'            => $this->strComment,
             'strLocation'           => $this->strLocation,
             'strDescription'        => $this->strDescription,
             'strHtmlDescription'    => $this->strHtmlDescription,
-            'iPriority'             => (string) $this->iPriority,
+            'iPriority'             => $this->iPriority,
             'strCategories'         => $this->strCategories,
             'strState'              => $this->strState,
             'strTrans'              => $this->strTrans,
@@ -90,6 +107,8 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Sets the end date-time of the event.
+     * The value can be a unix timestamp or a DateTime instance.
      * @param int|\DateTime|null $end    unix timestamp or DateTime of the events end.
      */
     public function setEnd($end) : void
@@ -102,6 +121,7 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Gets the end date-time of the event.
      * @return int  unix timestamp
      */
     public function getEnd() : ?int
@@ -110,7 +130,8 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * @param bool $bAllDay
+     * Sets whether the event is an all day event.
+     * @param bool $bAllDay true, if allday event
      */
     public function setAllDay(bool $bAllDay) : void
     {
@@ -118,6 +139,7 @@ class iCalEvent extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Gets whether the event is an all day event.
      * @return bool true, if allday event
      */
     public function getAllDay() : bool

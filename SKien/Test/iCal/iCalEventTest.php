@@ -247,11 +247,18 @@ class iCalEventTest extends TestCase
         $this->fetchAndAssert('strLocation', 'LOCATION', 'The location');
     }
 
+    public function test_setComment() : void
+    {
+        $this->oEvent->setComment('This is a comment');
+        $this->assertEquals('This is a comment', $this->oEvent->getComment());
+        $this->fetchAndAssert('strComment', 'COMMENT', 'This is a comment');
+    }
+
     public function test_setState() : void
     {
-        $this->oEvent->setState(iCalEvent::STATE_CONFIRMED);
-        $this->assertEquals(iCalEvent::STATE_CONFIRMED, $this->oEvent->getState());
-        $this->fetchAndAssert('strState', 'STATUS', iCalEvent::STATE_CONFIRMED);
+        $this->oEvent->setState(iCalEvent::STAT_EVENT_CONFIRMED);
+        $this->assertEquals(iCalEvent::STAT_EVENT_CONFIRMED, $this->oEvent->getState());
+        $this->fetchAndAssert('strState', 'STATUS', iCalEvent::STAT_EVENT_CONFIRMED);
     }
 
     public function test_setTransparency() : void

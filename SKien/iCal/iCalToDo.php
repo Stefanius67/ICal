@@ -16,6 +16,19 @@ use Psr\Log\LogLevel;
  */
 class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
 {
+    /**
+     * Values for the status property for todo's
+     * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.8.1.11
+     */
+    /** The todo item has been cancelled     */
+    public const STAT_TODO_CANCELLED        = 'CANCELLED';
+    /** The todo item has been completed     */
+    public const STAT_TODO_COMPLETED        = 'COMPLETED';
+    /** The todo item is currently in progress     */
+    public const STAT_TODO_IN_PROCESS       = 'IN-PROCESS';
+    /** The todo item is needs action (... not started so far)     */
+    public const STAT_TODO_NEEDS_ACTION     = 'NEEDS-ACTION';
+
     /** @var int    unix timestamp the todo is due to be completed         */
     protected ?int $uxtsDue = null;
     /** @var int    unix timestamp the todo has been completed         */
@@ -24,7 +37,8 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     protected ?int $iPercentComplete = null;
 
     /**
-     * @param iCalendar $oICalendar
+     * Creates a new todo instance.
+     * @param iCalendar $oICalendar  The iCalendar instance the todo belongs to.
      */
     public function __construct(iCalendar $oICalendar)
     {
@@ -55,8 +69,9 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
-     * Returns a todo item as associative array.
-     * @return array<string, mixed>
+     * Returns an event as associative array.
+     * {@inheritDoc}
+     * @see \SKien\iCal\iCalComponent::fetchData()
      */
     public function fetchData() : array
     {
@@ -94,6 +109,8 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Sets the due date-time of the todo.
+     * The value can be a unix timestamp or a DateTime instance.
      * @param int|\DateTime|null $due    unix timestamp or DateTime the todo is due to be completed.
      */
     public function setDue($due) : void
@@ -106,6 +123,7 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Gets the due date-time of the todo.
      * @return int  unix timestamp
      */
     public function getDue() : ?int
@@ -114,6 +132,8 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Gets the end date-time of the todo.
+     * Since the todo has no explicit end date-time, the due date-time is returned.
      * @return int  unix timestamp
      */
     public function getEnd() : ?int
@@ -122,6 +142,8 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Sets the completed date-time of the todo.
+     * The value can be passed as unix timestamp or as DateTime instance.
      * @param int $uxtsCompleted    unix timestamp the todo haas been completed.
      */
     public function setCompleted(?int $uxtsCompleted) : void
@@ -133,6 +155,7 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Gets the completed date-time of the todo.
      * @return int  unix timestamp
      */
     public function getCompleted() : ?int
@@ -141,6 +164,8 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Sets the percentage the todo is complete.
+     * Only integer values between 0 and 100 are accepted.
      * @param int|string|null $percentComplete
      */
     public function setPercentComplete($percentComplete) : void
@@ -154,6 +179,7 @@ class iCalToDo extends iCalComponent implements iCalAlarmParentInterface
     }
 
     /**
+     * Gets the percentage the todo is complete.
      * @return int  percentage 0 ... 100
      */
     public function getPercentComplete() : ?int

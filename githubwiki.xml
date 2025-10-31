@@ -13,7 +13,7 @@
 	</phpdoc>
 	
     <paths>
-        <output>./wiki/iCal.wiki</output>
+        <output>./wiki/ICal.wiki</output>
         <cache>./wiki/cache</cache>
         <project>./</project>
     </paths>

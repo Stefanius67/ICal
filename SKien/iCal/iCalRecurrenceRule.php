@@ -7,7 +7,18 @@ namespace SKien\iCal;
 use Psr\Log\LogLevel;
 
 /**
- * Class representing a an iCalendar recurrence rule (RRULE)
+ * Class representing a an iCalendar recurrence rule (RRULE).
+ * In an iCalendar, recurrence rules are used for two purposes:
+ * <ul><li>
+ *   Defining a date series for recurring items (events, tasks)
+ * </l><li>
+ *   Describing the annual changeover times between daylight and standard time in a time zone
+ * </l></ul>
+ *
+ * > **Note:** <br>
+ * > The RFC 5545 specification contains a  lot of examples for all the possible combinations   <br>
+ * > of recurrence rules. **All** of these examples are covered by the UnitTests within this    <br>
+ * > package!   <br>
  *
  * @link https://www.rfc-editor.org/rfc/rfc5545.html#section-3.3.10
  *
@@ -21,6 +32,8 @@ class iCalRecurrenceRule
 
     use iCalHelper;
 
+    /** @var string the RRule value itself     */
+    protected string $strValue;
     /** @var string             one of "SECONDLY", "MINUTELY", "HOURLY", "DAILY", "WEEKLY", "MONTHLY", "YEARLY"     */
     protected string $strFreq = '';
     /** @var int                bound of the recurrence rule in an inclusive manner (DATE or DATE-TIME)     */
@@ -68,13 +81,15 @@ class iCalRecurrenceRule
     protected bool $bCriticalError = false;
 
     /**
-     * @param iCalendar $oICalendar
-     * @param string $strProperty
+     * Creates an instance of a recurrence rule.
+     * @param iCalendar $oICalendar   The iCalendar instance the rule belongs to.
+     * @param string $strValue        The RRULE value string.
      */
-    public function __construct(iCalendar $oICalendar, string $strProperty)
+    public function __construct(iCalendar $oICalendar, string $strValue)
     {
         $this->oICalendar = $oICalendar;
-        $this->parseProperty($strProperty);
+        $this->parseProperty($strValue);
+        $this->strValue = $strValue;
         $this->validate();
     }
 
@@ -302,6 +317,7 @@ class iCalRecurrenceRule
      * > In order to decide whether an exact timestamp should be excluded or all  <br>
      * > timestamps within a specific day, two separate lists must be maintained  <br>
      * > (the timestamp alone gives no information about this).  <br>
+     * @see iCalComponent::addExcludeDate()
      * @param array<int> $aExcludeDates
      * @param bool $bExcludeDay     if true, all timestamps of the day are axcluded
      */
@@ -335,7 +351,7 @@ class iCalRecurrenceRule
             // Presumably the start date for creating the date list of a time zone was
             // moved forward for performance reasons.
             // so just return an empty list
-            return $this->aResult;
+            return $this->aResult;    // @codeCoverageIgnore
         }
 
         if (!empty($strTZID)) {

@@ -25,7 +25,8 @@ class iCalTimezone extends iCalComponent
     protected array $aTimeOffsetList = [];
 
     /**
-     * @param iCalendar $oICalendar
+     * Creates a new iCal Timezone instance.
+     * @param iCalendar $oICalendar     the associated iCalendar instance
      */
     public function __construct(iCalendar $oICalendar)
     {
@@ -93,38 +94,6 @@ class iCalTimezone extends iCalComponent
 
             $iOffsetFrom = $iOffsetTo;
         }
-    }
-
-    /**
-     * Creates an iCal timezone from the first VTIMEZONE definition within a file.
-     * @param string $strFilename
-     * @param iCalendar $oICalendar
-     * @return iCalTimezone   created instance
-     */
-    public static function fromFile(string $strFilename, iCalendar $oICalendar) : ?iCalTimezone
-    {
-        $aLines = @file($strFilename);
-        $oTimezone = null;
-        if ($aLines !== false) {
-            $oReader = new iCalTimezoneReader($oICalendar);
-            $iLine = 0;
-            $bStarted = false;
-            while ($iLine < count($aLines)) {
-                $strLine = $oReader->nextLine($aLines, $iLine);
-                if (!$bStarted) {
-                    if ($strLine == 'BEGIN:VTIMEZONE') {
-                        $bStarted = true;
-                    }
-                } else {
-                    if ($oReader->hasEndReached($strLine)) {
-                        break;
-                    }
-                    $oReader->parseLine($strLine);
-                }
-            }
-            $oTimezone = $oReader->getTimezone();
-        }
-        return $oTimezone;
     }
 
     /**

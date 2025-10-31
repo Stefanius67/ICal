@@ -35,17 +35,10 @@ class iCalTimezoneTest extends TestCase
         $this->assertIsObject($oTZ);
     }
 
-    public function test_fromFile() : void
-    {
-        $oTZ = iCalTimezone::fromFile(__DIR__ . '/testdata/NewYork.txt', $this->oICal);
-        $this->assertIsObject($oTZ);
-        $this->assertEquals('New York City', $oTZ->getTZID());
-        $this->assertEquals('America/New_York', $oTZ->getComment());
-    }
-
     public function test_getTimezoneProps() : void
     {
-        $oTZ = iCalTimezone::fromFile(__DIR__ . '/testdata/NewYork.txt', $this->oICal);
+        $oTZ = new iCalTimezone($this->oICal);
+        $oTZ->fromTimezone('Europe/Berlin', mktime(0,0,0,1,1,1995), mktime(0,0,0,31,12,2030));
         $this->assertIsArray($oTZ->getTimezoneProps());
     }
 

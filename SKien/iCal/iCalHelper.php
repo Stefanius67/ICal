@@ -32,24 +32,28 @@ trait iCalHelper
 
     /**
      * Creates a 'pseudo' UID.
+     * Format of the UID is: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.<SERVER_NAME
      * @return string
      */
     protected function createUID()
     {
         mt_srand(intval(microtime(true)) * 10000);
         $charid = strtoupper(md5(uniqid((string) rand(), true)));
-        return 	  substr($charid, 0, 8) . chr(45)
-        . substr($charid, 8, 4) . chr(45)
-        . substr($charid, 12, 4) . chr(45)
-        . substr($charid, 16, 4) . chr(45)
-        . substr($charid, 20, 12);
+        $strUID = substr($charid, 0, 8) . chr(45)
+                . substr($charid, 8, 4) . chr(45)
+                . substr($charid, 12, 4) . chr(45)
+                . substr($charid, 16, 4) . chr(45)
+                . substr($charid, 20, 12);
+        $strUID .= '.' . ($_SERVER['SERVER_NAME'] ?? 'localhost');
+        return $strUID;
     }
 
     /**
      * Parses and converts a DURATION property into seconds value.
-     * Note that unlike ISO.8601.2004, an iCal duration doesn't support the
+     * Note that unlike ISO.8601, an iCal duration doesn't support the
      * "Y" and "M" designators to specify durations in terms of years and months.
      * (negative durations are allowed, for example, in a VALARM element)
+     * @link https://en.wikipedia.org/wiki/ISO_8601#Durations
      * @param string $strDuration   duration definition
      * @param bool $bAllDay         if set only the dur-day and dur-week designators used
      * @return int  duration in seconds (simply to add/sub from an UNIX timestamp)

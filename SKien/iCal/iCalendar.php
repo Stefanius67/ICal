@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace SKien\iCal;
 
-
 use Psr\Log\LogLevel;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
 /**
- * Class to generate calendar in the `iCal` format.
+ * Class to create or read calendar data in the `iCal` format.
  *
  * <a href="https://www.rfc-editor.org/rfc/rfc5545.html">RFC-5545: Internet Calendaring and Scheduling Core Object Specification (iCalendar)</a> <br>
  * <a href="https://www.rfc-editor.org/rfc/rfc7986.html">RFC-7986: New Properties for iCalendar</a>
