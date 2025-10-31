@@ -430,7 +430,7 @@ class iCalendar implements LoggerAwareInterface
 	 */
 	public function read(string $strFilename) : int
 	{
-	    if (file_exists($strFilename)) {
+	    if ($this->fileExists($strFilename)) {
             $aLines = @file($strFilename);
     	    /**
     	    if (((error_reporting() & E_USER_WARNING) !== 0)) {
@@ -452,9 +452,42 @@ class iCalendar implements LoggerAwareInterface
             	    $bReadTimezones = false;
     	        }
     	    }
-	    } else {
-	        $this->log(LogLevel::ERROR, 'Missing iCalendar file ' . $strFilename);
 	    }
 	    return count($this->aItems);
 	}
+
+	/**
+	 * Check if the given file exists.
+	 * First a local file is checked, if not found a URL is tried.
+	 * @param string $strFilename
+	 * @return bool
+	 */
+	private function fileExists(string $strFilename) : bool
+    {
+        $bExists = file_exists($strFilename);
+        if (!$bExists) {
+            /**
+             * One way could be trying to get the header (@get_header()) and check for
+             * the '200 OK' response. Unfortunately, this don't work for files from a
+             * WEBDAV server. Since PHP doesn't support access via the WEBDAV protocoll,
+             * such iCalendars have to be read through the 'normal' HTTP protocoll and
+             * therefore the get_header() call results in a '301 moved permanently'
+             * response...
+             * So the best choice will be to use cURL with CURLOPT_FOLLOWLOCATION set.
+             */
+            $curl = curl_init($strFilename);
+            if ($curl !== false) {
+                curl_setopt($curl, CURLOPT_NOBODY, true);
+                curl_setopt($curl, CURLOPT_FOLLOWLOCATION , true);
+                curl_exec($curl);
+                $iHttpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+                $bExists = ($iHttpCode == 200);
+                curl_close($curl);
+            }
+            if (!$bExists) {
+                $this->log(LogLevel::ERROR, 'Can not load iCalendar file ' . $strFilename);
+            }
+        }
+        return $bExists;
+    }
 }
