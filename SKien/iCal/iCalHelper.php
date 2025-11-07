@@ -32,7 +32,7 @@ trait iCalHelper
 
     /**
      * Creates a 'pseudo' UID.
-     * Format of the UID is: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.<SERVER_NAME
+     * Format of the UID is: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX@<SERVER_NAME>
      * @return string
      */
     protected function createUID()
@@ -44,7 +44,7 @@ trait iCalHelper
                 . substr($charid, 12, 4) . chr(45)
                 . substr($charid, 16, 4) . chr(45)
                 . substr($charid, 20, 12);
-        $strUID .= '.' . ($_SERVER['SERVER_NAME'] ?? 'localhost');
+        $strUID .= '@' . ($_SERVER['SERVER_NAME'] ?? 'localhost');
         return $strUID;
     }
 
